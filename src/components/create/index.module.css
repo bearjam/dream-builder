@@ -1,0 +1,30 @@
+.canvasContainer {
+  @apply bg-white;
+  @apply fixed w-full h-full;
+}
+
+.transformTools {
+  height: 24rem;
+  @apply absolute right-0 inset-y-0 my-auto;
+  @apply flex flex-col justify-evenly;
+  @apply bg-white border-black border-4;
+  @apply text-4xl;
+  @apply py-4 px-2 mr-3;
+}
+
+.assetTools {
+  height: 24rem;
+  width: 12rem;
+  @apply absolute left-0 inset-y-0 my-auto;
+  @apply bg-white border-black border-4;
+  @apply py-4 px-2 ml-3;
+}
+
+.photoBin {
+  /* height: 100%; */
+}
+
+.photoBin > div {
+  height: 18rem;
+  overflow-y: scroll;
+}
