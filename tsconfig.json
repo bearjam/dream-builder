@@ -7,7 +7,8 @@
       "lib/*": ["src/lib/*"],
       "icons/*": ["src/icons/*"],
       "stores/*": ["src/stores/*"],
-      "styles/*": ["src/styles/*"]
+      "styles/*": ["src/styles/*"],
+      "api/*": ["src/api/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

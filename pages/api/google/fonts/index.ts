@@ -1,31 +1,25 @@
+import refresh from "api/google/fonts/refresh"
+import fs from "fs"
 import { NextApiRequest, NextApiResponse } from "next"
 import { serializeError } from "serialize-error"
 import * as z from "zod"
-import fetch from "node-fetch"
-import { stringifyUrl } from "query-string"
 
-const { GOOGLE_FONTS_API_KEY: apiKey } = z
-  .object({ GOOGLE_FONTS_API_KEY: z.string().nonempty() })
+const { FONTS_PATH } = z
+  .object({
+    FONTS_PATH: z.string().nonempty(),
+  })
   .nonstrict()
   .parse(process.env)
 
-const LIST_BASE_URL = "https://www.googleapis.com/webfonts/v1/webfonts"
-
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
-    const url = stringifyUrl({
-      url: LIST_BASE_URL,
-      query: {
-        sort: "popularity",
-        key: apiKey,
-      },
-    })
-    const { items } = await fetch(url, {
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }).then((x) => x.json())
-    res.json(items)
+    const exists = fs.existsSync(FONTS_PATH)
+    if (!exists) {
+      await refresh()
+    }
+    const { limit = 100 } = req.query
+    const fonts = JSON.parse(fs.readFileSync(FONTS_PATH, { encoding: "utf-8" }))
+    res.json(fonts.slice(0, limit))
   } catch (e) {
     res.status(400).json({ error: serializeError(e) })
   }
