@@ -129,7 +129,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
         return (
           <Fragment>
             <VertexHandle
-              position={[width / 2, height / 2, 1]}
+              position={[width / 2, height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
               {...(handleBind(op(1, 1)) as any)}
             />
