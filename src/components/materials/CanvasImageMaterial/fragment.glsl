@@ -1,3 +1,6 @@
+#pragma glslify: toLinear = require('glsl-gamma/in')
+#pragma glslify: toGamma = require('glsl-gamma/out')
+
 #ifdef GL_ES
 precision mediump float;
 #endif
@@ -12,10 +15,12 @@ uniform bool u_vertices;
 uniform bool u_central_cross;
 
 void main() {
-  vec4 texture = texture2D(u_image, vUv);
+  vec4 texture = toLinear(texture2D(u_image, vUv));
 
   float xMask = step(vUv.x, 1.0 - u_inset.y) * step(u_inset.w, vUv.x);
   float yMask = step(vUv.y, 1.0 - u_inset.x) * step(u_inset.z, vUv.y);
+
+  bool mask = xMask > 0.0 && yMask > 0.0;
 
   bool edges = u_edge_color.w > 0.0;
   bool vertices = u_vertex_color.w > 0.0;
@@ -44,6 +49,8 @@ void main() {
   if (edge || vertex) {
     gl_FragColor = u_edge_color;
   } else {
-    gl_FragColor = vec4(xMask * yMask) * texture;
+    vec4 black = vec4(vec3(0.0), 1.0);
+    vec4 gray = vec4(vec3(0.3),1.0);
+    gl_FragColor = toGamma(mask ? texture : mix(black, gray, texture));
   }
 }

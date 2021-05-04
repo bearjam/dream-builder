@@ -1,6 +1,6 @@
 import { shaderMaterial } from "@react-three/drei"
 import * as THREE from "three"
-// import glsl from "glslify"
+import glsl from "glslify"
 import vertexShader from "./vertex.glsl"
 import fragmentShader from "./fragment.glsl"
 import { extend, ShaderMaterialProps } from "@react-three/fiber"
@@ -13,10 +13,8 @@ export const CanvasImageMaterial = shaderMaterial(
     u_edge_color: new THREE.Vector4(0, 0, 0, 0),
     u_vertex_color: new THREE.Vector4(0, 0, 0, 0),
   },
-  // glsl(vertexShader),
-  // glsl(fragmentShader)
-  vertexShader,
-  fragmentShader
+  glsl(vertexShader),
+  glsl(fragmentShader)
 )
 
 extend({ CanvasImageMaterial })
