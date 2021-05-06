@@ -10,6 +10,7 @@ type Link = {
 }
 
 const links: Link[] = [
+  { href: "/", label: "about" },
   { href: "/create", label: "create" },
   { href: "/explore", label: "explore" },
 ]
@@ -18,7 +19,7 @@ const Header = () => {
   const router = useRouter()
 
   return (
-    <nav className="fixed w-full z-10 bg-yellow-600 flex justify-center items-center h-16">
+    <nav className="fixed w-full z-10 bg-orange flex justify-center items-center h-16">
       {links.map(({ href, label }) => {
         const active =
           href === "/"
@@ -31,7 +32,7 @@ const Header = () => {
                 <span>{label}</span>
                 {active ? (
                   <Flipped flipId="underline">
-                    <div className="absolute w-full bottom-0 border-2 border-black" />
+                    <div className="absolute w-full bottom-0 border-b-2 border-black" />
                   </Flipped>
                 ) : null}
               </a>

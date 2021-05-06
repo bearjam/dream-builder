@@ -1,0 +1,91 @@
+.root {
+  @apply pt-16;
+}
+
+.menubox {
+  @apply flex-col justify-center;
+}
+
+.menubox > div {
+  /* @apply w-64 h-64 m-10; */
+  @apply max-w-xs;
+  @apply border-4 border-black border-dashed;
+  @apply text-center m-10 py-8;
+}
+
+.menubox > div:first-child {
+  @apply bg-pink;
+}
+
+.menubox > div:nth-child(2) {
+  @apply bg-green;
+}
+
+.menubox > div:nth-child(3) {
+  @apply bg-yellow;
+}
+
+.main > div {
+  @apply border-t-4 border-black;
+  /* @apply py-16 px-20; */
+  @apply p-6;
+}
+
+.main > div:nth-child(1) {
+  @apply bg-yellow;
+}
+
+.main > div:nth-child(3) {
+  @apply bg-pink;
+}
+
+.main > div > p {
+  @apply mt-4 mb-8;
+}
+
+.dreamSq {
+  @apply flex-col;
+}
+
+.dreamSq > div {
+  /* width: 22rem;
+  height: 20rem;
+  @apply mt-10 mx-12; */
+  box-shadow: 1.5em 1.5em #000;
+  @apply border-4 border-black;
+  @apply max-w-xs mb-16;
+}
+
+.dreamSq > div > div {
+  @apply px-6 py-8;
+}
+
+.infobox {
+  @apply flex-col;
+}
+
+.infobox > div {
+  /* height: 15rem;
+  width: 30rem;
+  @apply mt-10 mx-16;; */
+  box-shadow: 1.5em 1.5em #0b5cd5;
+  @apply bg-white border-4 border-black;
+  @apply mb-16 max-w-xs;
+}
+
+.infobox > div {
+  @apply p-6;
+}
+
+.infobox > div > h3 {
+  @apply mb-2;
+}
+
+@screen sm {
+  .menubox {
+    @apply flex-row;
+  }
+  .menubox > div {
+    @apply w-48;
+  }
+}

@@ -1,3 +1,5 @@
+const { black, white, gray } = require("tailwindcss/colors")
+
 const extraUtils = ({ addUtilities }) => {
   const newUtilities = {
     ".touch-action-none": {
@@ -13,6 +15,16 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    colors: {
+      orange: "#FD933A",
+      pink: "#F2B6BC",
+      blue: "#0B5CD5",
+      green: "#28A745",
+      yellow: "#FFCB2F",
+      black,
+      white,
+      gray,
+    },
   },
   variants: {
     extend: {},

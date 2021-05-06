@@ -83,7 +83,6 @@ const ThreeCanvasImage = ({ item }: Props) => {
     {
       onPointerDown: ({ event }) => {
         event.stopPropagation()
-        console.log(`${item.id} pointed`)
         dispatch({ type: "SELECT_ITEM", payload: { itemId: item.id } })
       },
       ...modeGestureHandlers(),
