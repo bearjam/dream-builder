@@ -1,4 +1,4 @@
-import * as React from "react";
+import * as React from "react"
 
 function SvgProcess(props) {
   return (
@@ -18,7 +18,7 @@ function SvgProcess(props) {
         />
         <path
           d="M120.86 51.561c14.218 0 25.744-11.542 25.744-25.78C146.604 11.542 135.078 0 120.86 0c-14.217 0-25.743 11.542-25.743 25.78 0 14.239 11.526 25.781 25.743 25.781z"
-          fill="#28A745"
+          fill="#98BBDF"
         />
       </g>
       <defs>
@@ -27,8 +27,7 @@ function SvgProcess(props) {
         </clipPath>
       </defs>
     </svg>
-  );
+  )
 }
 
-export default SvgProcess;
-
+export default SvgProcess

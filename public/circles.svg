@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="82.833mm" height="42.262mm" version="1.1" viewBox="0 0 82.833 42.262" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <defs>
+  <clipPath id="clip0">
+   <rect transform="translate(3,35)" width="294" height="150" fill="#fff"/>
+  </clipPath>
+ </defs>
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title/>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <g transform="translate(-73.743 -75.617)">
+  <g transform="matrix(.28175 0 0 .28175 72.897 65.756)" clip-path="url(#clip0)" clip-rule="evenodd" fill-rule="evenodd">
+   <path d="m3 35v149.16c19.521-0.122 38.201-8.033 51.962-22.006 13.761-13.974 21.485-32.874 21.485-52.575-1e-4 -19.7-7.7238-38.601-21.485-52.574-13.761-13.973-32.441-21.884-51.962-22.006z" fill="#f3f4f2"/>
+   <path d="m150.09 35.839c-19.521 0.1215-38.201 8.0326-51.962 22.006-13.761 13.973-21.484 32.874-21.485 52.575 1e-4 19.7 7.7237 38.601 21.485 52.574 13.761 13.973 32.441 21.884 51.962 22.006 19.52-0.122 38.201-8.033 51.961-22.006 13.761-13.973 21.485-32.874 21.485-52.574 0-19.701-7.724-38.601-21.485-52.575-13.76-13.973-32.441-21.884-51.961-22.006z" fill="#0304b2"/>
+   <path d="m297 35v149.16c-19.521-0.122-38.201-8.033-51.962-22.006-13.761-13.974-21.484-32.874-21.484-52.575 0-19.7 7.723-38.601 21.484-52.574 13.761-13.973 32.441-21.884 51.962-22.006z" fill="#f3f4f2"/>
+  </g>
+ </g>
+</svg>

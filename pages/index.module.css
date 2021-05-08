@@ -21,11 +21,11 @@
 }
 
 .navBoxes a:nth-child(2) div {
-  @apply bg-green;
+  @apply bg-blue;
 }
 
 .navBoxes a:nth-child(3) div {
-  @apply bg-yellow;
+  @apply bg-coral;
 }
 
 .main > div {
@@ -35,7 +35,7 @@
 }
 
 .main > div:nth-child(1) {
-  @apply bg-yellow;
+  @apply bg-blue;
 }
 
 .main > div:nth-child(3) {
@@ -85,7 +85,8 @@
 }
 
 @screen sm {
-  .navBoxes {
+  .navBoxes,
+  .dreamSq {
     @apply flex flex-row;
   }
   .navBoxes div {

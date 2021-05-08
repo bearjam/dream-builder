@@ -1,0 +1,1457 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1067.02mm"
+   height="267.72mm"
+   version="1.1"
+   viewBox="0 0 1067.02 267.72"
+   id="svg529"
+   sodipodi:docname="new-header-db.svg"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview531"
+     showgrid="false"
+     inkscape:zoom="0.19598765"
+     inkscape:cx="1960.8566"
+     inkscape:cy="109.71968"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg529" />
+  <defs
+     id="defs441">
+    <linearGradient
+       id="linearGradient5838">
+      <stop
+         stop-color="#98bbdf"
+         offset="0"
+         id="stop2" />
+      <stop
+         stop-color="#98bbdf"
+         stop-opacity="0"
+         offset="1"
+         id="stop4" />
+    </linearGradient>
+    <filter
+       id="filter4486"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="3.28189 3.1677"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence7" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite9" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.36769 -1 "
+         id="feColorMatrix11" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood13" />
+      <feMerge
+         result="merge"
+         id="feMerge19">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode15" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode17" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite21" />
+    </filter>
+    <filter
+       id="filter4504"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="3.28189 3.1677"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence24" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite26" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.36769 -1 "
+         id="feColorMatrix28" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood30" />
+      <feMerge
+         result="merge"
+         id="feMerge36">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode32" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode34" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite38" />
+    </filter>
+    <linearGradient
+       id="linearGradient4530"
+       x1="-78.824997"
+       x2="-48.219002"
+       y1="58.612999"
+       y2="5.7596998"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fdbfbd"
+         stop-opacity=".21708"
+         offset="0"
+         id="stop41" />
+      <stop
+         stop-color="#ff9470"
+         offset="1"
+         id="stop43" />
+    </linearGradient>
+    <filter
+       id="filter4784"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.7981 5.74295"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence46" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite48" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.6608 -1 "
+         id="feColorMatrix50" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood52" />
+      <feMerge
+         result="merge"
+         id="feMerge58">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode54" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode56" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite60" />
+    </filter>
+    <linearGradient
+       id="linearGradient4792"
+       x1="-72.309998"
+       x2="-47.921001"
+       y1="74.223"
+       y2="18.476"
+       gradientTransform="scale(3.7795)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#f3f4f2"
+         stop-opacity="0"
+         offset="0"
+         id="stop63" />
+      <stop
+         stop-color="#2630ac"
+         offset="1"
+         id="stop65" />
+    </linearGradient>
+    <filter
+       id="filter5028"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="3.68873 3.61021"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence68" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite70" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 10.0487 -1.13257 "
+         id="feColorMatrix72" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood74" />
+      <feMerge
+         result="merge"
+         id="feMerge80">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode76" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode78" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite82" />
+    </filter>
+    <linearGradient
+       id="linearGradient5036"
+       x1="-146.06"
+       x2="-27.611"
+       y1="95.264999"
+       y2="96.709999"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#f3f4f2"
+         stop-opacity="8.957e-5"
+         offset="0"
+         id="stop85" />
+      <stop
+         stop-color="#0304b2"
+         offset="1"
+         id="stop87" />
+    </linearGradient>
+    <filter
+       id="filter5806"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence90" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite92" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix94" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood96" />
+      <feMerge
+         result="merge"
+         id="feMerge102">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode98" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode100" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite104" />
+    </filter>
+    <filter
+       id="filter5824"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence107" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite109" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix111" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood113" />
+      <feMerge
+         result="merge"
+         id="feMerge119">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode115" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode117" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite121" />
+    </filter>
+    <linearGradient
+       id="linearGradient5832"
+       x1="-9.7187996"
+       x2="102.16"
+       y1="58.394001"
+       y2="57.73"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff9470"
+         offset="0"
+         id="stop124" />
+      <stop
+         stop-color="#ff9470"
+         stop-opacity="0"
+         offset="1"
+         id="stop126" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5840"
+       x1="90.850998"
+       x2="162.03999"
+       y1="92.894997"
+       y2="91.981003"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient5838" />
+    <linearGradient
+       id="linearGradient5842"
+       x1="90.721001"
+       x2="162.06"
+       y1="23.76"
+       y2="22.846001"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse"
+       xlink:href="#linearGradient5838" />
+    <filter
+       id="filter5860"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence131" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite133" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix135" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood137" />
+      <feMerge
+         result="merge"
+         id="feMerge143">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode139" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode141" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite145" />
+    </filter>
+    <filter
+       id="filter5878"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence148" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite150" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix152" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood154" />
+      <feMerge
+         result="merge"
+         id="feMerge160">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode156" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode158" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite162" />
+    </filter>
+    <radialGradient
+       id="radialGradient5886"
+       cx="240.10001"
+       cy="24.739"
+       r="42.498001"
+       gradientTransform="matrix(-2.0349,-0.27391,0.24364,-1.81,598.88,621.08)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ecebeb"
+         offset="0"
+         id="stop165" />
+      <stop
+         stop-color="#98bbdf"
+         offset="1"
+         id="stop167" />
+    </radialGradient>
+    <linearGradient
+       id="linearGradient5904"
+       x1="198.07001"
+       x2="198.49001"
+       y1="123.95"
+       y2="22.473"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#ff9470"
+         offset="0"
+         id="stop170" />
+      <stop
+         stop-color="#ecebeb"
+         offset="1"
+         id="stop172" />
+    </linearGradient>
+    <filter
+       id="filter5928"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence175" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite177" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix179" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood181" />
+      <feMerge
+         result="merge"
+         id="feMerge187">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode183" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode185" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite189" />
+    </filter>
+    <linearGradient
+       id="linearGradient5944"
+       x1="267.03"
+       x2="497.47"
+       y1="58.394001"
+       y2="58.289001"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#98bbdf"
+         offset="0"
+         id="stop192" />
+      <stop
+         stop-color="#98bbdf"
+         stop-opacity="0"
+         offset="1"
+         id="stop194" />
+    </linearGradient>
+    <filter
+       id="filter6088"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence197" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite199" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix201" />
+      <feFlood
+         flood-color="rgb(255,157,141)"
+         result="flood"
+         id="feFlood203" />
+      <feMerge
+         result="merge"
+         id="feMerge209">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode205" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode207" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         id="feComposite211" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix213" />
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence215" />
+      <feComposite
+         in="fbSourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite217" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix219" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood221" />
+      <feMerge
+         result="merge"
+         id="feMerge227">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode223" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode225" />
+      </feMerge>
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite229" />
+    </filter>
+    <filter
+       id="filter6114"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence232" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite234" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix236" />
+      <feFlood
+         flood-color="rgb(255,157,141)"
+         result="flood"
+         id="feFlood238" />
+      <feMerge
+         result="merge"
+         id="feMerge244">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode240" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode242" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         id="feComposite246" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix248" />
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence250" />
+      <feComposite
+         in="fbSourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite252" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix254" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood256" />
+      <feMerge
+         result="merge"
+         id="feMerge262">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode258" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode260" />
+      </feMerge>
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite264" />
+    </filter>
+    <filter
+       id="filter6132"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence267" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite269" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix271" />
+      <feFlood
+         flood-color="rgb(255,157,141)"
+         result="flood"
+         id="feFlood273" />
+      <feMerge
+         result="merge"
+         id="feMerge279">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode275" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode277" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         id="feComposite281" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix283" />
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence285" />
+      <feComposite
+         in="fbSourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite287" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix289" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood291" />
+      <feMerge
+         result="merge"
+         id="feMerge297">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode293" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode295" />
+      </feMerge>
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite299" />
+    </filter>
+    <filter
+       id="filter6150"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence302" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite304" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix306" />
+      <feFlood
+         flood-color="rgb(255,157,141)"
+         result="flood"
+         id="feFlood308" />
+      <feMerge
+         result="merge"
+         id="feMerge314">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode310" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode312" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         id="feComposite316" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix318" />
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence320" />
+      <feComposite
+         in="fbSourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite322" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix324" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood326" />
+      <feMerge
+         result="merge"
+         id="feMerge332">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode328" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode330" />
+      </feMerge>
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite334" />
+    </filter>
+    <filter
+       id="filter6168"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence337" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite339" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix341" />
+      <feFlood
+         flood-color="rgb(255,157,141)"
+         result="flood"
+         id="feFlood343" />
+      <feMerge
+         result="merge"
+         id="feMerge349">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode345" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode347" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="fbSourceGraphic"
+         id="feComposite351" />
+      <feColorMatrix
+         in="fbSourceGraphic"
+         result="fbSourceGraphicAlpha"
+         values="0 0 0 -1 0 0 0 0 -1 0 0 0 0 -1 0 0 0 0 1 0"
+         id="feColorMatrix353" />
+      <feTurbulence
+         baseFrequency="5.58191 5.54623"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence355" />
+      <feComposite
+         in="fbSourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite357" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 7.64059 -1.32096 "
+         id="feColorMatrix359" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood361" />
+      <feMerge
+         result="merge"
+         id="feMerge367">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode363" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode365" />
+      </feMerge>
+      <feComposite
+         in2="fbSourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite369" />
+    </filter>
+    <linearGradient
+       id="linearGradient6258"
+       x1="-109.59"
+       x2="-73.07"
+       y1="22.742001"
+       y2="24.097"
+       gradientTransform="translate(-120.08,478.04)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#2630ac"
+         offset="0"
+         id="stop372" />
+      <stop
+         stop-color="#2630ac"
+         stop-opacity="0"
+         offset="1"
+         id="stop374" />
+    </linearGradient>
+    <radialGradient
+       id="radialGradient6378"
+       cx="336.47"
+       cy="50.383999"
+       r="43.613998"
+       gradientTransform="matrix(2.5197,0.016633,-0.014685,2.2103,-510.21,-79.293)"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fff"
+         offset="0"
+         id="stop377" />
+      <stop
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1"
+         id="stop379" />
+    </radialGradient>
+    <linearGradient
+       id="linearGradient6388"
+       x1="404.81"
+       x2="431.23001"
+       y1="-45.877998"
+       y2="-30.945999"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fff"
+         offset="0"
+         id="stop382" />
+      <stop
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1"
+         id="stop384" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient6398"
+       x1="408.42999"
+       x2="432.26001"
+       y1="-46.220001"
+       y2="-31.589001"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fff"
+         offset="0"
+         id="stop387" />
+      <stop
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1"
+         id="stop389" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient6400"
+       x1="406.92999"
+       x2="438"
+       y1="-46.124001"
+       y2="-27.318001"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fff"
+         offset="0"
+         id="stop392" />
+      <stop
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1"
+         id="stop394" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient6402"
+       x1="407.04999"
+       x2="433.69"
+       y1="-46.678001"
+       y2="-29.194"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#fff"
+         offset="0"
+         id="stop397" />
+      <stop
+         stop-color="#fff"
+         stop-opacity="0"
+         offset="1"
+         id="stop399" />
+    </linearGradient>
+    <filter
+       id="filter6787"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="4.69688 4.81107"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence402" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite404" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 11.2528 -1.32096 "
+         id="feColorMatrix406" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood408" />
+      <feMerge
+         result="merge"
+         id="feMerge414">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode410" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode412" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite416" />
+    </filter>
+    <linearGradient
+       id="linearGradient6823"
+       x1="352.07001"
+       x2="351.17999"
+       y1="237.8"
+       y2="125.89"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         stop-color="#0304b2"
+         offset="0"
+         id="stop419" />
+      <stop
+         stop-color="#0304b2"
+         stop-opacity="0"
+         offset="1"
+         id="stop421" />
+    </linearGradient>
+    <filter
+       id="filter6859"
+       color-interpolation-filters="sRGB">
+      <feTurbulence
+         baseFrequency="4.69688 4.81107"
+         numOctaves="5"
+         result="turbulence"
+         seed="1"
+         type="fractalNoise"
+         id="feTurbulence424" />
+      <feComposite
+         in="SourceGraphic"
+         in2="turbulence"
+         operator="in"
+         result="composite1"
+         id="feComposite426" />
+      <feColorMatrix
+         result="color"
+         values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 12.7538 -1.32096 "
+         id="feColorMatrix428" />
+      <feFlood
+         flood-color="rgb(255,255,255)"
+         result="flood"
+         id="feFlood430" />
+      <feMerge
+         result="merge"
+         id="feMerge436">
+        <feMergeNode
+           in="flood"
+           id="feMergeNode432" />
+        <feMergeNode
+           in="color"
+           id="feMergeNode434" />
+      </feMerge>
+      <feComposite
+         in2="SourceGraphic"
+         operator="in"
+         result="composite2"
+         id="feComposite438" />
+    </filter>
+  </defs>
+  <metadata
+     id="metadata443">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <rect
+     x="264.00995"
+     y="0.049987793"
+     width="267.67001"
+     height="267.67001"
+     fill="#f3f4f2"
+     fill-rule="evenodd"
+     stop-color="#000000"
+     id="rect445" />
+  <path
+     d="M 264.00997,0.04999878 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 M 264.00997,0.04999878 h 267.67 m -267.67,26.87000022 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 M 264.00997,107.53 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67"
+     fill="none"
+     stroke="#000000"
+     stroke-width="0.51181px"
+     id="path447" />
+  <g
+     fill-rule="evenodd"
+     id="g475"
+     transform="translate(413.80997,-362.47)">
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -130.04,466.98 c 0.0791,-1.4e-4 0.15804,-1.4e-4 0.23706,0 37.796,5e-5 68.253,30.753 68.253,68.55 -4e-5,37.796 -30.64,68.436 -68.436,68.436 -0.0791,-2.2e-4 -0.15804,-5.8e-4 -0.23706,-10e-4 z"
+       fill="url(#linearGradient5832)"
+       filter="url(#filter4486)"
+       stop-color="#000000"
+       id="path449"
+       style="fill:url(#linearGradient5832)" />
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -25.799,536.55 c 0.0395,-6e-5 0.0791,-6e-5 0.11854,0 18.898,3e-5 34.218,15.32 34.218,34.218 -2e-5,18.898 -15.32,34.544 -34.218,34.544 -0.0395,-1.1e-4 -0.0791,-2.9e-4 -0.11854,-5.4e-4 z"
+       fill="url(#linearGradient5840)"
+       filter="url(#filter5824)"
+       stop-color="#000000"
+       id="path451"
+       style="fill:url(#linearGradient5840)" />
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -25.918,467.04 c 0.0395,-7e-5 0.0791,-7e-5 0.11853,0 18.898,3e-5 34.337,16.392 34.337,35.291 -2e-5,18.898 -15.32,34.218 -34.218,34.218 -0.0395,-1.2e-4 -0.0791,-3e-4 -0.11854,-5.5e-4 z"
+       fill="url(#linearGradient5842)"
+       filter="url(#filter5806)"
+       stop-color="#000000"
+       id="path453"
+       style="fill:url(#linearGradient5842)" />
+    <rect
+       x="-15.977"
+       y="362.64001"
+       width="67.363998"
+       height="267.47"
+       fill="#fdbfbd"
+       stop-color="#000000"
+       id="rect455" />
+    <rect
+       x="-413.81"
+       y="497.19"
+       width="264.01001"
+       height="133"
+       fill="#fdbfbd"
+       stop-color="#000000"
+       id="rect457" />
+    <rect
+       x="-413.81"
+       y="362.47"
+       width="264.01001"
+       height="134.72"
+       fill="#98bbdf"
+       stop-color="#000000"
+       id="rect459" />
+    <path
+       d="m -149.8,362.52 c -0.214,-10e-4 -0.42799,-10e-4 -0.64199,-10e-4 -73.481,0.0596 -132.98,60.798 -132.93,133.98 -8e-5,0.23003 0.002,0.69007 0.002,0.69007 h 133.57 z"
+       fill="#f3f4f2"
+       stop-color="#000000"
+       id="path461" />
+    <path
+       transform="matrix(1.9344,0,0,1.9339,-131,383.9)"
+       d="m -9.7187,-11.059 c -0.10985,-5.2e-4 -0.2197,-7.6e-4 -0.32955,-7.5e-4 -37.982,2.3e-4 -68.773,31.284 -68.773,69.266 -5e-5,0.11806 -0.0049,0.28921 -0.0043,0.40727 l 69.107,-0.05308 z"
+       fill="url(#linearGradient4530)"
+       filter="url(#filter4504)"
+       stop-color="#000000"
+       id="path463"
+       style="fill:url(#linearGradient4530)" />
+    <path
+       d="m -149.8,392.35 c -0.16674,-7.7e-4 -0.33357,-0.001 -0.50035,-0.001 -57.283,0.0952 -104.42,46.633 -104.42,104.3 -6e-5,0.17932 3.3e-4,0.35853 0.001,0.53781 h 104.92 z"
+       fill="#f3f4f2"
+       stop-color="#000000"
+       id="path465" />
+    <path
+       transform="matrix(0.51181,0,0,0.51181,-131,383.91)"
+       d="m -37.709,16.482 a 203.79,203.79 0 0 0 -203.79,203.8 203.79,203.79 0 0 0 0.002,1.0488 h 63.455 a 140.64,140.64 0 0 1 -0.002,-0.7246 140.64,140.64 0 0 1 140.64,-140.64 140.64,140.64 0 0 1 0.67383,0.002 v -63.477 a 203.79,203.79 0 0 0 -0.97656,-0.0039 z"
+       fill="url(#linearGradient4792)"
+       filter="url(#filter4784)"
+       stop-color="#000000"
+       id="path467"
+       style="fill:url(#linearGradient4792)" />
+    <path
+       d="m -149.8,424.84 a 71.983,71.983 0 0 0 -0.34491,-7.7e-4 71.983,71.983 0 0 0 -71.982,71.983 71.983,71.983 0 0 0 8.1e-4,0.37073 h 72.326 z"
+       fill="#f3f4f2"
+       stop-color="#000000"
+       id="path469" />
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -266.28,605.35 37.776,-41.943 24.529,27.087 36.817,-45.422 37.359,60.278 z"
+       fill="#f3f4f2"
+       filter="url(#filter5028)"
+       stop-color="#000000"
+       id="path471" />
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -266.28,605.35 37.776,-41.943 24.529,27.087 36.817,-45.422 37.359,60.278 z"
+       fill="url(#linearGradient5036)"
+       filter="url(#filter5028)"
+       stop-color="#000000"
+       id="path473"
+       style="fill:url(#linearGradient5036)" />
+  </g>
+  <g
+     fill="#f3f4f2"
+     fill-rule="evenodd"
+     id="g483"
+     transform="translate(413.80997,-362.47)">
+    <path
+       d="m -370.86,508.03 a 23.205,23.205 0 0 0 -23.205,23.205 23.205,23.205 0 0 0 23.205,23.205 23.205,23.205 0 0 0 7.6665,-1.3029 23.205,23.205 0 0 1 -0.20447,-0.0725 23.205,23.205 0 0 1 -0.22843,-0.084 23.205,23.205 0 0 1 -0.22772,-0.0861 23.205,23.205 0 0 1 -0.22631,-0.0888 23.205,23.205 0 0 1 -0.22633,-0.0909 23.205,23.205 0 0 1 -0.2242,-0.093 23.205,23.205 0 0 1 -0.2242,-0.096 23.205,23.205 0 0 1 -0.22278,-0.0981 23.205,23.205 0 0 1 -0.22138,-0.10021 23.205,23.205 0 0 1 -0.22067,-0.10213 23.205,23.205 0 0 1 -0.21997,-0.10504 23.205,23.205 0 0 1 -0.21857,-0.10717 23.205,23.205 0 0 1 -0.21713,-0.11007 23.205,23.205 0 0 1 -0.21645,-0.11142 23.205,23.205 0 0 1 -0.21505,-0.11413 23.205,23.205 0 0 1 -0.21361,-0.11626 23.205,23.205 0 0 1 -0.21221,-0.11839 23.205,23.205 0 0 1 -0.21151,-0.12051 23.205,23.205 0 0 1 -0.21011,-0.12342 23.205,23.205 0 0 1 -0.20869,-0.12477 23.205,23.205 0 0 1 -0.20727,-0.12767 23.205,23.205 0 0 1 -0.20586,-0.12902 23.205,23.205 0 0 1 -0.20517,-0.13193 23.205,23.205 0 0 1 -0.20305,-0.13386 23.205,23.205 0 0 1 -0.20163,-0.13599 23.205,23.205 0 0 1 -0.20094,-0.13812 23.205,23.205 0 0 1 -0.1988,-0.13966 23.205,23.205 0 0 1 -0.19741,-0.14238 23.205,23.205 0 0 1 -0.196,-0.1445 23.205,23.205 0 0 1 -0.1946,-0.14585 23.205,23.205 0 0 1 -0.19325,-0.14876 23.205,23.205 0 0 1 -0.19112,-0.15011 23.205,23.205 0 0 1 -0.18957,-0.15224 23.205,23.205 0 0 1 -0.18822,-0.15436 23.205,23.205 0 0 1 -0.18686,-0.1565 23.205,23.205 0 0 1 -0.18474,-0.15785 23.205,23.205 0 0 1 -0.18338,-0.15997 23.205,23.205 0 0 1 -0.18126,-0.16211 23.205,23.205 0 0 1 -0.1797,-0.16423 23.205,23.205 0 0 1 -0.17836,-0.16558 23.205,23.205 0 0 1 -0.17622,-0.16772 23.205,23.205 0 0 1 -0.17487,-0.16926 23.205,23.205 0 0 1 -0.17275,-0.17197 23.205,23.205 0 0 1 -0.17061,-0.17274 23.205,23.205 0 0 1 -0.16926,-0.17487 23.205,23.205 0 0 1 -0.16714,-0.177 23.205,23.205 0 0 1 -0.16558,-0.17836 23.205,23.205 0 0 1 -0.16365,-0.18048 23.205,23.205 0 0 1 -0.16153,-0.18183 23.205,23.205 0 0 1 -0.15997,-0.18338 23.205,23.205 0 0 1 -0.15785,-0.18551 23.205,23.205 0 0 1 -0.15592,-0.18687 23.205,23.205 0 0 1 -0.15378,-0.18899 23.205,23.205 0 0 1 -0.15224,-0.18957 23.205,23.205 0 0 1 -0.14953,-0.19171 23.205,23.205 0 0 1 -0.14798,-0.19324 23.205,23.205 0 0 1 -0.14586,-0.1953 23.205,23.205 0 0 1 -0.14373,-0.196 23.205,23.205 0 0 1 -0.14179,-0.19812 23.205,23.205 0 0 1 -0.13966,-0.19952 23.205,23.205 0 0 1 -0.13754,-0.20023 23.205,23.205 0 0 1 -0.13541,-0.20234 23.205,23.205 0 0 1 -0.13328,-0.20373 23.205,23.205 0 0 1 -0.13115,-0.20516 23.205,23.205 0 0 1 -0.12903,-0.20588 23.205,23.205 0 0 1 -0.1269,-0.20799 23.205,23.205 0 0 1 -0.12477,-0.2094 23.205,23.205 0 0 1 -0.12264,-0.2101 23.205,23.205 0 0 1 -0.11993,-0.21151 23.205,23.205 0 0 1 -0.11781,-0.21292 23.205,23.205 0 0 1 -0.11626,-0.21362 23.205,23.205 0 0 1 -0.11355,-0.21574 23.205,23.205 0 0 1 -0.11065,-0.21644 23.205,23.205 0 0 1 -0.10929,-0.21716 23.205,23.205 0 0 1 -0.10639,-0.21927 23.205,23.205 0 0 1 -0.10427,-0.21996 23.205,23.205 0 0 1 -0.10214,-0.22068 23.205,23.205 0 0 1 -0.1002,-0.22207 23.205,23.205 0 0 1 -0.0973,-0.22281 23.205,23.205 0 0 1 -0.0952,-0.22419 23.205,23.205 0 0 1 -0.0923,-0.2249 23.205,23.205 0 0 1 -0.0901,-0.22561 23.205,23.205 0 0 1 -0.0882,-0.22702 23.205,23.205 0 0 1 -0.0861,-0.22772 23.205,23.205 0 0 1 -0.0832,-0.22913 23.205,23.205 0 0 1 -0.0805,-0.22916 23.205,23.205 0 0 1 -0.0789,-0.23054 23.205,23.205 0 0 1 -0.0755,-0.23124 23.205,23.205 0 0 1 -0.0741,-0.23195 23.205,23.205 0 0 1 -0.0704,-0.23266 23.205,23.205 0 0 1 -0.0691,-0.23408 23.205,23.205 0 0 1 -0.0663,-0.23407 23.205,23.205 0 0 1 -0.0634,-0.23478 23.205,23.205 0 0 1 -0.0613,-0.23547 23.205,23.205 0 0 1 -0.0592,-0.23619 23.205,23.205 0 0 1 -0.0557,-0.23689 23.205,23.205 0 0 1 -0.0544,-0.23689 23.205,23.205 0 0 1 -0.0515,-0.2383 23.205,23.205 0 0 1 -0.0487,-0.2383 23.205,23.205 0 0 1 -0.0464,-0.239 23.205,23.205 0 0 1 -0.0437,-0.23902 23.205,23.205 0 0 1 -0.0408,-0.23971 23.205,23.205 0 0 1 -0.0395,-0.24041 23.205,23.205 0 0 1 -0.036,-0.24112 23.205,23.205 0 0 1 -0.0339,-0.24041 23.205,23.205 0 0 1 -0.0309,-0.24182 23.205,23.205 0 0 1 -0.0288,-0.24184 23.205,23.205 0 0 1 -0.0261,-0.24183 23.205,23.205 0 0 1 -0.024,-0.24182 23.205,23.205 0 0 1 -0.0203,-0.24253 23.205,23.205 0 0 1 -0.0194,-0.24252 23.205,23.205 0 0 1 -0.0155,-0.24325 23.205,23.205 0 0 1 -0.0135,-0.24324 23.205,23.205 0 0 1 -0.0116,-0.24252 23.205,23.205 0 0 1 -0.008,-0.24323 23.205,23.205 0 0 1 -0.006,-0.24325 23.205,23.205 0 0 1 -0.004,-0.24393 23.205,23.205 0 0 1 -7.1e-4,-0.18745 23.205,23.205 0 0 1 0.001,-0.24323 23.205,23.205 0 0 1 0.004,-0.24323 23.205,23.205 0 0 1 0.006,-0.24324 23.205,23.205 0 0 1 0.008,-0.24323 23.205,23.205 0 0 1 0.0116,-0.24325 23.205,23.205 0 0 1 0.0135,-0.24252 23.205,23.205 0 0 1 0.0155,-0.24323 23.205,23.205 0 0 1 0.0193,-0.24254 23.205,23.205 0 0 1 0.0219,-0.24254 23.205,23.205 0 0 1 0.024,-0.24182 23.205,23.205 0 0 1 0.0269,-0.24182 23.205,23.205 0 0 1 0.0296,-0.24182 23.205,23.205 0 0 1 0.0317,-0.24113 23.205,23.205 0 0 1 0.0346,-0.24112 23.205,23.205 0 0 1 0.0366,-0.24041 23.205,23.205 0 0 1 0.0395,-0.24043 23.205,23.205 0 0 1 0.0416,-0.23969 23.205,23.205 0 0 1 0.0445,-0.23902 23.205,23.205 0 0 1 0.0472,-0.239 23.205,23.205 0 0 1 0.0493,-0.2383 23.205,23.205 0 0 1 0.0515,-0.2376 23.205,23.205 0 0 1 0.0549,-0.23759 23.205,23.205 0 0 1 0.0565,-0.23619 23.205,23.205 0 0 1 0.06,-0.23619 23.205,23.205 0 0 1 0.0613,-0.23548 23.205,23.205 0 0 1 0.0642,-0.23478 23.205,23.205 0 0 1 0.0669,-0.23406 23.205,23.205 0 0 1 0.0691,-0.23337 23.205,23.205 0 0 1 0.072,-0.23196 23.205,23.205 0 0 1 0.0741,-0.23195 23.205,23.205 0 0 1 0.0768,-0.23124 23.205,23.205 0 0 1 0.0789,-0.22985 23.205,23.205 0 0 1 0.0811,-0.22985 23.205,23.205 0 0 1 0.084,-0.22841 23.205,23.205 0 0 1 0.0861,-0.22772 23.205,23.205 0 0 1 0.0888,-0.22633 23.205,23.205 0 0 1 0.0909,-0.22631 23.205,23.205 0 0 1 0.093,-0.22419 23.205,23.205 0 0 1 0.0952,-0.2242 23.205,23.205 0 0 1 0.0981,-0.22279 23.205,23.205 0 0 1 0.10078,-0.22139 23.205,23.205 0 0 1 0.10233,-0.22068 23.205,23.205 0 0 1 0.10504,-0.21996 23.205,23.205 0 0 1 0.10717,-0.21857 23.205,23.205 0 0 1 0.10929,-0.21714 23.205,23.205 0 0 1 0.1122,-0.21644 23.205,23.205 0 0 1 0.11413,-0.21434 23.205,23.205 0 0 1 0.11645,-0.21433 23.205,23.205 0 0 1 0.11839,-0.21221 23.205,23.205 0 0 1 0.12051,-0.2115 23.205,23.205 0 0 1 0.12264,-0.2101 23.205,23.205 0 0 1 0.12555,-0.20871 23.205,23.205 0 0 1 0.12767,-0.20727 23.205,23.205 0 0 1 0.12902,-0.20586 23.205,23.205 0 0 1 0.13193,-0.20516 23.205,23.205 0 0 1 0.13386,-0.20306 23.205,23.205 0 0 1 0.13619,-0.20164 23.205,23.205 0 0 1 0.13753,-0.20095 23.205,23.205 0 0 1 0.14025,-0.1988 23.205,23.205 0 0 1 0.14237,-0.19741 23.205,23.205 0 0 1 0.14373,-0.19599 23.205,23.205 0 0 1 0.14663,-0.1946 23.205,23.205 0 0 1 0.14798,-0.19248 23.205,23.205 0 0 1 0.15088,-0.1917 23.205,23.205 0 0 1 0.15224,-0.18957 23.205,23.205 0 0 1 0.15437,-0.18822 23.205,23.205 0 0 1 0.15572,-0.18686 23.205,23.205 0 0 1 0.15862,-0.18474 23.205,23.205 0 0 1 0.15998,-0.18338 23.205,23.205 0 0 1 0.1621,-0.18126 23.205,23.205 0 0 1 0.16423,-0.17971 23.205,23.205 0 0 1 0.16578,-0.17835 23.205,23.205 0 0 1 0.16772,-0.17622 23.205,23.205 0 0 1 0.16926,-0.1741 23.205,23.205 0 0 1 0.17119,-0.17352 23.205,23.205 0 0 1 0.17352,-0.17061 23.205,23.205 0 0 1 0.17487,-0.16927 23.205,23.205 0 0 1 0.177,-0.16713 23.205,23.205 0 0 1 0.17835,-0.16559 23.205,23.205 0 0 1 0.18049,-0.16365 23.205,23.205 0 0 1 0.18183,-0.16152 23.205,23.205 0 0 1 0.18338,-0.15998 23.205,23.205 0 0 1 0.18551,-0.15785 23.205,23.205 0 0 1 0.18687,-0.15572 23.205,23.205 0 0 1 0.18822,-0.15378 23.205,23.205 0 0 1 0.19034,-0.15166 23.205,23.205 0 0 1 0.1917,-0.15011 23.205,23.205 0 0 1 0.19325,-0.14798 23.205,23.205 0 0 1 0.1953,-0.14586 23.205,23.205 0 0 1 0.196,-0.14392 23.205,23.205 0 0 1 0.19812,-0.14179 23.205,23.205 0 0 1 0.1988,-0.13967 23.205,23.205 0 0 1 0.20095,-0.13753 23.205,23.205 0 0 1 0.20234,-0.13541 23.205,23.205 0 0 1 0.20375,-0.13328 23.205,23.205 0 0 1 0.20514,-0.13116 23.205,23.205 0 0 1 0.20588,-0.12902 23.205,23.205 0 0 1 0.20799,-0.1269 23.205,23.205 0 0 1 0.20869,-0.12477 23.205,23.205 0 0 1 0.21081,-0.12206 23.205,23.205 0 0 1 0.21151,-0.12052 23.205,23.205 0 0 1 0.21292,-0.1178 23.205,23.205 0 0 1 0.21362,-0.11626 23.205,23.205 0 0 1 0.21574,-0.11355 23.205,23.205 0 0 1 0.21644,-0.11065 23.205,23.205 0 0 1 0.21714,-0.10929 23.205,23.205 0 0 1 0.21927,-0.1064 23.205,23.205 0 0 1 0.21926,-0.10426 23.205,23.205 0 0 1 0.2214,-0.10214 23.205,23.205 0 0 1 0.22207,-0.1002 23.205,23.205 0 0 1 0.22279,-0.0973 23.205,23.205 0 0 1 0.22419,-0.0952 23.205,23.205 0 0 1 0.22492,-0.0925 23.205,23.205 0 0 1 0.22561,-0.0901 23.205,23.205 0 0 1 0.227,-0.0882 23.205,23.205 0 0 1 0.22774,-0.0861 23.205,23.205 0 0 1 0.22913,-0.0832 23.205,23.205 0 0 1 0.15224,-0.0536 23.205,23.205 0 0 0 -7.6672,-1.3036 z"
+       stop-color="#000000"
+       id="path477" />
+    <path
+       d="m -349.81,362.95 c 0,0 -41.258,11.345 -41.258,62.307 0,50.962 41.258,71.946 41.258,71.946 v -134.25 z"
+       stop-color="#000000"
+       id="path479" />
+    <path
+       d="m -349.81,362.95 c 0,0 41.258,11.345 41.258,62.307 0,50.962 -41.258,71.946 -41.258,71.946 v -134.25 z"
+       stop-color="#000000"
+       id="path481" />
+  </g>
+  <g
+     fill-rule="evenodd"
+     id="g501"
+     transform="translate(413.80997,-362.47)">
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="m -233.2,467.21 c 0,0 21.328,5.8648 21.328,32.21 0,26.345 -21.328,37.193 -21.328,37.193 v -69.402 z"
+       fill="url(#linearGradient6258)"
+       filter="url(#filter6787)"
+       stop-color="#000000"
+       id="path485"
+       style="fill:url(#linearGradient6258)" />
+    <rect
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       x="146.94"
+       y="466.98001"
+       width="138.37"
+       height="138.37"
+       fill="url(#linearGradient5944)"
+       filter="url(#filter5928)"
+       stop-color="#000000"
+       id="rect487"
+       style="fill:url(#linearGradient5944)" />
+    <path
+       d="M 519.24,630.19 H 653.21 V 496.35 h -33.229 v 33.089 h -33.714 v 33.722 h -33.575 v 33.562 h -33.567 z"
+       fill="#0304b2"
+       stop-color="#000000"
+       id="path489" />
+    <path
+       transform="matrix(0,-2.7007,-1.7135,0,792.69,1526.8)"
+       d="m 371.82,237.61 h -39.812 l 19.906,-34.478 z"
+       fill="#f3f4f2"
+       stop-color="#000000"
+       id="path491" />
+    <path
+       transform="matrix(0,-2.7007,-1.7067,0,841.05,1526.7)"
+       d="m 371.82,237.61 h -39.812 l 19.906,-34.478 z"
+       fill="#f3f4f2"
+       stop-color="#000000"
+       id="path493" />
+    <path
+       transform="matrix(0,-2.7007,-1.7135,0,842.67,1526.7)"
+       d="m 371.82,237.61 h -39.812 l 19.906,-34.478 z"
+       fill="url(#linearGradient6823)"
+       filter="url(#filter6859)"
+       stop-color="#000000"
+       id="path495"
+       style="fill:url(#linearGradient6823)" />
+    <path
+       d="M 385.55,362.52 V 496.48 H 653.2 V 362.52 H 519.24 Z"
+       fill="#fdbfbd"
+       stop-color="#000000"
+       id="path497" />
+    <rect
+       x="117.87"
+       y="362.51999"
+       width="267.67001"
+       height="267.67001"
+       fill="#0304b2"
+       stop-color="#000000"
+       id="rect499" />
+  </g>
+  <path
+     d="M 531.67997,0.04999878 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 m 26.87,-267.67000122 V 267.72 M 531.67997,0.04999878 h 267.67 m -267.67,26.87000022 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 M 531.67997,107.53 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67 m -267.67,26.87 h 267.67"
+     fill="none"
+     stroke="#ffffff"
+     stroke-width="0.51181px"
+     id="path503" />
+  <g
+     fill-rule="evenodd"
+     id="g511"
+     transform="translate(413.80997,-362.47)">
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="M 146.95,536.23 8.59,536.227 c 0.19696,38.197 30.745,69.061 68.943,69.061 38.198,-1.5e-4 69.218,-30.861 69.415,-69.058 z"
+       fill="url(#linearGradient5904)"
+       filter="url(#filter5860)"
+       stop-color="#000000"
+       id="path505"
+       style="fill:url(#linearGradient5904)" />
+    <path
+       d="m 253.04,362.63 a 32.22,32.22 0 0 0 -32.219,32.054 32.22,32.22 0 0 0 32.219,32.054 32.22,32.22 0 0 0 32.219,-32.054 32.22,32.22 0 0 0 -32.219,-32.054 z"
+       fill="#ecebeb"
+       stop-color="#000000"
+       id="path507" />
+    <path
+       transform="matrix(1.9344,0,0,1.9344,101.29,-540.81)"
+       d="M 78.407,500.51 A 35.416,35.416 0 0 0 42.992,535.743 35.416,35.416 0 0 0 78.407,570.976 35.416,35.416 0 0 0 113.822,535.743 35.416,35.416 0 0 0 78.407,500.51 Z"
+       fill="url(#radialGradient5886)"
+       filter="url(#filter5878)"
+       stop-color="#000000"
+       id="path509"
+       style="fill:url(#radialGradient5886)" />
+  </g>
+  <rect
+     x="-3.0517578e-05"
+     y="0"
+     width="1067"
+     height="267.72"
+     fill="none"
+     id="rect513" />
+  <g
+     fill-rule="evenodd"
+     id="g525"
+     transform="translate(413.80997,-362.47)">
+    <path
+       transform="matrix(1.9344,0,0,1.9407,-128.82,383.75)"
+       d="m 372.45,-10.902 h -72.69 a 36.346,36.346 0 0 0 36.345,36.158 36.346,36.346 0 0 0 36.345,-36.158 z"
+       fill="url(#radialGradient6378)"
+       filter="url(#filter6088)"
+       stop-color="#000000"
+       id="path515"
+       style="fill:url(#radialGradient6378)" />
+    <path
+       transform="matrix(1.1121,1.7822,1.7822,-1.1121,223.09,-378.82)"
+       d="m 425.68,-35.151 h -19.115 l 9.5574,-16.554 z"
+       fill="url(#linearGradient6388)"
+       filter="url(#filter6114)"
+       stop-color="#000000"
+       id="path517"
+       style="fill:url(#linearGradient6388)" />
+    <path
+       transform="matrix(-1.1121,1.7822,-1.7822,-1.1121,815.33,-378.82)"
+       d="m 425.68,-35.151 h -19.115 l 9.5574,-16.554 z"
+       fill="url(#linearGradient6402)"
+       filter="url(#filter6168)"
+       stop-color="#000000"
+       id="path519"
+       style="fill:url(#linearGradient6402)" />
+    <path
+       transform="matrix(0.26165,2.0844,-2.0844,0.26165,287.2,-394.61)"
+       d="m 425.68,-35.151 h -19.115 l 9.5574,-16.554 z"
+       fill="url(#linearGradient6400)"
+       filter="url(#filter6150)"
+       stop-color="#000000"
+       id="path521"
+       style="fill:url(#linearGradient6400)" />
+    <path
+       transform="matrix(1.8268,1.0373,-1.0373,1.8268,-233.22,102.13)"
+       d="m 425.68,-35.151 h -19.115 l 9.5574,-16.554 z"
+       fill="url(#linearGradient6398)"
+       filter="url(#filter6132)"
+       stop-color="#000000"
+       id="path523"
+       style="fill:url(#linearGradient6398)" />
+  </g>
+  <rect
+     x="799.35992"
+     y="0.049987793"
+     width="267.17001"
+     height="267.72"
+     fill="#a8cbfe"
+     fill-opacity="0.00720071"
+     fill-rule="evenodd"
+     id="rect527" />
+</svg>

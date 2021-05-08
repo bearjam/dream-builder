@@ -19,7 +19,7 @@ const Header = () => {
   const router = useRouter()
 
   return (
-    <nav className="fixed w-full z-10 bg-orange flex justify-center items-center h-16">
+    <nav className="fixed w-full z-10 bg-white flex justify-center items-center h-16">
       {links.map(({ href, label }) => {
         const active =
           href === "/"

@@ -52,13 +52,13 @@ const Home = () => {
             vision of the future.
           </p>
           <div className={css.dreamSq}>
-            <div>
+            <div className="bg-pink">
               <SvgUnique />
               <div>
                 <h3>Your dream board is unique to you</h3>
               </div>
             </div>
-            <div className="bg-blue text-white">
+            <div className="bg-navy text-white">
               <SvgTheme />
               <div>
                 <h3>It can be comprehensive or have a specific theme</h3>
