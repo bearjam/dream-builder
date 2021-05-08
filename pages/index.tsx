@@ -1,32 +1,40 @@
-// import { useRouter } from "next/router"
-// import { useEffect } from "react"
 import SvgSplash from "src/vectors/SvgSplash"
 import SvgUnique from "src/vectors/SvgUnique"
 import SvgTheme from "src/vectors/SvgTheme"
 import SvgProcess from "src/vectors/SvgProcess"
-import css from "styles/home.module.css"
+import css from "./index.module.css"
+import Link from "components/Link"
 
 const Home = () => {
   return (
     <div className={css.root}>
-      {/* <div className="bg-orange py-8">
-        <h2>Dream Builder</h2>
-      </div> */}
       <div>
         <SvgSplash />
       </div>
-      <div className={css.menubox}>
-        <div>
-          <h2>About</h2>
-        </div>
-        <div>
-          <h2>Explore</h2>
-        </div>
-        <div>
-          <h2>Create</h2>
-        </div>
+      <div className={css.navBoxes}>
+        <Link href="/#about">
+          <a>
+            <div>
+              <h2>About</h2>
+            </div>
+          </a>
+        </Link>
+        <Link href="/explore">
+          <a>
+            <div>
+              <h2>Explore</h2>
+            </div>
+          </a>
+        </Link>
+        <Link href="/create">
+          <a>
+            <div>
+              <h2>Create</h2>
+            </div>
+          </a>
+        </Link>
       </div>
-      <div className={css.main}>
+      <div id="about" className={css.main}>
         <div>
           <h1>What is the Dream Builder?</h1>
           <p>

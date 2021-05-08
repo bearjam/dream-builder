@@ -2,26 +2,29 @@
   @apply pt-16;
 }
 
-.menubox {
+.root svg {
+  width: 100%;
+}
+
+.navBoxes {
   @apply flex-col justify-center;
 }
 
-.menubox > div {
-  /* @apply w-64 h-64 m-10; */
+.navBoxes a div {
   @apply max-w-xs;
   @apply border-4 border-black border-dashed;
   @apply text-center m-10 py-8;
 }
 
-.menubox > div:first-child {
+.navBoxes a:first-child div {
   @apply bg-pink;
 }
 
-.menubox > div:nth-child(2) {
+.navBoxes a:nth-child(2) div {
   @apply bg-green;
 }
 
-.menubox > div:nth-child(3) {
+.navBoxes a:nth-child(3) div {
   @apply bg-yellow;
 }
 
@@ -82,10 +85,10 @@
 }
 
 @screen sm {
-  .menubox {
-    @apply flex-row;
+  .navBoxes {
+    @apply flex flex-row;
   }
-  .menubox > div {
+  .navBoxes div {
     @apply w-48;
   }
 }
