@@ -1,7 +1,6 @@
 import React from "react"
 import useSWR from "swr"
 import Link from "components/Link"
-import NextImage from "next/image"
 import { fetcher } from "lib/util"
 import { UnsplashTopic } from "types/unsplash"
 import css from "./index.module.css"
@@ -23,7 +22,7 @@ const Explore = () => {
         {data.results.map((topic) => (
           <Link key={topic.id} href={`/explore/topics/${topic.slug}`}>
             <a>
-              <div>
+              <div className={css.cover}>
                 <h2>{topic.title}</h2>
                 <div className="relative h-64 w-full">
                   <UnsplashPhoto

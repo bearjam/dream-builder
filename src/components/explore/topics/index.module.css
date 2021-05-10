@@ -1,6 +1,6 @@
 .root {
   @apply pt-16;
-  @apply max-w-3xl mx-auto;
+  @apply max-w-5xl mx-auto;
 }
 
 .root h2 {
@@ -9,4 +9,15 @@
 
 .collections {
   @apply px-4;
+}
+
+.cover {
+  /* @apply flex flex-col; */
+  @apply max-w-md;
+}
+
+@screen md {
+  .cover {
+    /* @apply flex flex-row; */
+  }
 }
