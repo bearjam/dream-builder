@@ -2,8 +2,8 @@
   @apply pt-16;
 }
 
-.root svg {
-  width: 100%;
+.root section:target {
+  @apply pt-16;
 }
 
 .navBoxes {
@@ -47,7 +47,7 @@
 }
 
 .dreamSq {
-  @apply flex-col;
+  /* @apply flex-col; */
 }
 
 .dreamSq > div {
@@ -85,10 +85,16 @@
 }
 
 @screen sm {
-  .navBoxes,
+  .navBoxes {
+    @apply flex flex-row;
+  }
   .dreamSq {
     @apply flex flex-row;
   }
+  .dreamSq > div {
+    @apply mr-16;
+  }
+
   .navBoxes div {
     @apply w-48;
   }

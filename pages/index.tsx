@@ -5,13 +5,13 @@ import SvgProcess from "src/vectors/SvgProcess"
 import css from "./index.module.css"
 import Link from "components/Link"
 
-const Home = () => {
+const IndexPage = () => {
   return (
     <div className={css.root}>
-      <div>
+      <section>
         <SvgSplash />
-      </div>
-      <div className={css.navBoxes}>
+      </section>
+      <section className={css.navBoxes}>
         <Link href="/#about">
           <a>
             <div>
@@ -33,8 +33,8 @@ const Home = () => {
             </div>
           </a>
         </Link>
-      </div>
-      <div id="about" className={css.main}>
+      </section>
+      <section id="about" className={css.main}>
         <div>
           <h1>What is the Dream Builder?</h1>
           <p>
@@ -96,17 +96,9 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </div>
   )
 }
 
-// const IndexPage = () => {
-//   const router = useRouter()
-//   useEffect(() => {
-//     router.push("/create")
-//   }, [])
-//   return <></>
-// }
-
-export default Home
+export default IndexPage

@@ -36,11 +36,3 @@ p {
   font-weight: 300;
   line-height: 2rem;
 }
-
-:target {
-  padding-top: theme("padding.[16]");
-  /* display: block;
-  position: relative;
-  top: -100px;
-  visibility: hidden; */
-}
