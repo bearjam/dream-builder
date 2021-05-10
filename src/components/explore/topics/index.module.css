@@ -1,0 +1,12 @@
+.root {
+  @apply pt-16;
+  @apply max-w-3xl mx-auto;
+}
+
+.root h2 {
+  @apply mt-10;
+}
+
+.collections {
+  @apply px-4;
+}
