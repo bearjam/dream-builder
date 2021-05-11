@@ -1,3 +1,4 @@
+import { theme } from "tailwind.config"
 import { v4 as uuid } from "uuid"
 import {
   CanvasImageItem,
@@ -19,6 +20,7 @@ export const insertCanvasTextItemAction = ({
   translate = [0, 0],
   scale = 1,
   font,
+  color = theme.colors.coral,
 }: InsertCanvasTextItemActionProps): InsertCanvasItemAction => ({
   type: "INSERT_ITEM",
   payload: {
@@ -31,6 +33,7 @@ export const insertCanvasTextItemAction = ({
     translate,
     scale,
     font,
+    color,
   },
 })
 

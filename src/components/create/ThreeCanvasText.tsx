@@ -1,13 +1,13 @@
-import { useSpring, animated } from "@react-spring/three"
+import { animated, useSpring } from "@react-spring/three"
 import { Text } from "@react-three/drei"
 import { pipe } from "fp-ts/function"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, springConfig } from "lib/util"
-import React, { Fragment } from "react"
+import React, { Fragment, useMemo } from "react"
 import { useDrag, useGesture } from "react-use-gesture"
 import { FullGestureState } from "react-use-gesture/dist/types"
 import { useCanvasStore } from "stores/canvas"
-import { colors } from "tailwindcss/defaultTheme"
+import * as THREE from "three"
 import { CanvasTextItem, GestureHandlers } from "types/canvas"
 import VertexHandle from "./VertexHandle"
 
@@ -21,6 +21,11 @@ type Props = {
 
 const ThreeCanvasText = ({ item }: Props) => {
   const { width, height, z = 0 } = item
+  const color = useMemo(() => {
+    const c = new THREE.Color(item.color as string)
+    c.convertGammaToLinear(3)
+    return c
+  }, [item.color])
   const [state, dispatch] = useCanvasStore((store) => [
     store.state,
     store.dispatch,
@@ -148,11 +153,12 @@ const ThreeCanvasText = ({ item }: Props) => {
   }
   return (
     <AnimatedText
-      color={colors.red[600]}
+      color={color}
       fontSize={32}
       lineHeight={undefined}
       font={item.font.files?.regular}
       fillOpacity={1}
+      // rotation={rotate}
       position-x={translate.to((x) => x)}
       position-y={translate.to((_x, y) => y)}
       position-z={z}

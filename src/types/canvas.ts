@@ -6,6 +6,7 @@ import {
 } from "react-use-gesture/dist/types"
 import { Transforms2D, Dimensions2D } from "./geometry"
 import { Font as FontManagerFont } from "@samuelmeuli/font-manager"
+import { Color } from "react-color"
 
 export type CanvasItemGeometry = Dimensions2D & Transforms2D
 
@@ -27,6 +28,7 @@ export type CanvasTextItem = CanvasItemBase & {
   type: "TEXT"
   text: string
   font: Font
+  color: Color
 }
 
 export type CanvasItemT = CanvasImageItem | CanvasTextItem
