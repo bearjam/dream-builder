@@ -21,9 +21,7 @@ const AssetTools = () => {
           <PhotoBin />
         </TabPanel>
         <TabPanel>
-          <TextForm
-            onSubmit={(text) => dispatch(insertCanvasTextItemAction({ text }))}
-          />
+          <TextForm />
         </TabPanel>
       </ReactTabs>
     </div>

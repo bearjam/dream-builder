@@ -5,6 +5,11 @@ import {
   InsertCanvasItemAction,
 } from "../../types/canvas"
 
+type InsertCanvasTextItemActionProps = Partial<
+  Omit<CanvasTextItem, "type" | "font">
+> &
+  Pick<CanvasTextItem, "font">
+
 export const insertCanvasTextItemAction = ({
   id = uuid(),
   text = "hello world",
@@ -13,7 +18,8 @@ export const insertCanvasTextItemAction = ({
   rotate = 0,
   translate = [0, 0],
   scale = 1,
-}: Partial<Omit<CanvasTextItem, "type">>): InsertCanvasItemAction => ({
+  font,
+}: InsertCanvasTextItemActionProps): InsertCanvasItemAction => ({
   type: "INSERT_ITEM",
   payload: {
     type: "TEXT",
@@ -24,6 +30,7 @@ export const insertCanvasTextItemAction = ({
     rotate,
     translate,
     scale,
+    font,
   },
 })
 
