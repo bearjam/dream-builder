@@ -21,8 +21,8 @@ const Explore = () => {
         <h1>Choose a collection</h1>
         <div className={css.topicsContainer}>
           {data.results.map((topic) => (
-            <div>
-              <Link key={topic.id} href={`/explore/topics/${topic.slug}`}>
+            <div key={topic.id}>
+              <Link href={`/explore/topics/${topic.slug}`}>
                 <a>
                   <div className={css.cover}>
                     <h2>{topic.title}</h2>
