@@ -12,6 +12,7 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
     const { slug } = reqP.parse(req.query)
     const { response } = await api.topics.getPhotos({
       topicIdOrSlug: slug,
+      perPage: 50,
     })
     if (!response) throw new Error("No response")
     res.json(response)

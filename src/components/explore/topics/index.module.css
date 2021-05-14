@@ -1,8 +1,9 @@
 .root {
   @apply pt-16;
-  @apply max-w-5xl mx-auto;
+  @apply max-w-6xl mx-auto;
 }
 
+.root h1,
 .root h2 {
   @apply mt-10;
 }
@@ -11,13 +12,21 @@
   @apply px-4;
 }
 
-.cover {
-  /* @apply flex flex-col; */
-  @apply max-w-md;
+.collections > h1 {
+  @apply ml-7;
 }
 
-@screen md {
-  .cover {
-    /* @apply flex flex-row; */
-  }
+.topicsContainer {
+  @apply flex flex-wrap;
+  @apply justify-center;
+}
+
+.topicsContainer > div {
+  @apply mr-8;
+}
+
+.image {
+  position: relative;
+  height: 20em;
+  width: 20em;
 }

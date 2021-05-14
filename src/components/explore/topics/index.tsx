@@ -18,23 +18,27 @@ const Explore = () => {
   return (
     <div className={css.root}>
       <section className={css.collections}>
-        <h2>Choose a collection</h2>
-        {data.results.map((topic) => (
-          <Link key={topic.id} href={`/explore/topics/${topic.slug}`}>
-            <a>
-              <div className={css.cover}>
-                <h2>{topic.title}</h2>
-                <div className="relative h-64 w-full">
-                  <UnsplashPhoto
-                    photo={topic.cover_photo!}
-                    layout="fill"
-                    objectFit="cover"
-                  />
-                </div>
-              </div>
-            </a>
-          </Link>
-        ))}
+        <h1>Choose a collection</h1>
+        <div className={css.topicsContainer}>
+          {data.results.map((topic) => (
+            <div>
+              <Link key={topic.id} href={`/explore/topics/${topic.slug}`}>
+                <a>
+                  <div className={css.cover}>
+                    <h2>{topic.title}</h2>
+                    <div className={css.image}>
+                      <UnsplashPhoto
+                        photo={topic.cover_photo!}
+                        layout="fill"
+                        objectFit="cover"
+                      />
+                    </div>
+                  </div>
+                </a>
+              </Link>
+            </div>
+          ))}
+        </div>
       </section>
     </div>
   )

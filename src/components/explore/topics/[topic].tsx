@@ -8,6 +8,7 @@ import { fetcher } from "lib/util"
 import { usePhotoStore } from "stores/photos"
 import { UnsplashPhotoT } from "types/unsplash"
 import UnsplashPhoto from "components/UnsplashPhoto"
+import css from "./topic.module.css"
 
 type Props = {
   topic: string
@@ -26,20 +27,22 @@ const TopicImages = ({ topic }: Props) => {
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
   return (
-    <div className="flex flex-wrap">
-      {pipe(
-        data.results,
-        filter((x) => !ids.includes(x.id)),
-        map((result) => (
-          <div
-            key={result.id}
-            className="w-64 p-4"
-            onClick={() => dispatch({ type: "INSERT", payload: result })}
-          >
-            <UnsplashPhoto photo={result} />
-          </div>
-        ))
-      )}
+    <div className={css.root}>
+      <h3>Back to collections</h3>
+      <div className={css.images}>
+        {pipe(
+          data.results,
+          filter((x) => !ids.includes(x.id)),
+          map((result) => (
+            <div
+              key={result.id}
+              onClick={() => dispatch({ type: "INSERT", payload: result })}
+            >
+              <UnsplashPhoto photo={result} />
+            </div>
+          ))
+        )}
+      </div>
     </div>
   )
 }
