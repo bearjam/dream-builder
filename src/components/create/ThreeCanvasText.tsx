@@ -72,7 +72,6 @@ const ThreeCanvasText = ({ item }: Props) => {
           onDrag: async ({ down, movement: [dx, dy], event }) => {
             event.stopPropagation()
             const next = item.rotate + Math.atan2(dy, dx)
-            console.log(next)
             if (down) spring.start({ rotate: next })
           },
         }
