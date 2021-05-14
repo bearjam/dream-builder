@@ -67,6 +67,16 @@ const ThreeCanvasText = ({ item }: Props) => {
             }
           },
         }
+      case "ROTATE": {
+        return {
+          onDrag: async ({ down, movement: [dx, dy], event }) => {
+            event.stopPropagation()
+            const next = item.rotate + Math.atan2(dy, dx)
+            console.log(next)
+            if (down) spring.start({ rotate: next })
+          },
+        }
+      }
       default:
         return {
           onDrag: () => {},
@@ -151,6 +161,7 @@ const ThreeCanvasText = ({ item }: Props) => {
         return null
     }
   }
+
   return (
     <AnimatedText
       color={color}
@@ -158,7 +169,7 @@ const ThreeCanvasText = ({ item }: Props) => {
       lineHeight={undefined}
       font={item.font.files?.regular}
       fillOpacity={1}
-      // rotation={rotate}
+      rotation-z={rotate.to((v) => v)}
       position-x={translate.to((x) => x)}
       position-y={translate.to((_x, y) => y)}
       position-z={z}
