@@ -11,8 +11,8 @@ type Link = {
 
 const links: Link[] = [
   { href: "/", label: "about" },
-  { href: "/create", label: "create" },
   { href: "/explore", label: "explore" },
+  { href: "/create", label: "create" },
 ]
 
 const Header = () => {

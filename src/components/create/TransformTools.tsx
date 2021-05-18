@@ -6,12 +6,13 @@ import SvgPlusIcon from "icons/SvgPlusIcon"
 import React, { Fragment, SVGProps } from "react"
 import { animated, Spring } from "react-spring"
 import shallow from "zustand/shallow"
-import SvgCropIcon from "../../icons/SvgCropIcon"
-import SvgRotateIcon from "../../icons/SvgRotateIcon"
-import SvgScaleIcon from "../../icons/SvgScaleIcon"
-import SvgSelectIcon from "../../icons/SvgSelectIcon"
-import { useCanvasStore } from "../../stores/canvas"
-import { CanvasMode } from "../../types/canvas"
+import SvgCropIcon from "icons/SvgCropIcon"
+import SvgRotateIcon from "icons/SvgRotateIcon"
+import SvgScaleIcon from "icons/SvgScaleIcon"
+import SvgSelectIcon from "icons/SvgSelectIcon"
+import SvgTickIcon from "icons/SvgTickIcon"
+import { useCanvasStore } from "stores/canvas"
+import { CanvasMode } from "types/canvas"
 import css from "./index.module.css"
 
 const modeIcons: [
@@ -57,19 +58,23 @@ const TransformTools = () => {
         ))
       )}
       {state.selectedItems.length > 0 && (
-        <div
-          key="DELETE_SELECTED_ITEMS"
-          onClick={() =>
-            dispatch({
-              type: "DELETE_SELECTED_ITEMS",
-            })
-          }
-        >
-          <SvgDeleteIcon />
-        </div>
+        <Fragment>
+          <div className="border-t-2 border-black w-full h-1 my-4" />
+          <div
+            key="DELETE_SELECTED_ITEMS"
+            onClick={() =>
+              dispatch({
+                type: "DELETE_SELECTED_ITEMS",
+              })
+            }
+          >
+            <SvgDeleteIcon />
+          </div>
+        </Fragment>
       )}
       {state.mode === "CROP" && state.crop !== null && (
         <Fragment>
+          <div className="border-t-2 border-black w-full h-1 my-4" />
           <div
             key="EXECUTE_CROP"
             onClick={() =>
@@ -78,7 +83,7 @@ const TransformTools = () => {
               })
             }
           >
-            <SvgPlusIcon />
+            <SvgTickIcon stroke="none" fill="green" />
           </div>
           <div
             key="CLEAR_CROP_INSET"
@@ -88,7 +93,7 @@ const TransformTools = () => {
               })
             }
           >
-            <SvgCloseIcon />
+            <SvgCloseIcon stroke="none" fill="red" />
           </div>
         </Fragment>
       )}
