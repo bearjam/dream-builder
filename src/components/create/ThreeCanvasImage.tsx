@@ -14,8 +14,11 @@ import EdgeHandle from "./EdgeHandle"
 import VertexHandle from "./VertexHandle"
 import { VERTEX_RADIUS } from "lib/constants"
 import { map } from "fp-ts/ReadonlyArray"
+import Handle from "./Handle"
+
 const clampScale = clamp(0.1, 10)
 const cropHandleSize = 0.5
+const { PI } = Math
 
 type Props = { item: CanvasImageItem }
 
@@ -30,6 +33,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
   const selected = state.selectedItems.includes(item.id)
   const texture = useLoader(THREE.TextureLoader, src)
   const htmlImage = useRef(new Image())
+  const threeBorderColor = new THREE.Color("green")
 
   useEffect(() => {
     htmlImage.current.crossOrigin = "anonymous"
@@ -52,11 +56,6 @@ const ThreeCanvasImage = ({ item }: Props) => {
       spring.start({ inset: [0, 0, 0, 0], immediate: true })
   }, [state.crop])
 
-  const borderColor = "green"
-  const threeBorderColor = useMemo(
-    () => new THREE.Color(borderColor),
-    [borderColor]
-  )
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
       case "SELECT":
@@ -139,24 +138,32 @@ const ThreeCanvasImage = ({ item }: Props) => {
 
         return (
           <Fragment>
-            <VertexHandle
+            <Handle
               position={[width / 2, height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI}
+              thetaEnd={PI / 2}
               {...(handleBind(op(1, 1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[-(width / 2), height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={(PI / 2) * 3}
+              thetaEnd={PI / 2}
               {...(handleBind(op(-1, 1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[width / 2, -(height / 2), 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI / 2}
+              thetaEnd={PI / 2}
               {...(handleBind(op(1, -1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[-(width / 2), -(height / 2), 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={0}
+              thetaEnd={PI / 2}
               {...(handleBind(op(-1, -1)) as any)}
             />
           </Fragment>
@@ -192,7 +199,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
           }
         return (
           <Fragment>
-            <EdgeHandle
+            <Handle
+              radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI}
               position-x={inset.to(
                 (_t, r, _b, l) => (l * width - r * width) / 2
               )}
@@ -200,7 +209,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
               position-z={0}
               {...(handleBind(op(0)) as any)}
             />
-            <EdgeHandle
+            <Handle
+              radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI / 2}
               position-x={inset.to((t, r, b, l) => width / 2 - width * r)}
               position-y={inset.to(
                 (t, _r, b, _l) => (b * item.height - t * item.height) / 2
@@ -208,7 +219,8 @@ const ThreeCanvasImage = ({ item }: Props) => {
               position-z={0}
               {...(handleBind(op(1)) as any)}
             />
-            <EdgeHandle
+            <Handle
+              radius={scale.to((v) => VERTEX_RADIUS / v)}
               position-x={inset.to(
                 (_t, r, _b, l) => (l * item.width - r * item.width) / 2
               )}
@@ -218,7 +230,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
               position-z={0}
               {...(handleBind(op(2)) as any)}
             />
-            <EdgeHandle
+            <Handle
+              radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={(PI / 2) * 3}
               position-x={inset.to((_t, _r, _b, l) => -(width / 2) + width * l)}
               position-y={inset.to(
                 (t, _r, b, _l) => (b * item.height - t * item.height) / 2

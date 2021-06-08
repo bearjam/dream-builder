@@ -89,7 +89,7 @@ void main() {
     float border_mask = full_border(vUv, u_border_thickness);
     vec3 color = mix(texture.xyz, u_border_color, border_mask);
     color = mix(color, texture.xyz, min(border_mask, circle(vUv)));
-    gl_FragColor = vec4(color, alpha);
+    gl_FragColor = vec4(toGamma(color), alpha);
     break;
   }
   case CROP_MODE: {
@@ -101,11 +101,10 @@ void main() {
     vec3 black = vec3(0.0);
     vec3 gray = vec3(0.3);
 
-    vec3 color =
-        toGamma(mix(mix(black, gray, texture.xyz), texture.xyz, dim_mask));
+    vec3 color = mix(mix(black, gray, texture.xyz), texture.xyz, dim_mask);
 
     color = mix(color, u_border_color, handle_mask);
-    gl_FragColor = vec4(color, 1.0);
+    gl_FragColor = vec4(toGamma(color), 1.0);
     break;
   }
   case SELECT_MODE: {
