@@ -33,7 +33,7 @@ export type CanvasTextItem = CanvasItemBase & {
 
 export type CanvasItemT = CanvasImageItem | CanvasTextItem
 
-export type CanvasMode = "SELECT" | "SCALE" | "ROTATE" | "CROP"
+export type CanvasMode = "DEFAULT" | "SELECT" | "SCALE" | "ROTATE" | "CROP"
 
 export type CanvasState = {
   mode: CanvasMode

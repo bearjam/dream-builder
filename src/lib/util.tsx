@@ -2,7 +2,7 @@ import { Ord } from "fp-ts/number"
 import { clamp as fptsClamp } from "fp-ts/Ord"
 import { parseUrl } from "query-string"
 import { ReactNode, Suspense } from "react"
-import { CanvasItemT } from "types/canvas"
+import { CanvasItemT, CanvasMode } from "types/canvas"
 import { Vector2 } from "types/geometry"
 import { UnsplashPhotoT } from "types/unsplash"
 import * as z from "zod"
@@ -49,13 +49,13 @@ export const getWidthHeight = (photo: UnsplashPhotoT) => {
   return { width, height: (photo.height / photo.width) * width }
 }
 
-export const withSuspense = (Component: (props: any) => JSX.Element) => (
-  props: any
-) => (
-  <Suspense fallback={null}>
-    <Component {...props} />
-  </Suspense>
-)
+export const withSuspense =
+  (Component: (props: any) => JSX.Element) => (props: any) =>
+    (
+      <Suspense fallback={null}>
+        <Component {...props} />
+      </Suspense>
+    )
 
 export const clamp = fptsClamp(Ord)
 
@@ -63,3 +63,12 @@ export const vectorAdd = ([x0, y0]: Vector2, [x1, y1]: Vector2): Vector2 => [
   x0 + x1,
   y0 + y1,
 ]
+
+export const getMode = (mode: CanvasMode): number =>
+  ({
+    DEFAULT: 0,
+    SELECT: 1,
+    SCALE: 2,
+    CROP: 3,
+    ROTATE: 4,
+  }[mode])

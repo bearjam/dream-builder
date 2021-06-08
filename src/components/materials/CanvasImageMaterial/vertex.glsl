@@ -1,5 +1,4 @@
 varying vec2 vUv;
-uniform float stretch;
 
 void main() {
   vUv = uv;

@@ -1,48 +1,43 @@
-import { shaderMaterial } from "@react-three/drei"
-import * as THREE from "three"
-import glsl from "glslify"
-import vertexShader from "./vertex.glsl"
-import fragmentShader from "./fragment.glsl"
-import { extend, ShaderMaterialProps } from "@react-three/fiber"
 import { animated } from "@react-spring/three"
+import { shaderMaterial } from "@react-three/drei"
+import { extend } from "@react-three/fiber"
+import glsl from "glslify"
+import * as THREE from "three"
+import fragmentShader from "./fragment.glsl"
+import vertexShader from "./vertex.glsl"
 
-export const CanvasImageMaterial = shaderMaterial(
+const CanvasImageMaterial = shaderMaterial(
   {
-    u_image: new THREE.Texture(),
+    u_mode: 0,
+    u_texture: new THREE.Texture(),
+    u_border_color: new THREE.Color(),
+    u_border_thickness: new THREE.Vector2(0, 0),
     u_inset: new THREE.Vector4(0, 0, 0, 0),
-    u_edge_color: new THREE.Vector4(0, 0, 0, 0),
-    u_vertex_color: new THREE.Vector4(0, 0, 0, 0),
+    u_handle_size: 0.5,
   },
   glsl(vertexShader),
   glsl(fragmentShader)
 )
 
-extend({ CanvasImageMaterial })
+export type CanvasImageMaterialImpl = {
+  u_mode?: { value: number }
+  u_texture?: { value: THREE.Texture }
+  u_border_color?: { value: THREE.Color }
+  u_border_thickness?: { value: THREE.Vector2 }
+  u_inset?: { value: THREE.Vector4 }
+  u_handle_size?: { value: number }
+} & JSX.IntrinsicElements["shaderMaterial"]
 
-type CanvasImageMaterialProps = Omit<ShaderMaterialProps, "uniforms"> & {
-  uniforms?: {
-    u_image?: {
-      value: THREE.Texture
-    }
-    u_inset?: {
-      value: THREE.Vector4
-    }
-    u_edge_color?: {
-      value: THREE.Vector4
-    }
-    u_vertex_color?: {
-      value: THREE.Vector4
-    }
-  }
-}
+extend({ CanvasImageMaterial })
 
 declare global {
   namespace JSX {
     interface IntrinsicElements {
-      canvasImageMaterial: CanvasImageMaterialProps
+      canvasImageMaterial: CanvasImageMaterialImpl
     }
   }
 }
+
 export const AnimatedCanvasImageMaterial = animated(
-  (props: CanvasImageMaterialProps) => <canvasImageMaterial {...props} />
+  (props: CanvasImageMaterialImpl) => <canvasImageMaterial {...props} />
 )

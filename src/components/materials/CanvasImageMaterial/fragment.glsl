@@ -1,56 +1,123 @@
+// clang-format off
 #pragma glslify: toLinear = require('glsl-gamma/in')
 #pragma glslify: toGamma = require('glsl-gamma/out')
+// clang-format on
 
 #ifdef GL_ES
 precision mediump float;
 #endif
 
+#define DEFAULT_MODE 0
+#define SELECT_MODE 1
+#define SCALE_MODE 2
+#define CROP_MODE 3
+
 varying vec2 vUv;
-uniform sampler2D u_image;
+uniform int u_mode;
+uniform sampler2D u_texture;
+uniform vec3 u_border_color;
+uniform vec2 u_border_thickness;
 uniform vec4 u_inset;
-uniform vec4 u_edge_color;
-uniform vec4 u_vertex_color;
-uniform bool u_edges;
-uniform bool u_vertices;
-uniform bool u_central_cross;
+uniform float u_handle_size;
+
+float full_border(vec2 st, vec2 th) {
+  vec2 mask = step(th, st) * step(st, 1.0 - th);
+  return 1.0 - min(mask.x, mask.y);
+}
+
+float circle(vec2 st) {
+  vec2 center = vec2(0.5, 0.5);
+  float size = 0.6;
+  return 1.0 - step(size, distance(center, st));
+}
+
+float rect(vec2 xy, vec2 wh, vec2 st) {
+  vec2 mask = step(xy, st);
+  mask *= 1.0 - step(xy + wh, st);
+  return mask.x * mask.y;
+}
+
+mat2 scale(vec2 _scale) { return mat2(_scale.x, 0.0, 0.0, _scale.y); }
+
+float top(vec2 st) {
+  vec2 xy = vec2(0.0, 1.0 - u_border_thickness.y);
+  vec2 wh = vec2(1.0, u_border_thickness.y);
+  vec2 uv = st;
+  wh *= scale(vec2(u_handle_size, 1.0)) *
+        scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
+  xy += vec2((wh.x / 2.0) + u_inset.w, -u_inset.x);
+  return rect(xy, wh, uv);
+}
+
+float right(vec2 st) {
+  vec2 xy = vec2(1.0 - u_border_thickness.x, 0.0);
+  vec2 wh = vec2(u_border_thickness.x, 1.0);
+  vec2 uv = st;
+  wh *= scale(vec2(1.0, u_handle_size)) *
+        scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
+  xy += vec2(-u_inset.y, (wh.y / 2.0) + u_inset.z);
+  return rect(xy, wh, uv);
+}
+
+float bottom(vec2 st) {
+  vec2 xy = vec2(0.0, 0.0);
+  vec2 wh = vec2(1.0, u_border_thickness.y);
+  vec2 uv = st;
+  wh *= scale(vec2(u_handle_size, 1.0)) *
+        scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
+  xy += vec2((wh.x / 2.0) + u_inset.w, u_inset.z);
+  return rect(xy, wh, uv);
+}
+
+float left(vec2 st) {
+  vec2 xy = vec2(0.0, 0.0);
+  vec2 wh = vec2(u_border_thickness.x, 1.0);
+  vec2 uv = st;
+  wh *= scale(vec2(1.0, u_handle_size)) *
+        scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
+  xy += vec2(u_inset.w, (wh.y / 2.0) + u_inset.z);
+  return rect(xy, wh, uv);
+}
 
 void main() {
-  vec4 texture = toLinear(texture2D(u_image, vUv));
+  vec4 texture = toLinear(texture2D(u_texture, vUv));
+  vec2 st = vUv;
+  float alpha = 1.0;
 
-  float xMask = step(vUv.x, 1.0 - u_inset.y) * step(u_inset.w, vUv.x);
-  float yMask = step(vUv.y, 1.0 - u_inset.x) * step(u_inset.z, vUv.y);
+  switch (u_mode) {
+  case SCALE_MODE: {
+    float border_mask = full_border(vUv, u_border_thickness);
+    vec3 color = mix(texture.xyz, u_border_color, border_mask);
+    color = mix(color, texture.xyz, min(border_mask, circle(vUv)));
+    gl_FragColor = vec4(color, alpha);
+    break;
+  }
+  case CROP_MODE: {
+    float handle_mask = max(max(top(st), bottom(st)), max(left(st), right(st)));
+    float dim_mask_x = step(st.x, 1.0 - u_inset.y) * step(u_inset.w, st.x);
+    float dim_mask_y = step(st.y, 1.0 - u_inset.x) * step(u_inset.z, st.y);
+    float dim_mask = min(dim_mask_x, dim_mask_y);
 
-  bool mask = xMask > 0.0 && yMask > 0.0;
+    vec3 black = vec3(0.0);
+    vec3 gray = vec3(0.3);
 
-  bool edges = u_edge_color.w > 0.0;
-  bool vertices = u_vertex_color.w > 0.0;
+    vec3 color =
+        toGamma(mix(mix(black, gray, texture.xyz), texture.xyz, dim_mask));
 
-  float gap = 0.2;
-  float thickness = 0.05;
-
-  vec2 scale =
-      vec2(1.0 - (u_inset.w + u_inset.y), 1.0 - (u_inset.z + u_inset.x));
-
-  // bool gapTop = vUv.y > 1.0 - u_inset.x - gap;
-  // bool gapRight = vUv.x < 1.0 - u_inset.y - gap;
-  // bool gapBottom = vUv.y > u_inset.z + gap;
-  // bool gapLeft = vUv.x > u_inset.w + gap;
-
-  bool edgeLeft = vUv.x < thickness + u_inset.w;
-  bool edgeRight = vUv.x > 1.0 - thickness - u_inset.y;
-  bool edgeBottom = vUv.y < thickness + u_inset.z;
-  bool edgeTop = vUv.y > 1.0 - thickness - u_inset.x;
-
-  // bool edge = edges && (edgeLeft || edgeRight || edgeTop || edgeBottom);
-  bool edge = false;
-  // !gapTop; // && gapTop && gapBottom;
-  bool vertex = false;
-
-  if (edge || vertex) {
-    gl_FragColor = u_edge_color;
-  } else {
-    vec4 black = vec4(vec3(0.0), 1.0);
-    vec4 gray = vec4(vec3(0.3),1.0);
-    gl_FragColor = toGamma(mask ? texture : mix(black, gray, texture));
+    color = mix(color, u_border_color, handle_mask);
+    gl_FragColor = vec4(color, 1.0);
+    break;
+  }
+  case SELECT_MODE: {
+    float border_mask = full_border(vUv, u_border_thickness);
+    vec3 color = toGamma(mix(texture.xyz, u_border_color, border_mask));
+    gl_FragColor = vec4(color, alpha);
+    break;
+  }
+  case DEFAULT_MODE:
+  default: {
+    gl_FragColor = vec4(toGamma(texture.xyz), alpha);
+    break;
+  }
   }
 }
