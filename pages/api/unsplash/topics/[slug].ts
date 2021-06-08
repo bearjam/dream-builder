@@ -5,14 +5,16 @@ import { api } from "lib/unsplash"
 
 const reqP = z.object({
   slug: z.string().nonempty(),
+  page: z.string().regex(/^\d+$/).transform(Number),
 })
 
 export default async function (req: NextApiRequest, res: NextApiResponse) {
   try {
-    const { slug } = reqP.parse(req.query)
+    const { slug, page = 1 } = reqP.parse(req.query)
     const { response } = await api.topics.getPhotos({
       topicIdOrSlug: slug,
       perPage: 50,
+      page,
     })
     if (!response) throw new Error("No response")
     res.json(response)

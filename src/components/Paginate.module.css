@@ -1,0 +1,14 @@
+.page-numbers {
+  @apply flex justify-center flex-wrap;
+}
+
+.page-numbers > button {
+  @apply px-4 mx-1;
+}
+
+.page-numbers > button:hover {
+  @apply bg-navy;
+}
+.page-numbers > button[data-active="true"] {
+  @apply bg-navy;
+}

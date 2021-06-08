@@ -52,7 +52,7 @@
     "three": "^0.126.1",
     "unsplash-js": "^7.0.4",
     "uuid": "^8.3.2",
-    "zod": "^1.11.11",
+    "zod": "^3.1.0",
     "zustand": "^3.3.3"
   },
   "devDependencies": {

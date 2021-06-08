@@ -1,5 +1,5 @@
 import { ImageProps } from "next/image"
-import { stringifyUrl } from "query-string"
+import { stringifyUrl, parseUrl } from "query-string"
 import React from "react"
 import { UnsplashPhotoT } from "../types/unsplash"
 import Image from "./Image"
@@ -19,15 +19,17 @@ const UnsplashPhoto = ({
   ...props
 }: Props) => {
   const ratio = aspectRatio ?? photo.height / photo.width
-  const url = stringifyUrl({
-    url: photo.urls.raw,
-    query: { w: width },
+  const { url, query, fragmentIdentifier } = parseUrl(photo.urls.raw)
+  const url2 = stringifyUrl({
+    url,
+    query: { w: width, ...query },
+    fragmentIdentifier,
   })
   switch (layout) {
     case "intrinsic":
       return (
         <Image
-          src={url}
+          src={url2}
           width={width}
           height={height ?? ratio * Number(width)}
           {...props}

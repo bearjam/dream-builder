@@ -9,23 +9,47 @@ import { usePhotoStore } from "stores/photos"
 import { UnsplashPhotoT } from "types/unsplash"
 import UnsplashPhoto from "components/UnsplashPhoto"
 import css from "./topic.module.css"
+import { stringifyUrl } from "query-string"
+import Paginate from "components/Paginate"
+
+const { min } = Math
 
 type Props = {
   topic: string
 }
 
 const TopicImages = ({ topic }: Props) => {
+  const router = useRouter()
+  const query = router.query
+
+  const p = Number(query.p)
+  const page = isNaN(p) ? 1 : p
+  const setPage = (p: number) => void router.push({ query: { ...query, p } })
+
   const [ids, dispatch] = usePhotoStore(
     (store) => [store.state.photos.map((p) => p.id), store.dispatch],
     shallow
   )
+
   const { data, error } = useSWR<{ results: UnsplashPhotoT[]; total: number }>(
-    `/api/unsplash/topics/${topic}`,
+    stringifyUrl({
+      url: `/api/unsplash/topics/${topic}`,
+      query: {
+        page,
+      },
+    }),
     fetcher
   )
 
-  if (error) return <div>failed to load</div>
+  if (error) {
+    console.log(error, "error!")
+    return <div>failed to load</div>
+  }
   if (!data) return <div>loading...</div>
+
+  const count = min(data.total, 500)
+  const limit = 50
+
   return (
     <div className={css.root}>
       <h3>Back to collections</h3>
@@ -43,6 +67,7 @@ const TopicImages = ({ topic }: Props) => {
           ))
         )}
       </div>
+      <Paginate count={count} limit={limit} page={page} setPage={setPage} />
     </div>
   )
 }
