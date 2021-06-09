@@ -1,6 +1,14 @@
+.root {
+  @apply pt-16;
+}
+
 .canvasContainer {
   @apply bg-white;
   @apply fixed w-full h-full;
+}
+
+.canvasContainer canvas {
+  touch-action: none;
 }
 
 .transformTools {

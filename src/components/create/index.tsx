@@ -7,12 +7,14 @@ import TransformTools from "./TransformTools"
 
 const Create = () => {
   return (
-    <div className={css.canvasContainer}>
-      <FiberCanvas orthographic>
-        <CreateCanvas />
-      </FiberCanvas>
-      <TransformTools />
-      <AssetTools />
+    <div className={css.root}>
+      <div className={css.canvasContainer}>
+        <FiberCanvas orthographic>
+          <CreateCanvas />
+        </FiberCanvas>
+        <TransformTools />
+        <AssetTools />
+      </div>
     </div>
   )
 }
