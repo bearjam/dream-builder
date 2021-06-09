@@ -1,19 +1,17 @@
-import { clamp, getMode, springConfig, withSuspense } from "lib/util"
-import { CanvasImageItem, GestureHandlers } from "types/canvas"
 import { animated, useSpring } from "@react-spring/three"
-import { useCanvasStore } from "stores/canvas"
-import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { useLoader } from "@react-three/fiber"
-import * as THREE from "three"
-import { useDrag, useGesture } from "react-use-gesture"
+import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
-import { FullGestureState } from "react-use-gesture/dist/types"
-import produce from "immer"
-import { Fragment, useEffect, useMemo, useRef } from "react"
-import EdgeHandle from "./EdgeHandle"
-import VertexHandle from "./VertexHandle"
-import { VERTEX_RADIUS } from "lib/constants"
 import { map } from "fp-ts/ReadonlyArray"
+import produce from "immer"
+import { VERTEX_RADIUS } from "lib/constants"
+import { clamp, getMode, springConfig, withSuspense } from "lib/util"
+import { Fragment, useEffect, useRef } from "react"
+import { useDrag, useGesture } from "react-use-gesture"
+import { FullGestureState } from "react-use-gesture/dist/types"
+import { useCanvasStore } from "stores/canvas"
+import * as THREE from "three"
+import { CanvasImageItem, GestureHandlers } from "types/canvas"
 import Handle from "./Handle"
 
 const clampScale = clamp(0.1, 10)
@@ -29,6 +27,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
   ])
 
   const u_mode = getMode(state.mode)
+  console.log(u_mode)
   const { width, height, src, z = 0 } = item
   const selected = state.selectedItems.includes(item.id)
   const texture = useLoader(THREE.TextureLoader, src)

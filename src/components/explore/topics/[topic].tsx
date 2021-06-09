@@ -11,6 +11,7 @@ import UnsplashPhoto from "components/UnsplashPhoto"
 import css from "./topic.module.css"
 import { stringifyUrl } from "query-string"
 import Paginate from "components/Paginate"
+import SvgHeartIcon from "icons/SvgHeartIcon"
 
 const { min } = Math
 
@@ -49,6 +50,7 @@ const TopicImages = ({ topic }: Props) => {
 
   const count = min(data.total, 500)
   const limit = 50
+  const heartColor = "white"
 
   return (
     <div className={css.root}>
@@ -56,13 +58,27 @@ const TopicImages = ({ topic }: Props) => {
       <div className={css.images}>
         {pipe(
           data.results,
-          filter((x) => !ids.includes(x.id)),
+          // filter((x) => !ids.includes(x.id)),
           map((result) => (
             <div
               key={result.id}
-              onClick={() => dispatch({ type: "INSERT", payload: result })}
+              onClick={() =>
+                !ids.includes(result.id)
+                  ? dispatch({ type: "INSERT", payload: result })
+                  : dispatch({ type: "DELETE", payload: result })
+              }
+              className="relative"
             >
               <UnsplashPhoto photo={result} />
+              <SvgHeartIcon
+                className="absolute top-0 right-0 mt-8 mr-4"
+                overflow="visible"
+                fill={ids.includes(result.id) ? heartColor : "none"}
+                stroke={heartColor}
+                strokeWidth={10}
+                width="2em"
+                height="2em"
+              />
             </div>
           ))
         )}

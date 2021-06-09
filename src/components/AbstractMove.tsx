@@ -1,4 +1,4 @@
-import React, { ComponentType, HTMLProps, ReactNode } from "react"
+import React, { ReactNode } from "react"
 import { animated, useSpring } from "react-spring"
 import { useDrag } from "react-use-gesture"
 
