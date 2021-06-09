@@ -1,30 +1,12 @@
-import { useRouter } from "next/router"
 import React from "react"
 import { Flipped } from "react-flip-toolkit"
 import Link from "./Link"
-
-type Link = {
-  href: string
-  label: string
-  children?: Link[]
-}
-
-const links: Link[] = [
-  { href: "/", label: "about" },
-  { href: "/explore", label: "explore" },
-  { href: "/create", label: "create" },
-]
+import Nav from "./Nav"
 
 const Header = () => {
-  const router = useRouter()
-
   return (
-    <nav className="fixed w-full z-10 bg-coral flex justify-center items-center h-16">
-      {links.map(({ href, label }) => {
-        const active =
-          href === "/"
-            ? router.pathname === "/"
-            : router.pathname.startsWith(href)
+    <Nav className="fixed w-full z-10 bg-coral flex justify-center items-center h-16">
+      {({ href, label, active }) => {
         return (
           <div key={href} className="relative inline-block mr-4">
             <Link href={href}>
@@ -39,8 +21,8 @@ const Header = () => {
             </Link>
           </div>
         )
-      })}
-    </nav>
+      }}
+    </Nav>
   )
 }
 

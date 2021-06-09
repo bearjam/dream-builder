@@ -1,3 +1,4 @@
+import { useThree } from "@react-three/fiber"
 import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
 import { Fragment, useEffect } from "react"
@@ -10,11 +11,13 @@ const CreateCanvas = () => {
     store.state,
     store.dispatch,
   ])
+
   useEffect(() => {
     dispatch({
       type: "CLEAR_CROP_INSET",
     })
   }, [state.selectedItems])
+
   const children = pipe(
     state.items,
     map((item) => {
@@ -28,6 +31,7 @@ const CreateCanvas = () => {
       }
     })
   )
+
   return <Fragment>{children}</Fragment>
 }
 

@@ -1,0 +1,28 @@
+.root {
+  flex-shrink: 0;
+  position: relative;
+  overflow-y: hidden;
+}
+
+.footer {
+
+  background-color: #12283a;
+}
+
+@screen sm {
+  .root>footer>nav>a:nth-child(-n+2) {
+    transform: translateX(-6rem);
+  }
+  .root>footer>nav>a:nth-child(n+3) {
+    transform: translateX(6rem);
+  }
+}
+
+@screen lg {
+  .root>footer>nav>a:nth-child(-n+2) {
+    transform: translateX(-8rem);
+  }
+  .root>footer>nav>a:nth-child(n+3) {
+    transform: translateX(8rem);
+  }
+}

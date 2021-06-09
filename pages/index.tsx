@@ -4,6 +4,7 @@ import SvgTheme from "src/vectors/SvgTheme"
 import SvgProcess from "src/vectors/SvgProcess"
 import css from "./index.module.css"
 import Link from "components/Link"
+import Footer from "components/Footer"
 
 const IndexPage = () => {
   return (
@@ -97,6 +98,7 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
+      <Footer />
     </div>
   )
 }
