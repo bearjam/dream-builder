@@ -4,8 +4,7 @@ import { pipe } from "fp-ts/function"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, springConfig } from "lib/util"
 import React, { Fragment, useMemo } from "react"
-import { useDrag, useGesture } from "react-use-gesture"
-import { FullGestureState } from "react-use-gesture/dist/types"
+import { useDrag, useGesture, FullGestureState } from "@use-gesture/react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasTextItem, GestureHandlers } from "types/canvas"
@@ -48,7 +47,11 @@ const ThreeCanvasText = ({ item }: Props) => {
       case "CROP":
       case "SCALE":
         return {
-          onDrag: async ({ down, movement: [dx, dy], event }) => {
+          onDrag: async ({
+            down,
+            movement: [dx, dy],
+            event,
+          }: FullGestureState<"drag">) => {
             event.stopPropagation()
             const next = pipe(item.translate, ([x, y]) => [x + dx, y + dy]) as [
               number,
@@ -69,7 +72,11 @@ const ThreeCanvasText = ({ item }: Props) => {
         }
       case "ROTATE": {
         return {
-          onDrag: async ({ down, movement: [dx, dy], event }) => {
+          onDrag: async ({
+            down,
+            movement: [dx, dy],
+            event,
+          }: FullGestureState<"drag">) => {
             event.stopPropagation()
             const next = item.rotate + Math.atan2(dy, dx)
             if (down) spring.start({ rotate: next })

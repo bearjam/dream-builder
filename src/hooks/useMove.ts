@@ -1,5 +1,5 @@
 import { useSpring } from "react-spring"
-import { useDrag } from "react-use-gesture"
+import { useDrag } from "@use-gesture/react"
 
 export const useMove = ({
   update,

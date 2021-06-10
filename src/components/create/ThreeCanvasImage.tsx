@@ -7,8 +7,7 @@ import produce from "immer"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, getMode, springConfig, withSuspense } from "lib/util"
 import { Fragment, useEffect, useRef } from "react"
-import { useDrag, useGesture } from "react-use-gesture"
-import { FullGestureState } from "react-use-gesture/dist/types"
+import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasImageItem, GestureHandlers } from "types/canvas"
@@ -60,7 +59,11 @@ const ThreeCanvasImage = ({ item }: Props) => {
       case "CROP":
       case "SCALE":
         return {
-          onDrag: async ({ down, movement: [dx, dy], event }) => {
+          onDrag: async ({
+            down,
+            movement: [dx, dy],
+            event,
+          }: FullGestureState<"drag">) => {
             event.stopPropagation()
             const next = pipe(item.translate, ([x, y]) => [x + dx, y + dy]) as [
               number,
@@ -95,7 +98,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
       ...modeGestureHandlers(),
     },
     {
-      transform: ([x, y]) => [x, -y],
+      drag: {
+        transform: ([x, y]) => [x, -y],
+      },
     }
   )
 

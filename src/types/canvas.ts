@@ -1,12 +1,8 @@
 import { Dispatcher, Patcher } from "@bearjam/tom"
-import {
-  EventTypes,
-  NativeHandlers,
-  UserHandlers,
-} from "react-use-gesture/dist/types"
-import { Transforms2D, Dimensions2D } from "./geometry"
 import { Font as FontManagerFont } from "@samuelmeuli/font-manager"
+import { NativeHandlers, UserHandlers } from "@use-gesture/react"
 import { Color } from "react-color"
+import { Dimensions2D, Transforms2D } from "./geometry"
 
 export type CanvasItemGeometry = Dimensions2D & Transforms2D
 
@@ -145,9 +141,7 @@ export type CanvasStore = Dispatcher<CanvasState, CanvasAction> & Patcher
 
 export type CanvasDispatch = (a: CanvasAction) => CanvasAction
 
-export type GestureHandlers = Partial<
-  UserHandlers<EventTypes> & NativeHandlers<EventTypes>
->
+export type GestureHandlers = Partial<UserHandlers & NativeHandlers>
 
 export type CanvasTransform = {
   x: number

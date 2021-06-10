@@ -1,5 +1,5 @@
 import { useSpring } from "@react-spring/core"
-import { useGesture } from "react-use-gesture"
+import { useGesture } from "@use-gesture/react"
 
 export const useScale = ({ update }: { update?: (v: number) => any }) => {
   const [{ z }, set] = useSpring(() => ({
