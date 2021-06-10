@@ -19,6 +19,7 @@ uniform vec3 u_border_color;
 uniform vec2 u_border_thickness;
 uniform vec4 u_inset;
 uniform float u_handle_size;
+uniform float u_scale;
 
 float full_border(vec2 st, vec2 th) {
   vec2 mask = step(th, st) * step(st, 1.0 - th);
@@ -39,9 +40,9 @@ float rect(vec2 xy, vec2 wh, vec2 st) {
 
 mat2 scale(vec2 _scale) { return mat2(_scale.x, 0.0, 0.0, _scale.y); }
 
-float top(vec2 st) {
-  vec2 xy = vec2(0.0, 1.0 - u_border_thickness.y);
-  vec2 wh = vec2(1.0, u_border_thickness.y);
+float top(vec2 st, vec2 th) {
+  vec2 xy = vec2(0.0, 1.0 - th.y);
+  vec2 wh = vec2(1.0, th.y);
   vec2 uv = st;
   wh *= scale(vec2(u_handle_size, 1.0)) *
         scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
@@ -49,9 +50,9 @@ float top(vec2 st) {
   return rect(xy, wh, uv);
 }
 
-float right(vec2 st) {
-  vec2 xy = vec2(1.0 - u_border_thickness.x, 0.0);
-  vec2 wh = vec2(u_border_thickness.x, 1.0);
+float right(vec2 st, vec2 th) {
+  vec2 xy = vec2(1.0 - th.x, 0.0);
+  vec2 wh = vec2(th.x, 1.0);
   vec2 uv = st;
   wh *= scale(vec2(1.0, u_handle_size)) *
         scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
@@ -59,9 +60,9 @@ float right(vec2 st) {
   return rect(xy, wh, uv);
 }
 
-float bottom(vec2 st) {
+float bottom(vec2 st, vec2 th) {
   vec2 xy = vec2(0.0, 0.0);
-  vec2 wh = vec2(1.0, u_border_thickness.y);
+  vec2 wh = vec2(1.0, th.y);
   vec2 uv = st;
   wh *= scale(vec2(u_handle_size, 1.0)) *
         scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
@@ -69,9 +70,9 @@ float bottom(vec2 st) {
   return rect(xy, wh, uv);
 }
 
-float left(vec2 st) {
+float left(vec2 st, vec2 th) {
   vec2 xy = vec2(0.0, 0.0);
-  vec2 wh = vec2(u_border_thickness.x, 1.0);
+  vec2 wh = vec2(th.x, 1.0);
   vec2 uv = st;
   wh *= scale(vec2(1.0, u_handle_size)) *
         scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
@@ -83,17 +84,19 @@ void main() {
   vec4 texture = toLinear(texture2D(u_texture, vUv));
   vec2 st = vUv;
   float alpha = 1.0;
+  vec2 th = u_border_thickness * vec2(1.0 / u_scale);
 
   switch (u_mode) {
   case SCALE_MODE: {
-    float border_mask = full_border(vUv, u_border_thickness);
+    float border_mask = full_border(vUv, th);
     vec3 color = mix(texture.xyz, u_border_color, border_mask);
     color = mix(color, texture.xyz, min(border_mask, circle(vUv)));
     gl_FragColor = vec4(toGamma(color), alpha);
     break;
   }
   case CROP_MODE: {
-    float handle_mask = max(max(top(st), bottom(st)), max(left(st), right(st)));
+    float handle_mask =
+        max(max(top(st, th), bottom(st, th)), max(left(st, th), right(st, th)));
     float dim_mask_x = step(st.x, 1.0 - u_inset.y) * step(u_inset.w, st.x);
     float dim_mask_y = step(st.y, 1.0 - u_inset.x) * step(u_inset.z, st.y);
     float dim_mask = min(dim_mask_x, dim_mask_y);
@@ -108,7 +111,7 @@ void main() {
     break;
   }
   case SELECT_MODE: {
-    float border_mask = full_border(vUv, u_border_thickness);
+    float border_mask = full_border(vUv, th);
     vec3 color = toGamma(mix(texture.xyz, u_border_color, border_mask));
     gl_FragColor = vec4(color, alpha);
     break;

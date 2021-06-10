@@ -37,12 +37,17 @@ const ThreeCanvasImage = ({ item }: Props) => {
     htmlImage.current.src = item.src
   }, [item.src])
 
+  const inset_ =
+    state.crop?.itemId === item.id
+      ? state.crop.inset
+      : ([0, 0, 0, 0] as [number, number, number, number])
+
   const [{ rotate, translate, scale, inset }, spring] = useSpring(
     () => ({
       rotate: item.rotate,
       translate: item.translate,
       scale: item.scale,
-      inset: [0, 0, 0, 0] as [number, number, number, number],
+      inset: inset_,
       config: springConfig,
     }),
     [item.rotate, item.translate, item.scale]
@@ -184,7 +189,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
             )
             const s = ord < 2 ? -1 : 1
             const next = produce(inset.get(), (draft) => {
-              draft[ord] = clamp(0, 1)(s * m[(ord + 1) % 2])
+              draft[ord] = clamp(0, 1)(inset_[ord] + s * m[(ord + 1) % 2])
             })
             if (down) {
               spring.start({ inset: next })
@@ -250,29 +255,45 @@ const ThreeCanvasImage = ({ item }: Props) => {
   }
   const thickness = 10
   return (
-    <animated.mesh
-      position-x={translate.to((x) => x)}
-      position-y={translate.to((_x, y) => y)}
-      position-z={z}
-      scale-x={scale}
-      scale-y={scale}
-      scale-z={1}
-      {...(itemBind() as any)}
-    >
-      <planeBufferGeometry args={[width, height]} />
-      <AnimatedCanvasImageMaterial
-        uniforms-u_texture-value={texture}
-        uniforms-u_mode-value={u_mode}
-        uniforms-u_inset-value={inset}
-        uniforms-u_handle_size-value={cropHandleSize}
-        uniforms-u_border_thickness-value={[
-          thickness / width,
-          thickness / height,
-        ]}
-        uniforms-u_border_color-value={threeBorderColor}
-      />
-      {selected && modeChildren()}
-    </animated.mesh>
+    <Fragment>
+      <animated.mesh
+        position-x={translate.to((x) => x)}
+        position-y={translate.to((_x, y) => y)}
+        position-z={z}
+        scale-x={scale}
+        scale-y={scale}
+        scale-z={1}
+        {...(itemBind() as any)}
+      >
+        <planeBufferGeometry args={[width, height]} />
+        <AnimatedCanvasImageMaterial
+          uniforms-u_texture-value={texture}
+          uniforms-u_mode-value={u_mode}
+          uniforms-u_inset-value={inset}
+          uniforms-u_handle_size-value={cropHandleSize}
+          uniforms-u_border_thickness-value={[
+            thickness / width,
+            thickness / height,
+          ]}
+          uniforms-u_border_color-value={threeBorderColor}
+          uniforms-u_scale-value={scale}
+        />
+      </animated.mesh>
+      {selected && (
+        <animated.mesh
+          position-x={translate.to((x) => x)}
+          position-y={translate.to((_x, y) => y)}
+          position-z={z + 1}
+          scale-x={scale}
+          scale-y={scale}
+          scale-z={1}
+        >
+          <planeBufferGeometry args={[width, height]} />
+          <meshBasicMaterial transparent opacity={0} />
+          {modeChildren()}
+        </animated.mesh>
+      )}
+    </Fragment>
   )
 }
 

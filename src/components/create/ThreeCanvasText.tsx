@@ -99,7 +99,9 @@ const ThreeCanvasText = ({ item }: Props) => {
       ...modeGestureHandlers(),
     },
     {
-      transform: ([x, y]) => [x, -y],
+      drag: {
+        transform: ([x, y]) => [x, -y],
+      },
     }
   )
 

@@ -14,6 +14,7 @@ const CanvasImageMaterial = shaderMaterial(
     u_border_thickness: new THREE.Vector2(0, 0),
     u_inset: new THREE.Vector4(0, 0, 0, 0),
     u_handle_size: 0.5,
+    u_scale: 1,
   },
   glsl(vertexShader),
   glsl(fragmentShader)
@@ -26,6 +27,7 @@ export type CanvasImageMaterialImpl = {
   u_border_thickness?: { value: THREE.Vector2 }
   u_inset?: { value: THREE.Vector4 }
   u_handle_size?: { value: number }
+  u_scale?: { value: number }
 } & JSX.IntrinsicElements["shaderMaterial"]
 
 extend({ CanvasImageMaterial })
