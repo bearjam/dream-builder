@@ -25,9 +25,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
     store.dispatch,
   ])
 
-  const u_mode = getMode(state.mode)
   const { width, height, src, z = 0 } = item
   const selected = state.selectedItems.includes(item.id)
+  const u_mode = selected ? getMode(state.mode) : 0
   const texture = useLoader(THREE.TextureLoader, src)
   const htmlImage = useRef(new Image())
   const threeBorderColor = new THREE.Color("green")

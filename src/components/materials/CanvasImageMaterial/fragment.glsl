@@ -82,6 +82,7 @@ float left(vec2 st, vec2 th) {
 
 void main() {
   vec4 texture = toLinear(texture2D(u_texture, vUv));
+  vec4 border_color = vec4(u_border_color, 1.0);
   vec2 st = vUv;
   float alpha = 1.0;
   vec2 th = u_border_thickness * vec2(1.0 / u_scale);
@@ -89,9 +90,9 @@ void main() {
   switch (u_mode) {
   case SCALE_MODE: {
     float border_mask = full_border(vUv, th);
-    vec3 color = mix(texture.xyz, u_border_color, border_mask);
-    color = mix(color, texture.xyz, min(border_mask, circle(vUv)));
-    gl_FragColor = vec4(toGamma(color), alpha);
+    vec4 color = mix(texture, border_color, border_mask);
+    color = mix(color, texture, min(border_mask, circle(vUv)));
+    gl_FragColor = toGamma(color);
     break;
   }
   case CROP_MODE: {
@@ -101,25 +102,23 @@ void main() {
     float dim_mask_y = step(st.y, 1.0 - u_inset.x) * step(u_inset.z, st.y);
     float dim_mask = min(dim_mask_x, dim_mask_y);
 
-    vec3 black = vec3(0.0);
-    vec3 gray = vec3(0.3);
+    vec4 black = vec4(vec3(0.0), 1.0);
+    vec4 gray = vec4(vec3(0.3), 1.0);
 
-    vec3 color = mix(mix(black, gray, texture.xyz), texture.xyz, dim_mask);
+    vec4 color = mix(mix(black, gray, texture), texture, dim_mask);
 
-    color = mix(color, u_border_color, handle_mask);
-    gl_FragColor = vec4(toGamma(color), 1.0);
+    color = mix(color, border_color, handle_mask);
+    gl_FragColor = toGamma(color);
     break;
   }
   case SELECT_MODE: {
     float border_mask = full_border(vUv, th);
-    vec3 color = toGamma(mix(texture.xyz, u_border_color, border_mask));
-    gl_FragColor = vec4(color, alpha);
+    gl_FragColor = toGamma(mix(texture, border_color, border_mask));
     break;
   }
   case DEFAULT_MODE:
-  default: {
-    gl_FragColor = vec4(toGamma(texture.xyz), alpha);
+  default:
+    gl_FragColor = toGamma(texture);
     break;
-  }
   }
 }

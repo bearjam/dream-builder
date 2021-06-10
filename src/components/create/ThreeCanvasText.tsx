@@ -2,13 +2,16 @@ import { animated, useSpring } from "@react-spring/three"
 import { Text } from "@react-three/drei"
 import { pipe } from "fp-ts/function"
 import { VERTEX_RADIUS } from "lib/constants"
-import { clamp, springConfig } from "lib/util"
+import { clamp, getMode, springConfig } from "lib/util"
 import React, { Fragment, useMemo } from "react"
 import { useDrag, useGesture, FullGestureState } from "@use-gesture/react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasTextItem, GestureHandlers } from "types/canvas"
-import VertexHandle from "./VertexHandle"
+import Handle from "./Handle"
+import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
+
+const { PI } = Math
 
 const AnimatedText = animated(Text)
 
@@ -19,17 +22,19 @@ type Props = {
 }
 
 const ThreeCanvasText = ({ item }: Props) => {
+  const [state, dispatch] = useCanvasStore((store) => [
+    store.state,
+    store.dispatch,
+  ])
+  const u_mode = getMode(state.mode)
   const { width, height, z = 0 } = item
   const color = useMemo(() => {
     const c = new THREE.Color(item.color as string)
     c.convertGammaToLinear(3)
     return c
   }, [item.color])
-  const [state, dispatch] = useCanvasStore((store) => [
-    store.state,
-    store.dispatch,
-  ])
   const selected = state.selectedItems.includes(item.id)
+  const threeBorderColor = new THREE.Color("green")
 
   const [{ rotate, translate, scale }, spring] = useSpring(
     () => ({
@@ -142,24 +147,32 @@ const ThreeCanvasText = ({ item }: Props) => {
 
         return (
           <Fragment>
-            <VertexHandle
+            <Handle
               position={[width / 2, height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI}
+              thetaEnd={PI / 2}
               {...(handleBind(op(1, 1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[-(width / 2), height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={(PI / 2) * 3}
+              thetaEnd={PI / 2}
               {...(handleBind(op(-1, 1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[width / 2, -(height / 2), 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={PI / 2}
+              thetaEnd={PI / 2}
               {...(handleBind(op(1, -1)) as any)}
             />
-            <VertexHandle
+            <Handle
               position={[-(width / 2), -(height / 2), 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
+              thetaStart={0}
+              thetaEnd={PI / 2}
               {...(handleBind(op(-1, -1)) as any)}
             />
           </Fragment>
@@ -170,25 +183,53 @@ const ThreeCanvasText = ({ item }: Props) => {
     }
   }
 
+  const thickness = 10
+
   return (
-    <AnimatedText
-      color={color}
-      fontSize={32}
-      lineHeight={undefined}
-      font={item.font.files?.regular}
-      fillOpacity={1}
-      rotation-z={rotate.to((v) => v)}
-      position-x={translate.to((x) => x)}
-      position-y={translate.to((_x, y) => y)}
-      position-z={z}
-      scale-x={scale}
-      scale-y={scale}
-      scale-z={1}
-      {...(itemBind() as any)}
-    >
-      {item.text}
-      {selected && modeChildren()}
-    </AnimatedText>
+    <Fragment>
+      {selected && (
+        <animated.mesh
+          rotation-z={rotate.to((v) => v)}
+          position-x={translate.to((x) => x)}
+          position-y={translate.to((_x, y) => y)}
+          position-z={z}
+          scale-x={scale}
+          scale-y={scale}
+          scale-z={1}
+          {...(itemBind() as any)}
+        >
+          <planeBufferGeometry args={[width, height]} />
+
+          <AnimatedCanvasImageMaterial
+            uniforms-u_mode-value={u_mode}
+            uniforms-u_border_thickness-value={[
+              thickness / width,
+              thickness / height,
+            ]}
+            uniforms-u_border_color-value={threeBorderColor}
+            uniforms-u_scale-value={scale}
+          />
+          {modeChildren()}
+        </animated.mesh>
+      )}
+      <AnimatedText
+        color={color}
+        fontSize={32}
+        lineHeight={undefined}
+        font={item.font.files?.regular}
+        fillOpacity={1}
+        rotation-z={rotate.to((v) => v)}
+        position-x={translate.to((x) => x)}
+        position-y={translate.to((_x, y) => y)}
+        position-z={z}
+        scale-x={scale}
+        scale-y={scale}
+        scale-z={1}
+        {...(itemBind() as any)}
+      >
+        {item.text}
+      </AnimatedText>
+    </Fragment>
   )
 }
 
