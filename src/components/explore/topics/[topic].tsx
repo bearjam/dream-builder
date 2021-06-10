@@ -42,10 +42,7 @@ const TopicImages = ({ topic }: Props) => {
     fetcher
   )
 
-  if (error) {
-    console.log(error, "error!")
-    return <div>failed to load</div>
-  }
+  if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 
   const count = min(data.total, 500)

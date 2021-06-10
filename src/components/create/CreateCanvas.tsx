@@ -3,6 +3,7 @@ import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
 import { Fragment, useEffect } from "react"
 import { useCanvasStore } from "stores/canvas"
+import { DOWNLOAD_PNG_EVENT } from "../../lib/events"
 import ThreeCanvasImage from "./ThreeCanvasImage"
 import ThreeCanvasText from "./ThreeCanvasText"
 
@@ -11,6 +12,19 @@ const CreateCanvas = () => {
     store.state,
     store.dispatch,
   ])
+
+  const gl = useThree((three) => three.gl)
+
+  useEffect(() => {
+    const downloadCanvasImage = () => {
+      var link = document.createElement("a")
+      link.download = `dream-builder-${Date.now()}.png`
+      link.href = gl.domElement.toDataURL("image/png")
+      link.click()
+    }
+    addEventListener(DOWNLOAD_PNG_EVENT, downloadCanvasImage)
+    return () => removeEventListener(DOWNLOAD_PNG_EVENT, downloadCanvasImage)
+  }, [])
 
   useEffect(() => {
     dispatch({

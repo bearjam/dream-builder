@@ -14,6 +14,7 @@ import SvgTickIcon from "icons/SvgTickIcon"
 import { useCanvasStore } from "stores/canvas"
 import { CanvasMode } from "types/canvas"
 import css from "./index.module.css"
+import { DOWNLOAD_PNG_EVENT } from "lib/events"
 
 const modeIcons: [
   CanvasMode,
@@ -30,6 +31,7 @@ const TransformTools = () => {
     (store) => [store.state, store.dispatch],
     shallow
   )
+
   return (
     <div className={css.transformTools}>
       {pipe(
@@ -97,6 +99,9 @@ const TransformTools = () => {
           </div>
         </Fragment>
       )}
+      <div onClick={() => dispatchEvent(new CustomEvent(DOWNLOAD_PNG_EVENT))}>
+        X
+      </div>
     </div>
   )
 }

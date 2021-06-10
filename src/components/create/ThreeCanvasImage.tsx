@@ -27,7 +27,6 @@ const ThreeCanvasImage = ({ item }: Props) => {
   ])
 
   const u_mode = getMode(state.mode)
-  console.log(u_mode)
   const { width, height, src, z = 0 } = item
   const selected = state.selectedItems.includes(item.id)
   const texture = useLoader(THREE.TextureLoader, src)

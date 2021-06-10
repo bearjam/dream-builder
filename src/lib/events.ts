@@ -1,0 +1,1 @@
+export const DOWNLOAD_PNG_EVENT = "DOWNLOAD_PNG_EVENT"
