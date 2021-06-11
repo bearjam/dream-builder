@@ -15,6 +15,8 @@ import { useCanvasStore } from "stores/canvas"
 import { CanvasMode } from "types/canvas"
 import css from "./index.module.css"
 import { DOWNLOAD_PNG_EVENT } from "lib/events"
+import SvgRedoIcon from "icons/SvgRedoIcon"
+import SvgUndoIcon from "icons/SvgUndoIcon"
 
 const modeIcons: [
   CanvasMode,
@@ -27,13 +29,54 @@ const modeIcons: [
 ]
 
 const TransformTools = () => {
-  const [state, dispatch] = useCanvasStore(
-    (store) => [store.state, store.dispatch],
+  const [state, dispatch, undo, redo, canUndo, canRedo] = useCanvasStore(
+    (store) => [
+      store.state,
+      store.dispatch,
+      store.undo,
+      store.redo,
+      store.canUndo,
+      store.canRedo,
+    ],
     shallow
   )
 
   return (
     <div className={css.transformTools}>
+      <div className={css["undo-redo"]}>
+        <div>
+          <Spring
+            from={{ scale: 0.66, opacity: 0.8 }}
+            to={{ scale: 1.33, opacity: 1 }}
+            reverse={!canUndo}
+          >
+            {(style) => (
+              <animated.div
+                style={style as any}
+                onClick={() => void (canUndo ? undo() : null)}
+              >
+                <SvgUndoIcon />
+              </animated.div>
+            )}
+          </Spring>
+        </div>
+        <div>
+          <Spring
+            from={{ scale: 0.66, opacity: 0.8 }}
+            to={{ scale: 1.33, opacity: 1 }}
+            reverse={!canRedo}
+          >
+            {(style) => (
+              <animated.div
+                style={style as any}
+                onClick={() => void (canRedo ? redo() : null)}
+              >
+                <SvgRedoIcon />
+              </animated.div>
+            )}
+          </Spring>
+        </div>
+      </div>
       {pipe(
         modeIcons,
         map(([iconMode, Icon]) => (
@@ -99,9 +142,6 @@ const TransformTools = () => {
           </div>
         </Fragment>
       )}
-      <div onClick={() => dispatchEvent(new CustomEvent(DOWNLOAD_PNG_EVENT))}>
-        X
-      </div>
     </div>
   )
 }

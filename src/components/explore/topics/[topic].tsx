@@ -1,17 +1,17 @@
-import { useRouter } from "next/router"
-import { filter, map } from "fp-ts/ReadonlyArray"
-import { pipe } from "fp-ts/function"
-import React from "react"
-import useSWR from "swr"
-import shallow from "zustand/shallow"
-import { fetcher } from "lib/util"
-import { usePhotoStore } from "stores/photos"
-import { UnsplashPhotoT } from "types/unsplash"
-import UnsplashPhoto from "components/UnsplashPhoto"
-import css from "./topic.module.css"
-import { stringifyUrl } from "query-string"
 import Paginate from "components/Paginate"
+import UnsplashPhoto from "components/UnsplashPhoto"
+import { pipe } from "fp-ts/function"
+import { map } from "fp-ts/ReadonlyArray"
 import SvgHeartIcon from "icons/SvgHeartIcon"
+import { fetcher } from "lib/util"
+import { useRouter } from "next/router"
+import { stringifyUrl } from "query-string"
+import React from "react"
+import { usePhotoStore } from "stores/photos"
+import useSWR from "swr"
+import { UnsplashPhotoT } from "types/unsplash"
+import shallow from "zustand/shallow"
+import css from "./topic.module.css"
 
 const { min } = Math
 
@@ -55,7 +55,6 @@ const TopicImages = ({ topic }: Props) => {
       <div className={css.images}>
         {pipe(
           data.results,
-          // filter((x) => !ids.includes(x.id)),
           map((result) => (
             <div
               key={result.id}

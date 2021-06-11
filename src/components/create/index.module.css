@@ -53,3 +53,20 @@
 .text-form > *:not(:first-child) {
   @apply mt-4;
 }
+
+.undo-redo {
+  @apply absolute top-0 right-0 left-0;
+  /* @apply bg-coral; */
+  @apply flex;
+  @apply text-lg;
+  @apply select-none;
+}
+
+.undo-redo > div {
+  @apply w-1/2 p-1;
+  @apply border-t-2 border-b-2 border-black;
+}
+
+.undo-redo > div:first-child {
+  @apply border-r-2;
+}

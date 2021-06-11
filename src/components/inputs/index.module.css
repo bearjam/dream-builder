@@ -38,9 +38,8 @@
 .button {
   @apply text-base text-center;
   @apply leading-tight tracking-wide;
-  @apply bg-blue rounded-lg;
-  /* @apply font-body font-medium text-primary; */
-  @apply font-medium text-white;
+  @apply border-2 border-black;
+  @apply text-black font-bold font-display;
   @apply py-2 px-6;
   @apply my-4;
 }

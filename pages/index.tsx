@@ -5,6 +5,7 @@ import SvgProcess from "src/vectors/SvgProcess"
 import css from "./index.module.css"
 import Link from "components/Link"
 import Footer from "components/Footer"
+import ButtonLink from "components/inputs/ButtonLink"
 
 const IndexPage = () => {
   return (
@@ -71,6 +72,11 @@ const IndexPage = () => {
                 <h3>We devise our own process to conjure our dreams</h3>
               </div>
             </div>
+          </div>
+          <div className="flex justify-center">
+            <ButtonLink href="/explore" className="bg-blue">
+              Get Started
+            </ButtonLink>
           </div>
         </div>
         <div>

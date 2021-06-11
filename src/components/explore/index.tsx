@@ -36,7 +36,7 @@ const TextForm = ({ onSubmit, ...props }: TextFormProps) => {
   return (
     <form onSubmit={handleSubmit(submitHandler)} {...props}>
       <TextInput name="text" ref={register} />
-      <Submit />
+      <Submit className="ml-2 bg-blue" />
     </form>
   )
 }

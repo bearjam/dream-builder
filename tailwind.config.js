@@ -24,6 +24,10 @@ module.exports = {
       white,
       gray,
     },
+    fontFamily: {
+      display: ["Inter"],
+      body: ["Inter"],
+    },
   },
   variants: {
     extend: {},

@@ -110,7 +110,7 @@ const TextForm = () => {
         }}
       />
       <SliderPicker color={color} onChange={(color) => setColor(color.hex)} />
-      <Submit />
+      <Submit className="bg-blue" />
     </form>
   )
 }
