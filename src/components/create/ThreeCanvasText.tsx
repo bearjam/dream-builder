@@ -208,6 +208,7 @@ const ThreeCanvasText = ({ item }: Props) => {
             ]}
             uniforms-u_border_color-value={threeBorderColor}
             uniforms-u_scale-value={scale}
+            transparent
           />
           {modeChildren()}
         </animated.mesh>

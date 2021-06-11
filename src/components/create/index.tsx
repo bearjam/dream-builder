@@ -9,7 +9,11 @@ const Create = () => {
   return (
     <div className={css.root}>
       <div className={css.canvasContainer}>
-        <FiberCanvas orthographic gl={{ preserveDrawingBuffer: true }}>
+        <FiberCanvas
+          orthographic
+          gl={{ preserveDrawingBuffer: true }}
+          camera={{ position: [0, 0, 1000] }}
+        >
           <CreateCanvas />
         </FiberCanvas>
         <TransformTools />
