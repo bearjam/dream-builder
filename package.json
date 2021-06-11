@@ -51,6 +51,7 @@
     "tailwindcss": "^2.0.4",
     "three": "^0.126.1",
     "unsplash-js": "^7.0.4",
+    "use-debounce": "^6.0.1",
     "uuid": "^8.3.2",
     "zod": "^3.1.0",
     "zustand": "^3.3.3"

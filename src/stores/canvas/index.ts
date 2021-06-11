@@ -64,6 +64,11 @@ const reducer = (state: CanvasState, action: CanvasAction): CanvasState => {
             })
         })
       )
+    case "SELECT_NONE":
+      return {
+        ...state,
+        selectedItems: [],
+      }
     case "UPDATE_CANVAS":
       return {
         ...state,

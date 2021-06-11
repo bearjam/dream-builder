@@ -7,6 +7,26 @@ import { DOWNLOAD_PNG_EVENT } from "../../lib/events"
 import ThreeCanvasImage from "./ThreeCanvasImage"
 import ThreeCanvasText from "./ThreeCanvasText"
 
+// const Background = () => {
+//   const [size, viewport] = useThree((three) => [three.size, three.viewport])
+//   const [width, height] = [size.width, size.height]
+//   const dispatch = useCanvasStore((store) => store.dispatch)
+//   return (
+//     <mesh
+//       onClick={() =>
+//         void dispatch({
+//           type: "SELECT_ITEM",
+//           payload: { itemId: "" },
+//           undoable: false,
+//         })
+//       }
+//     >
+//       <planeBufferGeometry args={[width, height]} />
+//       <meshBasicMaterial color="white" />
+//     </mesh>
+//   )
+// }
+
 const CreateCanvas = () => {
   const [state, dispatch] = useCanvasStore((store) => [
     store.state,
@@ -47,7 +67,12 @@ const CreateCanvas = () => {
     })
   )
 
-  return <Fragment>{children}</Fragment>
+  return (
+    <Fragment>
+      {/* <Background /> */}
+      {children}
+    </Fragment>
+  )
 }
 
 export default CreateCanvas

@@ -82,6 +82,11 @@ export type SelectItemAction = {
   undoable: false
 }
 
+export type SelectNoneAction = {
+  type: "SELECT_NONE"
+  undoable: false
+}
+
 export type UpdateCanvasItemAction = {
   type: "UPDATE_ITEM"
   payload: {
@@ -117,6 +122,7 @@ export type CanvasAction =
   | UpdateCanvasAction
   | MoveCanvasItemAction
   | SelectItemAction
+  | SelectNoneAction
   | UpdateCanvasItemAction
   | ExecuteCropAction
   | UpdateCropInsetAction

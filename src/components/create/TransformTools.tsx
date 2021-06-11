@@ -29,23 +29,17 @@ const modeIcons: [
 ]
 
 const TransformTools = () => {
-  const [state, dispatch, undo, redo, canUndo, canRedo, patches] =
-    useCanvasStore(
-      (store) => [
-        store.state,
-        store.dispatch,
-        store.undo,
-        store.redo,
-        store.canUndo,
-        store.canRedo,
-        store.patches,
-      ],
-      shallow
-    )
-
-  useEffect(() => {
-    console.log(patches)
-  }, [patches])
+  const [state, dispatch, undo, redo, canUndo, canRedo] = useCanvasStore(
+    (store) => [
+      store.state,
+      store.dispatch,
+      store.undo,
+      store.redo,
+      store.canUndo,
+      store.canRedo,
+    ],
+    shallow
+  )
 
   return (
     <div className={css.transformTools}>

@@ -14,6 +14,7 @@ import { CanvasTextItem, Font } from "types/canvas"
 import * as z from "zod"
 import Submit from "../inputs/Submit"
 import TextInput from "../inputs/TextInput"
+import { useDebounce } from "use-debounce"
 
 const schema = z.object({
   text: z.string().nonempty(),
@@ -34,6 +35,7 @@ const TextForm = () => {
 
   const [font, setFont] = useState<Font | null>(null)
   const [color, setColor] = useState<Color>("#FF6900")
+  const [debouncedColor] = useDebounce(color, 300)
 
   useEffect(() => {
     const textItems = state.items.filter(
@@ -44,13 +46,13 @@ const TextForm = () => {
         type: "UPDATE_ITEM",
         payload: {
           itemId: item.id,
-          color,
+          color: debouncedColor,
           ...(font ? { font } : undefined),
         },
-        undoable: false,
+        undoable: true,
       })
     })
-  }, [color, font])
+  }, [debouncedColor, font])
 
   const fontPickerRef = useRef<FontPicker | null>(null)
 
