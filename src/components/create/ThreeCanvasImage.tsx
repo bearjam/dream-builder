@@ -83,6 +83,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
                   itemId: item.id,
                   translate: next,
                 },
+                undoable: true,
               })
             }
           },
@@ -98,7 +99,11 @@ const ThreeCanvasImage = ({ item }: Props) => {
     {
       onPointerDown: ({ event }) => {
         event.stopPropagation()
-        dispatch({ type: "SELECT_ITEM", payload: { itemId: item.id } })
+        dispatch({
+          type: "SELECT_ITEM",
+          payload: { itemId: item.id },
+          undoable: false,
+        })
       },
       ...modeGestureHandlers(),
     },
@@ -140,6 +145,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
                   itemId: item.id,
                   scale: next,
                 },
+                undoable: true,
               })
             }
           }
@@ -202,6 +208,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
                   inset: next,
                   htmlImage: htmlImage.current,
                 },
+                undoable: false,
               })
             }
           }

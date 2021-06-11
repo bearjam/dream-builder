@@ -47,6 +47,7 @@ const TextForm = () => {
           color,
           ...(font ? { font } : undefined),
         },
+        undoable: false,
       })
     })
   }, [color, font])

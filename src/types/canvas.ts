@@ -45,19 +45,23 @@ export type CanvasState = {
 export type InsertCanvasItemAction = {
   type: "INSERT_ITEM"
   payload: CanvasItemT
+  undoable: true
 }
 
 export type DeleteSelectedItemsAction = {
   type: "DELETE_SELECTED_ITEMS"
+  undoable: true
 }
 
 export type DeleteAllCanvasItemsAction = {
   type: "DELETE_ALL_ITEMS"
+  undoable: true
 }
 
 export type UpdateCanvasAction = {
   type: "UPDATE_CANVAS"
   payload: Partial<CanvasState>
+  undoable?: boolean
 }
 
 export type MoveCanvasItemAction = {
@@ -67,13 +71,7 @@ export type MoveCanvasItemAction = {
     dx: number
     dy: number
   }
-}
-
-export type PanCanvasAction = {
-  type: "PAN_CANVAS"
-  payload: {
-    translate: [number, number]
-  }
+  undoable: true
 }
 
 export type SelectItemAction = {
@@ -81,21 +79,7 @@ export type SelectItemAction = {
   payload: {
     itemId: string
   }
-}
-
-export type ZoomCanvasAction = {
-  type: "ZOOM_CANVAS"
-  payload: {
-    scaleDelta: number
-  }
-}
-
-export type ScaleCanvasItemAction = {
-  type: "SCALE_ITEM"
-  payload: {
-    itemId: string
-    scaleDelta: number
-  }
+  undoable: false
 }
 
 export type UpdateCanvasItemAction = {
@@ -103,10 +87,12 @@ export type UpdateCanvasItemAction = {
   payload: {
     itemId: string
   } & Partial<CanvasItemT>
+  undoable: boolean
 }
 
 export type ExecuteCropAction = {
   type: "EXECUTE_CROP"
+  undoable: true
 }
 
 export type UpdateCropInsetAction = {
@@ -116,10 +102,12 @@ export type UpdateCropInsetAction = {
     inset: [number, number, number, number]
     htmlImage: HTMLImageElement
   }
+  undoable: false
 }
 
 export type ClearCropInsetAction = {
   type: "CLEAR_CROP_INSET"
+  undoable: false
 }
 
 export type CanvasAction =
@@ -128,10 +116,7 @@ export type CanvasAction =
   | DeleteAllCanvasItemsAction
   | UpdateCanvasAction
   | MoveCanvasItemAction
-  | PanCanvasAction
-  | ZoomCanvasAction
   | SelectItemAction
-  | ScaleCanvasItemAction
   | UpdateCanvasItemAction
   | ExecuteCropAction
   | UpdateCropInsetAction

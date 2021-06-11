@@ -35,6 +35,7 @@ export const insertCanvasTextItemAction = ({
     font,
     color,
   },
+  undoable: true,
 })
 
 type InsertCanvasImageItemActionArgsT = Pick<
@@ -67,4 +68,5 @@ export const insertCanvasImageItemAction = ({
     naturalWidth,
     naturalHeight,
   },
+  undoable: true,
 })

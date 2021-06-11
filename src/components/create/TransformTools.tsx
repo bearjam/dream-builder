@@ -3,7 +3,7 @@ import { map } from "fp-ts/ReadonlyArray"
 import SvgCloseIcon from "icons/SvgCloseIcon"
 import SvgDeleteIcon from "icons/SvgDeleteIcon"
 import SvgPlusIcon from "icons/SvgPlusIcon"
-import React, { Fragment, SVGProps } from "react"
+import React, { Fragment, SVGProps, useEffect } from "react"
 import { animated, Spring } from "react-spring"
 import shallow from "zustand/shallow"
 import SvgCropIcon from "icons/SvgCropIcon"
@@ -29,17 +29,23 @@ const modeIcons: [
 ]
 
 const TransformTools = () => {
-  const [state, dispatch, undo, redo, canUndo, canRedo] = useCanvasStore(
-    (store) => [
-      store.state,
-      store.dispatch,
-      store.undo,
-      store.redo,
-      store.canUndo,
-      store.canRedo,
-    ],
-    shallow
-  )
+  const [state, dispatch, undo, redo, canUndo, canRedo, patches] =
+    useCanvasStore(
+      (store) => [
+        store.state,
+        store.dispatch,
+        store.undo,
+        store.redo,
+        store.canUndo,
+        store.canRedo,
+        store.patches,
+      ],
+      shallow
+    )
+
+  useEffect(() => {
+    console.log(patches)
+  }, [patches])
 
   return (
     <div className={css.transformTools}>
@@ -110,6 +116,7 @@ const TransformTools = () => {
             onClick={() =>
               dispatch({
                 type: "DELETE_SELECTED_ITEMS",
+                undoable: true,
               })
             }
           >
@@ -125,6 +132,7 @@ const TransformTools = () => {
             onClick={() =>
               dispatch({
                 type: "EXECUTE_CROP",
+                undoable: true,
               })
             }
           >
@@ -135,6 +143,7 @@ const TransformTools = () => {
             onClick={() =>
               dispatch({
                 type: "CLEAR_CROP_INSET",
+                undoable: false,
               })
             }
           >

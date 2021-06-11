@@ -29,6 +29,7 @@ const CreateCanvas = () => {
   useEffect(() => {
     dispatch({
       type: "CLEAR_CROP_INSET",
+      undoable: false,
     })
   }, [state.selectedItems])
 

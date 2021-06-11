@@ -71,6 +71,7 @@ const ThreeCanvasText = ({ item }: Props) => {
                   itemId: item.id,
                   translate: next,
                 },
+                undoable: true,
               })
             }
           },
@@ -99,7 +100,11 @@ const ThreeCanvasText = ({ item }: Props) => {
     {
       onPointerDown: ({ event }) => {
         event.stopPropagation()
-        dispatch({ type: "SELECT_ITEM", payload: { itemId: item.id } })
+        dispatch({
+          type: "SELECT_ITEM",
+          payload: { itemId: item.id },
+          undoable: false,
+        })
       },
       ...modeGestureHandlers(),
     },
@@ -141,6 +146,7 @@ const ThreeCanvasText = ({ item }: Props) => {
                   itemId: item.id,
                   scale: next,
                 },
+                undoable: true,
               })
             }
           }
