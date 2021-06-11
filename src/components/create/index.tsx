@@ -12,7 +12,7 @@ const Create = () => {
         <FiberCanvas
           orthographic
           gl={{ preserveDrawingBuffer: true }}
-          camera={{ position: [0, 0, 1000] }}
+          camera={{ position: [0, 0, 1000], near: 0, far: 2000 }}
         >
           <CreateCanvas />
         </FiberCanvas>

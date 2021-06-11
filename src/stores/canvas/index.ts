@@ -51,17 +51,17 @@ const reducer = (state: CanvasState, action: CanvasAction): CanvasState => {
           draft.selectedItems = [action.payload.itemId]
         }),
         produce((draft) => {
-          const i = draft.items.findIndex(
-            (item: CanvasItemT) => item.id === action.payload.itemId
-          )
-          if (i !== -1) {
-            let j = draft.items.length
-            draft.items[i].z = j--
-            draft.items.forEach((item: CanvasItemT, ii: number) => {
-              if (ii === i) return
-              item.z = j--
+          const i = draft.items.length
+          let j = i
+          draft.items
+            .sort((a: CanvasItemT, b: CanvasItemT) => b.z - a.z)
+            .forEach((item: CanvasItemT) => {
+              if (item.id === action.payload.itemId) {
+                item.z = i
+              } else {
+                item.z = --j
+              }
             })
-          }
         })
       )
     case "UPDATE_CANVAS":
@@ -91,11 +91,11 @@ const reducer = (state: CanvasState, action: CanvasAction): CanvasState => {
         }
       })
     case "INSERT_ITEM":
-      return {
-        ...state,
-        items: [...state.items, action.payload],
-        selectedItems: [action.payload.id],
-      }
+      return produce(state, (draft) => {
+        let z = draft.items.length + 1
+        draft.items.push({ ...action.payload, z })
+        draft.selectedItems = [action.payload.id]
+      })
     case "DELETE_SELECTED_ITEMS":
       return produce(state, (draft) => {
         draft.items = draft.items.filter(
