@@ -35,4 +35,21 @@
 .photoBin > div {
   height: 18rem;
   overflow-y: scroll;
+  @apply flex flex-wrap justify-between;
+}
+
+.photoBin > div > div {
+  @apply w-5/12 m-1;
+}
+
+.text-form input[type="text"] {
+  @apply w-full;
+}
+
+.text-form div[id="font-picker"] {
+  @apply w-full;
+}
+
+.text-form > *:not(:first-child) {
+  @apply mt-4;
 }

@@ -6,7 +6,7 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import { FONT_FAMILY_DEFAULT } from "@samuelmeuli/font-manager"
 import FontPicker from "font-picker-react"
 import React, { useEffect, useRef, useState } from "react"
-import { Color, TwitterPicker } from "react-color"
+import { Color, SliderPicker, TwitterPicker } from "react-color"
 import { useForm } from "react-hook-form"
 import { useCanvasStore } from "stores/canvas"
 import { insertCanvasTextItemAction } from "stores/canvas/actions"
@@ -53,17 +53,22 @@ const TextForm = () => {
 
   const fontPickerRef = useRef<FontPicker | null>(null)
 
-  // useEffect(() => {
-  //   if (fontPickerRef.current?.state.loadingStatus !== "finished") return
+  useEffect(() => {
+    const [id] = state.selectedItems
+    const item = state.items.find((x) => x.id === id)
+    if (item && item.type === "TEXT") {
+      setColor(item.color)
+    }
+    //   if (fontPickerRef.current?.state.loadingStatus !== "finished") return
 
-  //   const textItems = state.items.filter(
-  //     ({ type, id }) => state.selectedItems.includes(id) && type === "TEXT"
-  //   ) as CanvasTextItem[]
+    //   const textItems = state.items.filter(
+    //     ({ type, id }) => state.selectedItems.includes(id) && type === "TEXT"
+    //   ) as CanvasTextItem[]
 
-  //   if (textItems.length > 0) {
-  //     setFont(textItems[0].font)
-  //   }
-  // }, [state.selectedItems])
+    //   if (textItems.length > 0) {
+    //     setFont(textItems[0].font)
+    //   }
+  }, [state.selectedItems])
 
   async function submitHandler({ text }: { text: string }) {
     if (!font) {
@@ -93,8 +98,8 @@ const TextForm = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit(submitHandler)}>
-      <TextInput name="text" ref={register} />
+    <form onSubmit={handleSubmit(submitHandler)} className={css["text-form"]}>
+      <TextInput name="text" ref={register} autoComplete="off" />
       <FontPicker
         ref={fontPickerRef}
         activeFontFamily={font?.family ?? FONT_FAMILY_DEFAULT}
@@ -104,11 +109,7 @@ const TextForm = () => {
           setFont(nextFont)
         }}
       />
-      <TwitterPicker
-        color={color}
-        onChangeComplete={(color) => setColor(color.hex)}
-        triangle="hide"
-      />
+      <SliderPicker color={color} onChange={(color) => setColor(color.hex)} />
       <Submit />
     </form>
   )

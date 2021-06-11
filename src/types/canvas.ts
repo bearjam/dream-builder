@@ -8,7 +8,7 @@ export type CanvasItemGeometry = Dimensions2D & Transforms2D
 
 export type CanvasItemBase = CanvasItemGeometry & {
   id: string
-  z: number
+  z?: number
 }
 
 export type CanvasImageItem = CanvasItemBase & {

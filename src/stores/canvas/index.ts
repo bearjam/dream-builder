@@ -54,7 +54,7 @@ const reducer = (state: CanvasState, action: CanvasAction): CanvasState => {
           const i = draft.items.length
           let j = i
           draft.items
-            .sort((a: CanvasItemT, b: CanvasItemT) => b.z - a.z)
+            .sort((a: CanvasItemT, b: CanvasItemT) => (b.z ?? 0) - (a.z ?? 0))
             .forEach((item: CanvasItemT) => {
               if (item.id === action.payload.itemId) {
                 item.z = i

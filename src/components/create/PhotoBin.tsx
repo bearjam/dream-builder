@@ -33,24 +33,25 @@ const PhotoBin = ({ onDispatch = () => {}, ...props }: Props) => {
           {pipe(
             photos,
             map((photo) => (
-              <UnsplashPhoto
-                key={photo.id}
-                photo={photo}
-                onClick={() => {
-                  dispatchCanvas(
-                    insertCanvasImageItemAction({
-                      id: Buffer.from(
-                        [photo.id, Date.now()].join("-")
-                      ).toString("hex"),
-                      src: photo.urls.regular,
-                      naturalWidth: photo.width,
-                      naturalHeight: photo.height,
-                      ...getWidthHeight(photo),
-                    })
-                  )
-                  onDispatch()
-                }}
-              />
+              <div key={photo.id}>
+                <UnsplashPhoto
+                  photo={photo}
+                  onClick={() => {
+                    dispatchCanvas(
+                      insertCanvasImageItemAction({
+                        id: Buffer.from(
+                          [photo.id, Date.now()].join("-")
+                        ).toString("hex"),
+                        src: photo.urls.regular,
+                        naturalWidth: photo.width,
+                        naturalHeight: photo.height,
+                        ...getWidthHeight(photo),
+                      })
+                    )
+                    onDispatch()
+                  }}
+                />
+              </div>
             ))
           )}
         </div>
