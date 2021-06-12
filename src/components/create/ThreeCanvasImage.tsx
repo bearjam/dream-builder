@@ -1,5 +1,5 @@
 import { animated, useSpring } from "@react-spring/three"
-import { useLoader } from "@react-three/fiber"
+import { useLoader, useThree } from "@react-three/fiber"
 import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
@@ -58,6 +58,10 @@ const ThreeCanvasImage = ({ item }: Props) => {
       spring.start({ inset: [0, 0, 0, 0], immediate: true })
   }, [state.crop])
 
+  const [size, viewport] = useThree(
+    (three) => [three.size, three.viewport] as const
+  )
+
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
       case "SELECT":
@@ -88,6 +92,31 @@ const ThreeCanvasImage = ({ item }: Props) => {
             }
           },
         }
+      case "ROTATE": {
+        return {
+          onDrag: async ({
+            down,
+            movement: [dx, dy],
+            event,
+          }: FullGestureState<"drag">) => {
+            console.log("hello?")
+            event.stopPropagation()
+            const next = item.rotate + Math.atan2(dy, dx)
+            if (down) spring.start({ rotate: next })
+            else {
+              await spring.start({ rotate: next })
+              dispatch({
+                type: "UPDATE_ITEM",
+                payload: {
+                  itemId: item.id,
+                  rotate: next,
+                },
+                undoable: true,
+              })
+            }
+          },
+        }
+      }
       default:
         return {
           onDrag: () => {},
@@ -264,6 +293,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
   return (
     <Fragment>
       <animated.mesh
+        rotation-z={rotate.to((v) => v)}
         position-x={translate.to((x) => x)}
         position-y={translate.to((_x, y) => y)}
         position-z={z}
@@ -288,6 +318,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
       </animated.mesh>
       {selected && (
         <animated.mesh
+          rotation-z={rotate.to((v) => v)}
           position-x={translate.to((x) => x)}
           position-y={translate.to((_x, y) => y)}
           position-z={z + 1}
