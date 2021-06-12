@@ -16,7 +16,11 @@ const conf = {
     return config
   },
   images: {
-    domains: ["source.unsplash.com", "images.unsplash.com"],
+    domains: [
+      "source.unsplash.com",
+      "images.unsplash.com",
+      "dream.bearjam.dev",
+    ],
   },
 }
 
