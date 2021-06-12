@@ -16,7 +16,8 @@ const UnsplashPhoto = ({
   height,
   aspectRatio,
   layout = "intrinsic",
-  ...props
+  objectFit,
+  objectPosition,
 }: Props) => {
   const ratio = aspectRatio ?? photo.height / photo.width
   const { url, query, fragmentIdentifier } = parseUrl(photo.urls.raw)
@@ -32,11 +33,12 @@ const UnsplashPhoto = ({
           src={url2}
           width={width}
           height={height ?? ratio * Number(width)}
-          {...props}
         />
       )
     case "fill":
-      return <Image src={url} layout={layout} {...props} />
+      return (
+        <Image src={url} layout={layout} {...{ objectFit, objectPosition }} />
+      )
     default:
       return null
   }
