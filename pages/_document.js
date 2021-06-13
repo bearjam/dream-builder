@@ -10,7 +10,7 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <link rel="icon" type="image/png" href="/favicon.png" />
+          <link rel="icon" type="image/png" href="/favicon.ico" />
           <link
             href={
               "https://fonts.googleapis.com/css?family=Inter:400,700&display=swap"
