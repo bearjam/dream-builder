@@ -1,9 +1,10 @@
+import Image from "next/image"
 import React from "react"
 
 const TestPage = () => {
   return (
     <div>
-      <img src="/hoggard.jpg" />
+      <Image src="/hoggard.jpg" layout="fill" />
     </div>
   )
 }
