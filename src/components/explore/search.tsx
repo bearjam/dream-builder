@@ -1,7 +1,9 @@
+import Link from "components/Link"
 import Paginate from "components/Paginate"
 import UnsplashPhoto from "components/UnsplashPhoto"
 import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
+import SvgBackIcon from "icons/SvgBackIcon"
 import SvgHeartIcon from "icons/SvgHeartIcon"
 import { fetcher } from "lib/util"
 import { useRouter } from "next/router"
@@ -46,7 +48,16 @@ const SearchResults = ({ query }: { query: string }) => {
 
   return (
     <div className={css.root}>
-      <h3>Back to collections</h3>
+      <Link href="/explore">
+        <a>
+          <h3>
+            <span>
+              <SvgBackIcon />
+            </span>
+            <span>Back to collections</span>
+          </h3>
+        </a>
+      </Link>
       <div className={css.images}>
         {pipe(
           data.results,

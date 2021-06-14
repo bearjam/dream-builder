@@ -1,3 +1,4 @@
+import Link from "components/Link"
 import Paginate from "components/Paginate"
 import UnsplashPhoto from "components/UnsplashPhoto"
 import { pipe } from "fp-ts/function"
@@ -51,7 +52,11 @@ const TopicImages = ({ topic }: Props) => {
 
   return (
     <div className={css.root}>
-      <h3>Back to collections</h3>
+      <Link href="/explore">
+        <a>
+          <h3>Back to collections</h3>
+        </a>
+      </Link>
       <div className={css.images}>
         {pipe(
           data.results,

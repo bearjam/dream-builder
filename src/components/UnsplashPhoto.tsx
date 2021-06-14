@@ -33,11 +33,17 @@ const UnsplashPhoto = ({
           src={url2}
           width={width}
           height={height ?? ratio * Number(width)}
+          unoptimized
         />
       )
     case "fill":
       return (
-        <Image src={url} layout={layout} {...{ objectFit, objectPosition }} />
+        <Image
+          src={url}
+          layout={layout}
+          {...{ objectFit, objectPosition }}
+          unoptimized
+        />
       )
     default:
       return null

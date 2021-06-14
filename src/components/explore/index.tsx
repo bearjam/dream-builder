@@ -79,6 +79,7 @@ const Explore = () => {
                         photo={topic.cover_photo!}
                         layout="fill"
                         objectFit="cover"
+                        unoptimized
                       />
                     </div>
                   </div>
