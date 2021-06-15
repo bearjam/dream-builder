@@ -76,6 +76,7 @@ const Explore = () => {
                     <h2>{topic.title}</h2>
                     <div className={css.image}>
                       <UnsplashPhoto
+                        width={300}
                         photo={topic.cover_photo!}
                         layout="fill"
                         objectFit="cover"

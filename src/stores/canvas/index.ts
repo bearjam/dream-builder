@@ -1,7 +1,6 @@
 import { withUndoableReducer } from "@bearjam/tom"
 import { pipe } from "fp-ts/function"
-import produce, { Draft } from "immer"
-import { WritableDraft } from "immer/dist/internal"
+import produce from "immer"
 import executeCrop from "lib/crop"
 import localForage from "localforage"
 import create from "zustand"

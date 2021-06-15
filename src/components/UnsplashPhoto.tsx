@@ -8,7 +8,8 @@ type Props = {
   photo: UnsplashPhotoT
   aspectRatio?: number
   layout?: "intrinsic" | "fill" | "fixed" | "responsive"
-} & Partial<ImageProps>
+  width?: number
+} & Partial<Omit<ImageProps, "width">>
 
 const UnsplashPhoto = ({
   photo,
