@@ -1,15 +1,15 @@
 import { animated, useSpring } from "@react-spring/three"
 import { Text } from "@react-three/drei"
+import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
+import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, getMode, springConfig } from "lib/util"
 import React, { Fragment, useMemo } from "react"
-import { useDrag, useGesture, FullGestureState } from "@use-gesture/react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasTextItem, GestureHandlers } from "types/canvas"
 import Handle from "./Handle"
-import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 
 const { PI } = Math
 

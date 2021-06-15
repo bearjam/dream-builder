@@ -1,4 +1,4 @@
-import { Canvas as FiberCanvas } from "@react-three/fiber"
+import { Canvas } from "@react-three/fiber"
 import Button from "components/inputs/Button"
 import { DOWNLOAD_PNG_EVENT } from "lib/events"
 import React from "react"
@@ -13,7 +13,7 @@ const Create = () => {
   return (
     <div className={css.root}>
       <div className={css.canvasContainer}>
-        <FiberCanvas
+        <Canvas
           orthographic
           gl={{ preserveDrawingBuffer: true }}
           camera={{ position: [0, 0, 1000], near: 0, far: 2000 }}
@@ -22,7 +22,7 @@ const Create = () => {
           }
         >
           <CreateCanvas />
-        </FiberCanvas>
+        </Canvas>
         <TransformTools />
         <AssetTools />
       </div>

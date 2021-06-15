@@ -1,5 +1,6 @@
 import { animated, useSpring } from "@react-spring/three"
 import { useLoader, useThree } from "@react-three/fiber"
+import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
 import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
@@ -7,7 +8,6 @@ import produce from "immer"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, getMode, springConfig, withSuspense } from "lib/util"
 import { Fragment, useEffect, useRef } from "react"
-import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasImageItem, GestureHandlers } from "types/canvas"
@@ -57,10 +57,6 @@ const ThreeCanvasImage = ({ item }: Props) => {
     if (state.crop === null)
       spring.start({ inset: [0, 0, 0, 0], immediate: true })
   }, [state.crop])
-
-  const [size, viewport] = useThree(
-    (three) => [three.size, three.viewport] as const
-  )
 
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
@@ -180,7 +176,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
           }
 
         return (
-          <Fragment>
+          <Fragment key="scaleModeChildren">
             <Handle
               position={[width / 2, height / 2, 0]}
               radius={scale.to((v) => VERTEX_RADIUS / v)}
@@ -242,7 +238,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
             }
           }
         return (
-          <Fragment>
+          <Fragment key="cropModeChildren">
             <Handle
               radius={scale.to((v) => VERTEX_RADIUS / v)}
               thetaStart={PI}
