@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import { serializeError } from "serialize-error"
 import { api } from "lib/unsplash"
+
 const topics = [
   {
     title: "Nature",
@@ -94,11 +95,19 @@ const topics = [
   },
 ]
 
-export default async function (req: NextApiRequest, res: NextApiResponse) {
+export async function getTopics() {
+  const { response } = await api.topics.list({
+    topicIdsOrSlugs: topics.map((t) => t.id),
+  })
+  return response
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   try {
-    const { response } = await api.topics.list({
-      topicIdsOrSlugs: topics.map((t) => t.id),
-    })
+    const response = await getTopics()
     if (!response) throw new Error("No response")
     res.json(response)
   } catch (e) {

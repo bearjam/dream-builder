@@ -30,7 +30,8 @@ export const parseWidthHeight = (url: string, ratio: number) => {
 export const nearestNumber = (xs: number[]) => (x: number) =>
   xs.reduce((acc, v) => (abs(v - x) < abs(acc - x) ? v : acc))
 
-export const fetcher = (url: string) => fetch(url).then((r) => r.json())
+export const fetcher = <T extends unknown = any>(url: string): Promise<T> =>
+  fetch(url).then((r) => r.json())
 
 export const getWidth = () => {
   return !window ? 600 : min(window.innerWidth / 2, 600)

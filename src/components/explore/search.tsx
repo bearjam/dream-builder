@@ -6,6 +6,7 @@ import { map } from "fp-ts/ReadonlyArray"
 import SvgBackIcon from "icons/SvgBackIcon"
 import SvgHeartIcon from "icons/SvgHeartIcon"
 import { fetcher } from "lib/util"
+import Image from "next/image"
 import { useRouter } from "next/router"
 import { stringifyUrl } from "query-string"
 import React from "react"
@@ -52,7 +53,7 @@ const SearchResults = ({ query }: { query: string }) => {
         <a>
           <h3>
             <span>
-              <SvgBackIcon />
+              <SvgBackIcon className="inline pr-1 pb-1" />
             </span>
             <span>Back to collections</span>
           </h3>
@@ -71,7 +72,13 @@ const SearchResults = ({ query }: { query: string }) => {
               }
               className="relative"
             >
-              <UnsplashPhoto photo={result} />
+              <Image
+                src={result.urls.small}
+                width={400}
+                height={result.height * (400 / result.width)}
+                unoptimized
+                className="select-none"
+              />
               <SvgHeartIcon
                 className="absolute top-0 right-0 mt-8 mr-4"
                 overflow="visible"

@@ -11,6 +11,10 @@ import Submit from "components/inputs/Submit"
 import TextInput from "components/inputs/TextInput"
 import { useForm } from "react-hook-form"
 import { useRouter } from "next/router"
+import { GetStaticPropsContext } from "next"
+import { getTopics } from "pages/api/unsplash/topics"
+import clsx from "clsx"
+import Image from "next/image"
 
 const schema = z.object({
   text: z.string().nonempty(),
@@ -40,16 +44,21 @@ const TextForm = ({ onSubmit, ...props }: TextFormProps) => {
     </form>
   )
 }
-const Explore = () => {
+
+type Data = { results: UnsplashTopic[]; total: number }
+type Props = { data: Data }
+
+export async function getStaticProps(context: GetStaticPropsContext) {
+  const data = await getTopics()
+  return {
+    props: {
+      data,
+    },
+  }
+}
+
+const Explore = ({ data }: Props) => {
   const router = useRouter()
-  const { data, error } = useSWR<{ results: UnsplashTopic[]; total: number }>(
-    `/api/unsplash/topics`,
-    fetcher
-  )
-
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-
   return (
     <div className={css.root}>
       <section>
@@ -74,13 +83,16 @@ const Explore = () => {
                 <a>
                   <div className={css.cover}>
                     <h2>{topic.title}</h2>
-                    <div className={css.image}>
-                      <UnsplashPhoto
-                        width={300}
-                        photo={topic.cover_photo!}
-                        layout="fill"
-                        objectFit="cover"
+                    <div>
+                      <Image
+                        src={topic.cover_photo!.urls.small}
+                        width={400}
+                        height={
+                          topic.cover_photo!.height *
+                          (400 / topic.cover_photo!.width)
+                        }
                         unoptimized
+                        className="select-none"
                       />
                     </div>
                   </div>

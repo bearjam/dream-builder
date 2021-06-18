@@ -1,1 +1,1 @@
-export { default } from "components/explore"
+export { default, getStaticProps } from "components/explore"
