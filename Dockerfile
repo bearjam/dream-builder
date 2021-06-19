@@ -11,6 +11,8 @@ FROM node:alpine AS builder
 WORKDIR /app
 COPY . .
 COPY --from=deps /app/node_modules ./node_modules
+ARG UNSPLASH_ACCESS_KEY
+ARG FONTS_PATH
 RUN yarn build
 
 # Production image, copy all the files and run next
