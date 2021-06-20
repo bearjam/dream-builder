@@ -95,7 +95,6 @@ const ThreeCanvasImage = ({ item }: Props) => {
             movement: [dx, dy],
             event,
           }: FullGestureState<"drag">) => {
-            console.log("hello?")
             event.stopPropagation()
             const next = item.rotate + Math.atan2(dy, dx)
             if (down) spring.start({ rotate: next })
