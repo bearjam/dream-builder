@@ -3,8 +3,6 @@ import * as React from "react"
 function SvgUnique(props) {
   return (
     <svg
-      width={313.07}
-      height={159.73}
       viewBox="0 0 82.833 42.262"
       xmlns="http://www.w3.org/2000/svg"
       {...props}

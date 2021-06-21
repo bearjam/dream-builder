@@ -2,13 +2,7 @@ import * as React from "react"
 
 function SvgProcess(props) {
   return (
-    <svg
-      width={190}
-      height={141}
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 190 141" {...props}>
       <g clipPath="url(#process_svg__clip0)">
         <path
           fillRule="evenodd"

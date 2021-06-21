@@ -2,18 +2,17 @@
   @apply pt-16;
 }
 
-.root section:target {
-  @apply pt-16;
-}
-
 .navBoxes {
-  @apply flex-col justify-center;
+  @apply flex justify-center flex-wrap;
+  @apply my-8;
 }
 
 .navBoxes a div {
-  @apply max-w-xs;
+  @apply w-64 h-60;
+  @apply flex justify-center items-center;
   @apply border-4 border-black border-dashed;
-  @apply text-center m-10 py-8;
+  @apply text-center;
+  @apply m-4;
 }
 
 .navBoxes a:first-child div {
@@ -28,52 +27,67 @@
   @apply bg-coral;
 }
 
-.main > div {
+.root section:nth-child(n + 3) {
   @apply border-t-4 border-black;
-  /* @apply py-16 px-20; */
-  @apply p-6;
+  @apply py-8 px-4;
 }
 
-.main > div:nth-child(1) {
+.root section:last-of-type {
+  @apply border-b-4;
+}
+.root section > div {
+  @apply max-w-6xl mx-auto;
+}
+
+section.about {
   @apply bg-blue;
 }
 
-.main > div:nth-child(3) {
+.root section:nth-child(5) {
   @apply bg-pink;
 }
 
-.main > div > p {
-  @apply mt-4 mb-8;
+.root p {
+  @apply mt-4;
 }
 
 .dreamSq {
-  /* @apply flex-col; */
+  @apply flex flex-wrap;
+  @apply justify-evenly;
 }
 
 .dreamSq > div {
-  /* width: 22rem;
-  height: 20rem;
-  @apply mt-10 mx-12; */
+  @apply my-8;
+  @apply w-80 h-80;
   box-shadow: 1.5em 1.5em #000;
   @apply border-4 border-black;
-  @apply max-w-xs mb-16;
 }
 
-.dreamSq > div > div {
-  @apply px-6 py-8;
+.dreamSq > div {
+  /* transform: scale(0.8); */
+  @apply py-8;
 }
-
-.infobox {
-  @apply flex-col;
+.dreamSq > div:nth-child(1) > div {
+  @apply px-6;
+}
+.dreamSq > div:nth-child(n + 2) {
+  @apply px-6;
+  /* @apply ml-4; */
+}
+.dreamSq h3 {
+  @apply pt-4;
+}
+.dreamSq > div:nth-child(3) h3 {
+  transform: translateY(-2rem);
+}
+.dreamSq > div:nth-child(3) svg {
+  transform: translateY(-1rem) scale(0.8);
 }
 
 .infobox > div {
-  /* height: 15rem;
-  width: 30rem;
-  @apply mt-10 mx-16;; */
   box-shadow: 1.5em 1.5em #0b5cd5;
   @apply bg-white border-4 border-black;
-  @apply mb-16 max-w-xs;
+  /* @apply mb-16 max-w-xs; */
 }
 
 .infobox > div {
@@ -88,12 +102,10 @@
   .navBoxes {
     @apply flex flex-row;
   }
-  .dreamSq {
-    @apply flex flex-row;
-  }
-  .dreamSq > div {
+
+  /* .dreamSq > div {
     @apply mr-16;
-  }
+  } */
 
   .navBoxes div {
     @apply w-48;

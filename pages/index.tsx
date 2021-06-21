@@ -6,6 +6,7 @@ import css from "./index.module.css"
 import Link from "components/Link"
 import Footer from "components/Footer"
 import ButtonLink from "components/inputs/ButtonLink"
+import { useEffect } from "react"
 
 const IndexPage = () => {
   return (
@@ -17,36 +18,39 @@ const IndexPage = () => {
         <Link href="/#about">
           <a>
             <div>
-              <h2>About</h2>
+              <h2>ABOUT</h2>
             </div>
           </a>
         </Link>
         <Link href="/explore">
           <a>
             <div>
-              <h2>Explore</h2>
+              <h2>EXPLORE</h2>
             </div>
           </a>
         </Link>
         <Link href="/create">
           <a>
             <div>
-              <h2>Create</h2>
+              <h2>CREATE</h2>
             </div>
           </a>
         </Link>
       </section>
-      <section id="about" className={css.main}>
+      <section id="about" className={css.about}>
         <div>
           <h1>What is the Dream Builder?</h1>
           <p>
             The Dream Builder is an online tool to create your own digital dream
-            board. <br />
-            <br />
+            board.
+          </p>
+          <p>
             You can download your dream board to keep and, if you choose, share
             your dreams on the Dream Tapestry.
           </p>
         </div>
+      </section>
+      <section>
         <div>
           <h1>What is a dream board?</h1>
           <p>
@@ -61,13 +65,13 @@ const IndexPage = () => {
               </div>
             </div>
             <div className="bg-navy text-white">
-              <SvgTheme />
+              <SvgTheme transform="scale(0.8)" />
               <div>
                 <h3>It can be comprehensive or have a specific theme</h3>
               </div>
             </div>
-            <div>
-              <SvgProcess />
+            <div className="bg-white">
+              <SvgProcess transform="scale(0.8)" />
               <div>
                 <h3>We devise our own process to conjure our dreams</h3>
               </div>
@@ -79,6 +83,8 @@ const IndexPage = () => {
             </ButtonLink>
           </div>
         </div>
+      </section>
+      <section>
         <div>
           <h1>About this project</h1>
           <p>

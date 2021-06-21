@@ -2,13 +2,7 @@ import * as React from "react"
 
 function SvgTheme(props) {
   return (
-    <svg
-      width={195.02}
-      height={130.617}
-      viewBox="0 0 51.599 34.559"
-      xmlns="http://www.w3.org/2000/svg"
-      {...props}
-    >
+    <svg viewBox="0 0 51.599 34.559" {...props}>
       <g strokeWidth={0.24}>
         <path
           d="M14.76 29.43c8.149 0 14.755-6.587 14.755-14.712S22.909.006 14.76.006C6.611.006.005 6.593.005 14.718S6.611 29.43 14.76 29.43z"

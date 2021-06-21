@@ -8,9 +8,9 @@ type Link = {
 }
 
 const links: Link[] = [
-  { href: "/", label: "about" },
-  { href: "/explore", label: "explore" },
-  { href: "/create", label: "create" },
+  { href: "/", label: "About" },
+  { href: "/explore", label: "Explore" },
+  { href: "/create", label: "Create" },
 ]
 
 type NavLinkProps = Link & {
