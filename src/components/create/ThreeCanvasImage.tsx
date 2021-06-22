@@ -6,8 +6,9 @@ import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
 import produce from "immer"
 import { VERTEX_RADIUS } from "lib/constants"
+import { EXECUTE_CROP_EVENT } from "lib/events"
 import { clamp, getMode, springConfig, withSuspense } from "lib/util"
-import { Fragment, useEffect, useRef } from "react"
+import { Fragment, useEffect, useRef, useState } from "react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasImageItem, GestureHandlers } from "types/canvas"
@@ -32,15 +33,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
   const htmlImage = useRef(new Image())
   const threeBorderColor = new THREE.Color("green")
 
-  useEffect(() => {
-    htmlImage.current.crossOrigin = "anonymous"
-    htmlImage.current.src = item.src
-  }, [item.src])
-
-  const inset_ =
-    state.crop?.itemId === item.id
-      ? state.crop.inset
-      : ([0, 0, 0, 0] as [number, number, number, number])
+  const [inset_, setInset_] = useState([0, 0, 0, 0])
 
   const [{ rotate, translate, scale, inset }, spring] = useSpring(
     () => ({
@@ -54,9 +47,61 @@ const ThreeCanvasImage = ({ item }: Props) => {
   )
 
   useEffect(() => {
-    if (state.crop === null)
-      spring.start({ inset: [0, 0, 0, 0], immediate: true })
-  }, [state.crop])
+    htmlImage.current.crossOrigin = "anonymous"
+    htmlImage.current.src = item.src
+    spring.start({ inset: [0, 0, 0, 0], immediate: true })
+  }, [item.src])
+
+  function executeCrop() {
+    const canvas = document.createElement("canvas"),
+      ctx = canvas.getContext("2d")
+    if (!ctx) throw new Error("Couldn't get a 2D canvas")
+
+    const [t, r, b, l] = inset.get()
+    const img = htmlImage.current
+
+    const crop = {
+      width: img.width - (l * img.width + r * img.width),
+      height: img.height - (t * img.height + b * img.height),
+      left: l * img.width,
+      top: t * img.height,
+    }
+
+    ctx.canvas.width = crop.width
+    ctx.canvas.height = crop.height
+
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height)
+
+    const { sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight } = {
+      sx: l * img.width,
+      sy: t * img.height,
+      sWidth: crop.width,
+      sHeight: crop.height,
+      dx: 0,
+      dy: 0,
+      dWidth: crop.width,
+      dHeight: crop.height,
+    }
+
+    ctx.drawImage(img, sx, sy, sWidth, sHeight, dx, dy, dWidth, dHeight)
+    const newImage = ctx.canvas.toDataURL("image/png")
+    dispatch({
+      type: "UPDATE_ITEM",
+      payload: {
+        itemId: item.id,
+        src: newImage,
+        width: crop.width,
+        height: crop.height,
+      },
+      undoable: true,
+    })
+  }
+
+  useEffect(() => {
+    if (!selected) return
+    addEventListener(EXECUTE_CROP_EVENT, executeCrop)
+    return () => removeEventListener(EXECUTE_CROP_EVENT, executeCrop)
+  }, [])
 
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
@@ -225,15 +270,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               spring.start({ inset: next })
             } else {
               await spring.start({ inset: next })
-              dispatch({
-                type: "UPDATE_CROP_INSET",
-                payload: {
-                  itemId: item.id,
-                  inset: next,
-                  htmlImage: htmlImage.current,
-                },
-                undoable: false,
-              })
+              setInset_(next)
             }
           }
         return (

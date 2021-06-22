@@ -9,6 +9,7 @@ import SvgScaleIcon from "icons/SvgScaleIcon"
 import SvgSelectIcon from "icons/SvgSelectIcon"
 import SvgTickIcon from "icons/SvgTickIcon"
 import SvgUndoIcon from "icons/SvgUndoIcon"
+import { EXECUTE_CROP_EVENT } from "lib/events"
 import React, { Fragment, SVGProps } from "react"
 import { animated, Spring } from "react-spring"
 import { useCanvasStore } from "stores/canvas"
@@ -116,17 +117,12 @@ const TransformTools = () => {
           </div>
         </Fragment>
       )}
-      {state.mode === "CROP" && state.crop !== null && (
+      {state.mode === "CROP" && (
         <Fragment>
           <div className="border-t-2 border-black w-full h-1 my-4" />
           <div
             key="EXECUTE_CROP"
-            onClick={() =>
-              dispatch({
-                type: "EXECUTE_CROP",
-                undoable: true,
-              })
-            }
+            onClick={() => dispatchEvent(new CustomEvent(EXECUTE_CROP_EVENT))}
           >
             <SvgTickIcon stroke="none" fill="green" />
           </div>

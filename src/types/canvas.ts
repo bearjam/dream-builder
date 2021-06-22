@@ -35,11 +35,6 @@ export type CanvasState = {
   mode: CanvasMode
   items: CanvasItemT[]
   selectedItems: string[]
-  crop: null | {
-    itemId: string
-    inset: [number, number, number, number]
-    htmlImage: HTMLImageElement
-  }
 }
 
 export type InsertCanvasItemAction = {
@@ -95,26 +90,6 @@ export type UpdateCanvasItemAction = {
   undoable: boolean
 }
 
-export type ExecuteCropAction = {
-  type: "EXECUTE_CROP"
-  undoable: true
-}
-
-export type UpdateCropInsetAction = {
-  type: "UPDATE_CROP_INSET"
-  payload: {
-    itemId: string
-    inset: [number, number, number, number]
-    htmlImage: HTMLImageElement
-  }
-  undoable: false
-}
-
-export type ClearCropInsetAction = {
-  type: "CLEAR_CROP_INSET"
-  undoable: false
-}
-
 export type CanvasAction =
   | InsertCanvasItemAction
   | DeleteSelectedItemsAction
@@ -124,9 +99,6 @@ export type CanvasAction =
   | SelectItemAction
   | SelectNoneAction
   | UpdateCanvasItemAction
-  | ExecuteCropAction
-  | UpdateCropInsetAction
-  | ClearCropInsetAction
 
 export type CanvasStore = Dispatcher<CanvasState, CanvasAction> & Patcher
 

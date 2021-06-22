@@ -1,7 +1,6 @@
 import { withUndoableReducer } from "@bearjam/tom"
 import { pipe } from "fp-ts/function"
 import produce from "immer"
-import executeCrop from "lib/crop"
 import localForage from "localforage"
 import create from "zustand"
 import { persist } from "zustand/middleware"
@@ -11,38 +10,10 @@ const initialState: CanvasState = {
   mode: "SELECT",
   items: [],
   selectedItems: [],
-  crop: null,
 }
 
 const reducer = (state: CanvasState, action: CanvasAction): CanvasState => {
   switch (action.type) {
-    case "EXECUTE_CROP":
-      if (state.crop === null) return state
-      const { htmlImage, inset, itemId } = state.crop
-      return {
-        ...produce(state, (draft) => {
-          const i = draft.items.findIndex((item) => item.id === itemId)
-          if (i !== -1) {
-            draft.items[i] = {
-              ...draft.items[i],
-              ...executeCrop(htmlImage, inset),
-            } as CanvasItemT
-          }
-        }),
-        crop: null,
-      }
-    case "CLEAR_CROP_INSET": {
-      return {
-        ...state,
-        crop: null,
-      }
-    }
-    case "UPDATE_CROP_INSET": {
-      return {
-        ...state,
-        crop: action.payload,
-      }
-    }
     case "SELECT_ITEM":
       return pipe(
         state,
