@@ -79,7 +79,7 @@ export type SelectItemAction = {
   payload: {
     itemId: string
   }
-  undoable: false
+  undoable: true
 }
 
 export type SelectNoneAction = {

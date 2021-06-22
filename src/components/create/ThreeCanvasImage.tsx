@@ -126,7 +126,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
         dispatch({
           type: "SELECT_ITEM",
           payload: { itemId: item.id },
-          undoable: false,
+          undoable: true,
         })
       },
       ...modeGestureHandlers(),

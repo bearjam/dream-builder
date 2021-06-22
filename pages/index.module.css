@@ -58,9 +58,13 @@ section.about {
 
 .dreamSq > div {
   @apply my-8;
-  @apply w-80 h-80;
+  @apply w-72 h-72;
   box-shadow: 1.5em 1.5em #000;
   @apply border-4 border-black;
+}
+
+.dreamSq h3 {
+  @apply text-lg;
 }
 
 .dreamSq > div {
@@ -84,7 +88,14 @@ section.about {
   transform: translateY(-1rem) scale(0.8);
 }
 
+.infobox {
+  @apply flex flex-wrap justify-evenly;
+  /* @apply py-8; */
+}
+
 .infobox > div {
+  @apply w-72;
+  @apply my-8;
   box-shadow: 1.5em 1.5em #0b5cd5;
   @apply bg-white border-4 border-black;
   /* @apply mb-16 max-w-xs; */

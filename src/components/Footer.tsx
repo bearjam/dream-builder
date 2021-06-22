@@ -26,24 +26,31 @@ const Footer = ({ className, ...restProps }: HTMLProps<HTMLDivElement>) => {
         <div className="flex flex-col items-center sm:absolute sm:top-0 sm:mt-3">
           <SvgBearjamAvatar className="w-12 mt-4 sm:w-10" />
           <SvgBearjamTitle className="w-32 mt-4 sm:w-16" />
+
+          {/* <div className="flex mt-4 sm:mb-3 sm:mt-3">
+            <SocialLinks data={socialLinks}>
+              {({ Icon, href }) => (
+                <a href={href}>
+                  <Icon className="w-5 text-white fill-current mx-2" />
+                </a>
+              )}
+            </SocialLinks>
+          </div> */}
         </div>
-        <Nav className="flex flex-col text-center sm:flex-row">
-          {({ href, label }: { href: string; label: string }) => (
-            <Link href={href} key={href}>
-              <a className="mb-4 text-gray-100 sm:mx-8 lg:mx-12 sm:mt-8 sm:mb-3">
-                {label}
-              </a>
-            </Link>
-          )}
-        </Nav>
-        <div className="flex mt-4 sm:mb-3 sm:mt-3">
-          <SocialLinks data={socialLinks}>
-            {({ Icon, href }) => (
-              <a href={href}>
-                <Icon className="w-5 text-white fill-current mx-2" />
-              </a>
+        <div>
+          <h3>Dream Builder</h3>
+          <Nav className="flex flex-col text-center sm:flex-row">
+            {({ href, label }: { href: string; label: string }) => (
+              <Link href={href} key={href}>
+                <a className="mb-4 text-gray-100 sm:mx-8 lg:mx-12 sm:mt-8 sm:mb-3">
+                  {label}
+                </a>
+              </Link>
             )}
-          </SocialLinks>
+          </Nav>
+        </div>
+        <div>
+          <h3>Small Print</h3>
         </div>
       </footer>
     </div>

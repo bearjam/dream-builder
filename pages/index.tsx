@@ -1,12 +1,11 @@
-import SvgSplash from "src/vectors/SvgSplash"
-import SvgUnique from "src/vectors/SvgUnique"
-import SvgTheme from "src/vectors/SvgTheme"
-import SvgProcess from "src/vectors/SvgProcess"
-import css from "./index.module.css"
-import Link from "components/Link"
 import Footer from "components/Footer"
 import ButtonLink from "components/inputs/ButtonLink"
-import { useEffect } from "react"
+import Link from "components/Link"
+import SvgProcess from "src/vectors/SvgProcess"
+import SvgSplash from "src/vectors/SvgSplash"
+import SvgTheme from "src/vectors/SvgTheme"
+import SvgUnique from "src/vectors/SvgUnique"
+import css from "./index.module.css"
 
 const IndexPage = () => {
   return (

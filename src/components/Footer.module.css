@@ -5,24 +5,23 @@
 }
 
 .footer {
-
-  background-color: #12283a;
+  @apply bg-navy;
 }
 
 @screen sm {
-  .root>footer>nav>a:nth-child(-n+2) {
+  .root > footer > nav > a:nth-child(-n + 2) {
     transform: translateX(-6rem);
   }
-  .root>footer>nav>a:nth-child(n+3) {
+  .root > footer > nav > a:nth-child(n + 3) {
     transform: translateX(6rem);
   }
 }
 
 @screen lg {
-  .root>footer>nav>a:nth-child(-n+2) {
+  .root > footer > nav > a:nth-child(-n + 2) {
     transform: translateX(-8rem);
   }
-  .root>footer>nav>a:nth-child(n+3) {
+  .root > footer > nav > a:nth-child(n + 3) {
     transform: translateX(8rem);
   }
 }
