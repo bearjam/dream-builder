@@ -5,7 +5,7 @@ import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMat
 import { pipe } from "fp-ts/function"
 import { VERTEX_RADIUS } from "lib/constants"
 import { clamp, getMode, springConfig } from "lib/util"
-import React, { Fragment, useMemo } from "react"
+import React, { Fragment, useEffect, useMemo, useState } from "react"
 import { useCanvasStore } from "stores/canvas"
 import * as THREE from "three"
 import { CanvasTextItem, GestureHandlers } from "types/canvas"
@@ -46,6 +46,17 @@ const ThreeCanvasText = ({ item }: Props) => {
     [item.rotate, item.translate, item.scale]
   )
 
+  const [hovered, setHovered] = useState(false)
+  const hoverProps = {
+    onPointerOver: (e: React.SyntheticEvent) => (
+      e.stopPropagation(), setHovered(true)
+    ),
+    onPointerOut: () => setHovered(false),
+  }
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "grab" : "auto"),
+    [hovered]
+  )
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
       case "SELECT":
@@ -159,6 +170,7 @@ const ThreeCanvasText = ({ item }: Props) => {
               thetaStart={PI}
               thetaEnd={PI / 2}
               {...(handleBind(op(1, 1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[-(width / 2), height / 2, 0]}
@@ -166,6 +178,7 @@ const ThreeCanvasText = ({ item }: Props) => {
               thetaStart={(PI / 2) * 3}
               thetaEnd={PI / 2}
               {...(handleBind(op(-1, 1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[width / 2, -(height / 2), 0]}
@@ -173,6 +186,7 @@ const ThreeCanvasText = ({ item }: Props) => {
               thetaStart={PI / 2}
               thetaEnd={PI / 2}
               {...(handleBind(op(1, -1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[-(width / 2), -(height / 2), 0]}
@@ -180,6 +194,7 @@ const ThreeCanvasText = ({ item }: Props) => {
               thetaStart={0}
               thetaEnd={PI / 2}
               {...(handleBind(op(-1, -1)) as any)}
+              {...hoverProps}
             />
           </Fragment>
         )
@@ -203,6 +218,7 @@ const ThreeCanvasText = ({ item }: Props) => {
           scale-y={scale}
           scale-z={1}
           {...(itemBind() as any)}
+          {...(["SELECT", "ROTATE"].includes(state.mode) ? hoverProps : {})}
         >
           <planeBufferGeometry args={[width, height]} />
 

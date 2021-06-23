@@ -71,5 +71,6 @@ export const getMode = (mode: CanvasMode): number =>
     SELECT: 1,
     SCALE: 2,
     CROP: 3,
-    ROTATE: 4,
+    // ROTATE: 4,
+    ROTATE: 1, // same as select for now
   }[mode])

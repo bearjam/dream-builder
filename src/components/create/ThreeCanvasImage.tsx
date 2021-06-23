@@ -1,5 +1,5 @@
 import { animated, useSpring } from "@react-spring/three"
-import { useLoader, useThree } from "@react-three/fiber"
+import { useLoader } from "@react-three/fiber"
 import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
 import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
@@ -50,7 +50,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
     htmlImage.current.crossOrigin = "anonymous"
     htmlImage.current.src = item.src
     spring.start({ inset: [0, 0, 0, 0], immediate: true })
-  }, [item.src])
+  }, [item.src, spring])
 
   function executeCrop() {
     const canvas = document.createElement("canvas"),
@@ -102,6 +102,18 @@ const ThreeCanvasImage = ({ item }: Props) => {
     addEventListener(EXECUTE_CROP_EVENT, executeCrop)
     return () => removeEventListener(EXECUTE_CROP_EVENT, executeCrop)
   }, [])
+
+  const [hovered, setHovered] = useState(false)
+  const hoverProps = {
+    onPointerOver: (e: React.SyntheticEvent) => (
+      e.stopPropagation(), setHovered(true)
+    ),
+    onPointerOut: () => setHovered(false),
+  }
+  useEffect(
+    () => void (document.body.style.cursor = hovered ? "grab" : "auto"),
+    [hovered]
+  )
 
   function modeGestureHandlers(): GestureHandlers {
     switch (state.mode) {
@@ -227,6 +239,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               thetaStart={PI}
               thetaEnd={PI / 2}
               {...(handleBind(op(1, 1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[-(width / 2), height / 2, 0]}
@@ -234,6 +247,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               thetaStart={(PI / 2) * 3}
               thetaEnd={PI / 2}
               {...(handleBind(op(-1, 1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[width / 2, -(height / 2), 0]}
@@ -241,6 +255,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               thetaStart={PI / 2}
               thetaEnd={PI / 2}
               {...(handleBind(op(1, -1)) as any)}
+              {...hoverProps}
             />
             <Handle
               position={[-(width / 2), -(height / 2), 0]}
@@ -248,6 +263,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               thetaStart={0}
               thetaEnd={PI / 2}
               {...(handleBind(op(-1, -1)) as any)}
+              {...hoverProps}
             />
           </Fragment>
         )
@@ -284,6 +300,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               position-y={inset.to((t) => height / 2 - height * t)}
               position-z={0}
               {...(handleBind(op(0)) as any)}
+              {...hoverProps}
             />
             <Handle
               radius={scale.to((v) => VERTEX_RADIUS / v)}
@@ -294,6 +311,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               )}
               position-z={0}
               {...(handleBind(op(1)) as any)}
+              {...hoverProps}
             />
             <Handle
               radius={scale.to((v) => VERTEX_RADIUS / v)}
@@ -305,6 +323,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               )}
               position-z={0}
               {...(handleBind(op(2)) as any)}
+              {...hoverProps}
             />
             <Handle
               radius={scale.to((v) => VERTEX_RADIUS / v)}
@@ -315,6 +334,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
               )}
               position-z={0}
               {...(handleBind(op(3)) as any)}
+              {...hoverProps}
             />
           </Fragment>
         )
@@ -333,6 +353,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
         scale-y={scale}
         scale-z={1}
         {...(itemBind() as any)}
+        {...(["SELECT", "ROTATE"].includes(state.mode) ? hoverProps : {})}
       >
         <planeBufferGeometry args={[width, height]} />
         <AnimatedCanvasImageMaterial
