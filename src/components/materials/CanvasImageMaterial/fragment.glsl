@@ -43,41 +43,37 @@ mat2 scale(vec2 _scale) { return mat2(_scale.x, 0.0, 0.0, _scale.y); }
 float top(vec2 st, vec2 th) {
   vec2 xy = vec2(0.0, 1.0 - th.y);
   vec2 wh = vec2(1.0, th.y);
-  vec2 uv = st;
   wh *= scale(vec2(u_handle_size, 1.0)) *
         scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
   xy += vec2((wh.x / 2.0) + u_inset.w, -u_inset.x);
-  return rect(xy, wh, uv);
+  return rect(xy, wh, st);
 }
 
 float right(vec2 st, vec2 th) {
   vec2 xy = vec2(1.0 - th.x, 0.0);
   vec2 wh = vec2(th.x, 1.0);
-  vec2 uv = st;
   wh *= scale(vec2(1.0, u_handle_size)) *
         scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
   xy += vec2(-u_inset.y, (wh.y / 2.0) + u_inset.z);
-  return rect(xy, wh, uv);
+  return rect(xy, wh, st);
 }
 
 float bottom(vec2 st, vec2 th) {
   vec2 xy = vec2(0.0, 0.0);
   vec2 wh = vec2(1.0, th.y);
-  vec2 uv = st;
   wh *= scale(vec2(u_handle_size, 1.0)) *
         scale(vec2(1.0 - (u_inset.y + u_inset.w), 1.0));
   xy += vec2((wh.x / 2.0) + u_inset.w, u_inset.z);
-  return rect(xy, wh, uv);
+  return rect(xy, wh, st);
 }
 
 float left(vec2 st, vec2 th) {
   vec2 xy = vec2(0.0, 0.0);
   vec2 wh = vec2(th.x, 1.0);
-  vec2 uv = st;
   wh *= scale(vec2(1.0, u_handle_size)) *
         scale(vec2(1.0, 1.0 - (u_inset.x + u_inset.z)));
   xy += vec2(u_inset.w, (wh.y / 2.0) + u_inset.z);
-  return rect(xy, wh, uv);
+  return rect(xy, wh, st);
 }
 
 void main() {
