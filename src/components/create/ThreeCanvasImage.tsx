@@ -15,7 +15,7 @@ import { CanvasImageItem, GestureHandlers } from "types/canvas"
 import Handle from "./Handle"
 
 const clampScale = clamp(0.1, 10)
-const cropHandleSize = 0.5
+const cropHandleLength = 0.5
 const { PI } = Math
 
 type Props = { item: CanvasImageItem }
@@ -360,7 +360,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
           uniforms-u_texture-value={texture}
           uniforms-u_mode-value={u_mode}
           uniforms-u_inset-value={inset}
-          uniforms-u_handle_size-value={cropHandleSize}
+          uniforms-u_handle_length-value={cropHandleLength}
           uniforms-u_border_thickness-value={[
             thickness / width,
             thickness / height,
