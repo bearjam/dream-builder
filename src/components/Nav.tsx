@@ -1,5 +1,6 @@
+import { HTMLMotionProps, motion, MotionProps } from "framer-motion"
 import { useRouter } from "next/router"
-import React, { HTMLProps } from "react"
+import React, { forwardRef, HTMLProps } from "react"
 import Link from "./Link"
 
 type Link = {
@@ -34,7 +35,7 @@ const NavLink = ({ children, href, label, ...props }: NavLinkProps) => {
   )
 }
 
-type NavProps = Omit<HTMLProps<HTMLDivElement>, "children"> & {
+type NavProps = Omit<HTMLMotionProps<"nav">, "children"> & {
   children: (arg: {
     href: string
     label: string
@@ -44,11 +45,11 @@ type NavProps = Omit<HTMLProps<HTMLDivElement>, "children"> & {
 
 const Nav = ({ children, ...props }: NavProps) => {
   return (
-    <nav {...props}>
+    <motion.nav {...props}>
       {links.map((linkProps) => (
         <NavLink key={linkProps.href} children={children} {...linkProps} />
       ))}
-    </nav>
+    </motion.nav>
   )
 }
 

@@ -1,0 +1,88 @@
+.menu {
+  @apply z-30;
+}
+
+.navMobile {
+  @apply w-full h-full;
+  @apply fixed inset-0;
+  @apply flex flex-col;
+  @apply justify-center items-center;
+  @apply font-display;
+}
+
+.navMobile > * + * {
+  @apply mt-4;
+}
+
+.navDesktop {
+  @apply hidden;
+  @apply font-display;
+}
+
+.backdrop {
+  @apply bg-coral;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+
+.container {
+  position: fixed;
+  width: 100%;
+  height: theme("spacing.20");
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  @apply max-w-5xl mx-auto inset-x-0;
+  @apply px-4;
+}
+
+.main {
+  @apply absolute w-full h-full;
+  @apply flex justify-center items-center;
+}
+
+.icons > div:first-child {
+  @apply hidden;
+}
+
+@screen lg {
+  .navMobile,
+  .menu {
+    @apply hidden;
+  }
+  .navDesktop {
+    @apply flex;
+  }
+  .navDesktop > *:not(:last-child) {
+    @apply mr-6;
+  }
+  .navDesktop a {
+    @apply relative;
+  }
+  .navDesktop a > div {
+    border-bottom-width: 3px;
+    @apply absolute w-full border-black;
+    bottom: -2;
+  }
+  .logo {
+    margin-right: 18rem;
+  }
+  .icons {
+    @apply flex;
+  }
+  .icons > div:first-child {
+    @apply block;
+  }
+  .icons > div {
+    @apply mr-4;
+  }
+}
+
+@screen lg {
+  .backdrop {
+    transform: translateY(calc(-100% + theme("spacing.20"))) !important;
+  }
+}

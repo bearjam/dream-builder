@@ -24,6 +24,7 @@
     "clsx": "^1.1.1",
     "font-picker-react": "^3.5.2",
     "fp-ts": "^3.0.0-alpha.16",
+    "framer-motion": "2.9.4",
     "glsl-gamma": "^2.0.0",
     "glslify": "^7.1.1",
     "glslify-loader": "^2.0.0",
