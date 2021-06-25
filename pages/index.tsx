@@ -6,6 +6,7 @@ import SvgSplash from "src/vectors/SvgSplash"
 import SvgTheme from "src/vectors/SvgTheme"
 import SvgUnique from "src/vectors/SvgUnique"
 import css from "./index.module.css"
+import SvgScissors from "components/SvgScissors"
 
 const IndexPage = () => {
   return (
@@ -23,8 +24,10 @@ const IndexPage = () => {
         </Link>
         <Link href="/explore">
           <a>
-            <div>
+            <div className="relative">
               <h2>EXPLORE</h2>
+
+              <SvgScissors className="absolute bottom-0 w-56" />
             </div>
           </a>
         </Link>

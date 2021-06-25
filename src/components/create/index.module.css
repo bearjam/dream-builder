@@ -20,7 +20,7 @@
 }
 
 .transformTools {
-  height: 24rem;
+  height: 30rem;
   @apply absolute right-0 inset-y-0 my-auto;
   @apply flex flex-col justify-evenly;
   @apply bg-white border-black border-4;
@@ -69,6 +69,7 @@
 .save {
   @apply absolute bottom-0 right-0 z-50;
   @apply mr-4;
+  @apply h-16;
 }
 
 .save button {
