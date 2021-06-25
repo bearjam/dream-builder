@@ -5,7 +5,18 @@
 }
 
 .footer {
-  @apply bg-navy;
+  @apply bg-blue;
+}
+
+.root a {
+  @apply relative;
+  @apply font-display text-black;
+}
+
+.root a > div {
+  border-bottom-width: 3px;
+  @apply absolute w-full border-black;
+  bottom: -2;
 }
 
 @screen sm {

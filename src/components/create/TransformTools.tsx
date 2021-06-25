@@ -9,7 +9,7 @@ import SvgScaleIcon from "icons/SvgScaleIcon"
 import SvgSelectIcon from "icons/SvgSelectIcon"
 import SvgTickIcon from "icons/SvgTickIcon"
 import SvgUndoIcon from "icons/SvgUndoIcon"
-import { EXECUTE_CROP_EVENT } from "lib/events"
+import { EXECUTE_CROP_EVENT, RESET_INSET_EVENT } from "lib/events"
 import React, { Fragment, SVGProps } from "react"
 import { animated, Spring } from "react-spring"
 import { useCanvasStore } from "stores/canvas"
@@ -122,17 +122,16 @@ const TransformTools = () => {
           <div className="border-t-2 border-black w-full h-1 my-4" />
           <div
             key="EXECUTE_CROP"
-            onClick={() => dispatchEvent(new CustomEvent(EXECUTE_CROP_EVENT))}
+            onClick={() =>
+              void dispatchEvent(new CustomEvent(EXECUTE_CROP_EVENT))
+            }
           >
             <SvgTickIcon stroke="none" fill="green" />
           </div>
           <div
-            key="CLEAR_CROP_INSET"
+            key="RESET_INSET"
             onClick={() =>
-              dispatch({
-                type: "CLEAR_CROP_INSET",
-                undoable: false,
-              })
+              void dispatchEvent(new CustomEvent(RESET_INSET_EVENT))
             }
           >
             <SvgCloseIcon stroke="none" fill="red" />

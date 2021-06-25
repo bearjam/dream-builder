@@ -3,7 +3,7 @@ import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
 import { Fragment, useEffect } from "react"
 import { useCanvasStore } from "stores/canvas"
-import { DOWNLOAD_PNG_EVENT } from "../../lib/events"
+import { DOWNLOAD_PNG_EVENT, RESET_INSET_EVENT } from "../../lib/events"
 import ThreeCanvasImage from "./ThreeCanvasImage"
 import ThreeCanvasText from "./ThreeCanvasText"
 
@@ -27,10 +27,7 @@ const CreateCanvas = () => {
   }, [])
 
   useEffect(() => {
-    dispatch({
-      type: "CLEAR_CROP_INSET",
-      undoable: false,
-    })
+    dispatchEvent(new CustomEvent(RESET_INSET_EVENT))
   }, [state.selectedItems])
 
   const children = pipe(

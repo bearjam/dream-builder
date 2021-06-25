@@ -1,12 +1,13 @@
 import { animated, useSpring } from "@react-spring/three"
 import { useLoader } from "@react-three/fiber"
 import { FullGestureState, useDrag, useGesture } from "@use-gesture/react"
+import useEventListener from "@use-it/event-listener"
 import { AnimatedCanvasImageMaterial } from "components/materials/CanvasImageMaterial"
 import { pipe } from "fp-ts/function"
 import { map } from "fp-ts/ReadonlyArray"
 import produce from "immer"
 import { VERTEX_RADIUS } from "lib/constants"
-import { EXECUTE_CROP_EVENT } from "lib/events"
+import { EXECUTE_CROP_EVENT, RESET_INSET_EVENT } from "lib/events"
 import { clamp, getMode, springConfig, withSuspense } from "lib/util"
 import { Fragment, useEffect, useRef, useState } from "react"
 import { useCanvasStore } from "stores/canvas"
@@ -53,6 +54,7 @@ const ThreeCanvasImage = ({ item }: Props) => {
   }, [item.src, spring])
 
   function executeCrop() {
+    if (!selected) return
     const canvas = document.createElement("canvas"),
       ctx = canvas.getContext("2d")
     if (!ctx) throw new Error("Couldn't get a 2D canvas")
@@ -96,12 +98,13 @@ const ThreeCanvasImage = ({ item }: Props) => {
       undoable: true,
     })
   }
+  useEventListener(EXECUTE_CROP_EVENT, executeCrop)
 
-  useEffect(() => {
+  function resetInset() {
     if (!selected) return
-    addEventListener(EXECUTE_CROP_EVENT, executeCrop)
-    return () => removeEventListener(EXECUTE_CROP_EVENT, executeCrop)
-  }, [])
+    spring.start({ inset: [0, 0, 0, 0] })
+  }
+  useEventListener(RESET_INSET_EVENT, resetInset)
 
   const [hovered, setHovered] = useState(false)
   const hoverProps = {
