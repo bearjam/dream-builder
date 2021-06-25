@@ -26,9 +26,8 @@ const Create = () => {
         <TransformTools />
         <AssetTools />
       </div>
-      <div className="absolute top-0 right-0 z-50">
+      <div className={css.save}>
         <Button
-          className="bg-blue mr-4"
           onClick={() => dispatchEvent(new CustomEvent(DOWNLOAD_PNG_EVENT))}
         >
           Save

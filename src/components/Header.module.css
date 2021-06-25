@@ -11,20 +11,34 @@
 }
 
 .navMobile > * + * {
-  @apply mt-4;
+  @apply mt-12;
 }
 
+.navMobile a,
+.navDesktop a {
+  @apply font-display;
+}
+
+.navMobile a {
+  @apply relative;
+}
+.navMobile a > div {
+  border-bottom-width: 3px;
+  @apply absolute w-full border-black;
+  bottom: -2;
+}
 .navDesktop {
   @apply hidden;
   @apply font-display;
 }
 
 .backdrop {
-  @apply bg-coral;
+  @apply bg-blue;
   position: fixed;
   width: 100%;
   height: 100%;
   z-index: 10;
+  @apply border-black border-b-4;
 }
 
 .container {
@@ -49,15 +63,19 @@
 }
 
 @screen lg {
+  .container {
+    @apply justify-start;
+  }
   .navMobile,
   .menu {
     @apply hidden;
   }
   .navDesktop {
     @apply flex;
+    @apply pl-20;
   }
   .navDesktop > *:not(:last-child) {
-    @apply mr-6;
+    @apply mr-16;
   }
   .navDesktop a {
     @apply relative;

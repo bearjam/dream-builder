@@ -63,8 +63,7 @@ export const Branding = () => (
   <Link href="/">
     <a>
       <div>
-        {/* <BearBookshopLogo /> */}
-        <h3>Branding</h3>
+        <h3>DREAM BUILDER</h3>
       </div>
     </a>
   </Link>
@@ -100,6 +99,9 @@ export default function Header() {
         }}
       />
       <Container>
+        <div className={css.logo}>
+          <Branding />
+        </div>
         <MenuToggle onClick={toggleOpen} className={css.menu} />
         <AnimatePresence>
           {open && (
@@ -123,24 +125,30 @@ export default function Header() {
               animate="open"
               exit="closed"
             >
-              {({ href, label, active }: any) => (
-                <motion.div
-                  initial="closed"
-                  variants={{
-                    open: {
-                      opacity: 1,
-                    },
-                    closed: {
-                      opacity: 0,
-                    },
-                  }}
-                  onClick={() => void setOpen(false)}
-                >
-                  <Link href={href}>
-                    <a data-active={active}>{label}</a>
-                  </Link>
-                </motion.div>
-              )}
+              {({ href, label, active }: any) => {
+                console.log(active, label)
+                return (
+                  <motion.div
+                    initial="closed"
+                    variants={{
+                      open: {
+                        opacity: 1,
+                      },
+                      closed: {
+                        opacity: 0,
+                      },
+                    }}
+                    onClick={() => void setOpen(false)}
+                  >
+                    <Link href={href}>
+                      <a data-active={active}>
+                        <span>{label}</span>
+                        {active && <motion.div layoutId="underline" />}
+                      </a>
+                    </Link>
+                  </motion.div>
+                )
+              }}
             </Nav>
           )}
         </AnimatePresence>
@@ -156,19 +164,6 @@ export default function Header() {
             )}
           </Nav>
         </AnimateSharedLayout>
-        <div className={css.logo}>
-          <Branding />
-        </div>
-        <div className={css.icons}>
-          <div>
-            {/* <Account /> */}
-            account
-          </div>
-          <div>
-            {/* <BasketIndicator className={css.basket} /> */}
-            basket indicator
-          </div>
-        </div>
       </Container>
     </Root>
   )

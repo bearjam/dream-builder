@@ -65,3 +65,18 @@
 .undo-redo > div:first-child {
   @apply border-r-2;
 }
+
+.save {
+  @apply absolute bottom-0 right-0 z-50;
+  @apply mr-4;
+}
+
+.save button {
+  @apply bg-coral;
+}
+
+@screen lg {
+  .save {
+    @apply absolute top-0 right-0 -bottom-0;
+  }
+}
