@@ -11,7 +11,7 @@ import { EXECUTE_CROP_EVENT, RESET_INSET_EVENT } from "lib/events"
 import { clamp, getMode, springConfig, withSuspense } from "lib/util"
 import { Fragment, useEffect, useRef, useState } from "react"
 import { useCanvasStore } from "stores/canvas"
-import * as THREE from "three"
+import { Color, TextureLoader, Vector2 } from "three"
 import { CanvasImageItem, GestureHandlers } from "types/canvas"
 import Handle from "./Handle"
 
@@ -30,9 +30,9 @@ const ThreeCanvasImage = ({ item }: Props) => {
   const { width, height, src, z = 0 } = item
   const selected = state.selectedItems.includes(item.id)
   const u_mode = selected ? getMode(state.mode) : 0
-  const texture = useLoader(THREE.TextureLoader, src)
+  const texture = useLoader(TextureLoader, src)
   const htmlImage = useRef(new Image())
-  const threeBorderColor = new THREE.Color("green")
+  const threeBorderColor = new Color("green")
 
   const [inset_, setInset_] = useState([0, 0, 0, 0])
 
@@ -205,16 +205,19 @@ const ThreeCanvasImage = ({ item }: Props) => {
     { transform: ([x, y]) => [x, -y] }
   )
 
+  const v1 = new Vector2()
+  const v2 = new Vector2()
+
   function modeChildren() {
     switch (state.mode) {
       case "SCALE": {
         const op =
           (xmult: number, ymult: number) =>
-          async ({
-            movement: [mx, my],
-            event,
-            down,
-          }: FullGestureState<"drag">) => {
+          async ({ movement, event, down }: FullGestureState<"drag">) => {
+            v1.set(...movement)
+            v2.set(...item.translate)
+            v1.rotateAround(v2, -item.rotate)
+            const [mx, my] = v1.toArray()
             event?.stopPropagation()
             const next = clampScale(
               item.scale + (xmult * mx + ymult * my) / ((width + height) / 2)
@@ -278,6 +281,12 @@ const ThreeCanvasImage = ({ item }: Props) => {
             event?.stopPropagation()
             const m = pipe(
               movement,
+              (movement) => {
+                v1.set(...movement)
+                v2.set(...item.translate)
+                v1.rotateAround(v2, -item.rotate)
+                return v1.toArray()
+              },
               map((v) => v / item.scale),
               ([x, y]) => [x / item.width, y / item.height] as const
             )

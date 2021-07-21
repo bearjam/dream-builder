@@ -106,6 +106,7 @@ export default function Header() {
         <AnimatePresence>
           {open && (
             <Nav
+              key="navMobile"
               className={css.navMobile}
               variants={{
                 open: {
@@ -153,7 +154,7 @@ export default function Header() {
           )}
         </AnimatePresence>
         <AnimateSharedLayout>
-          <Nav className={css.navDesktop}>
+          <Nav key="navDesktop" className={css.navDesktop}>
             {({ href, label, active }: any) => (
               <Link href={href}>
                 <a>
