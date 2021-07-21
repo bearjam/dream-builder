@@ -4,6 +4,7 @@
 
 .page-numbers > button {
   @apply px-4 mx-1;
+  @apply select-none;
 }
 
 .page-numbers > button:hover {
