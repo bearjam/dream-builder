@@ -48,7 +48,7 @@ const TextForm = () => {
         payload: {
           itemId: item.id,
           color: debouncedColor,
-          font: font ? httpsFont(font) : undefined,
+          // font: font ? httpsFont(font) : undefined,
         },
         undoable: true,
       })

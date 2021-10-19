@@ -77,9 +77,10 @@ export const getMode = (mode: CanvasMode): number =>
   }[mode])
 
 export const httpsFont = (input: Font): Font => {
-  let output: Font = input
-  if (input.files) {
-    output.files = map((v: string) => v.replace("http:", "https:"))(input.files)
+  const { files, ...rest } = input
+  let output: Font = rest
+  if (files) {
+    output.files = map((v: string) => v.replace("http:", "https:"))(files)
   }
   return output as Font
 }
