@@ -1,10 +1,8 @@
-import {
-  AppPropsType,
-  NextComponentType,
-} from "next/dist/next-server/lib/utils"
+import { AppPropsType } from "next/dist/shared/lib/utils"
 import React from "react"
 import DefaultLayout from "src/layouts"
 import { LayoutType } from "types/layouts"
+import { NextComponentType } from "next"
 import "./_app.css"
 
 function MyApp({

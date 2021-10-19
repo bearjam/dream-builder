@@ -15,6 +15,7 @@ import * as z from "zod"
 import Submit from "../inputs/Submit"
 import TextInput from "../inputs/TextInput"
 import { useDebounce } from "use-debounce"
+import { httpsFont } from "lib/util"
 
 const schema = z.object({
   text: z.string().nonempty(),
@@ -47,7 +48,7 @@ const TextForm = () => {
         payload: {
           itemId: item.id,
           color: debouncedColor,
-          ...(font ? { font } : undefined),
+          font: font ? httpsFont(font) : undefined,
         },
         undoable: true,
       })
@@ -62,15 +63,6 @@ const TextForm = () => {
     if (item && item.type === "TEXT") {
       setColor(item.color)
     }
-    //   if (fontPickerRef.current?.state.loadingStatus !== "finished") return
-
-    //   const textItems = state.items.filter(
-    //     ({ type, id }) => state.selectedItems.includes(id) && type === "TEXT"
-    //   ) as CanvasTextItem[]
-
-    //   if (textItems.length > 0) {
-    //     setFont(textItems[0].font)
-    //   }
   }, [state.selectedItems])
 
   async function submitHandler({ text }: { text: string }) {
@@ -82,7 +74,7 @@ const TextForm = () => {
         dispatch(
           insertCanvasTextItemAction({
             text,
-            font: fontPickerFont,
+            font: httpsFont(fontPickerFont),
             color,
           })
         )
@@ -93,7 +85,7 @@ const TextForm = () => {
     dispatch(
       insertCanvasTextItemAction({
         text,
-        font,
+        font: httpsFont(font),
         color,
       })
     )

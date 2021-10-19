@@ -1,8 +1,9 @@
 import { Ord } from "fp-ts/number"
 import { clamp as fptsClamp } from "fp-ts/Ord"
+import { map } from "fp-ts/ReadonlyRecord"
 import { parseUrl } from "query-string"
-import { ReactNode, Suspense } from "react"
-import { CanvasItemT, CanvasMode } from "types/canvas"
+import { Suspense } from "react"
+import { CanvasMode, Font } from "types/canvas"
 import { Vector2 } from "types/geometry"
 import { UnsplashPhotoT } from "types/unsplash"
 import * as z from "zod"
@@ -74,3 +75,11 @@ export const getMode = (mode: CanvasMode): number =>
     // ROTATE: 4,
     ROTATE: 1, // same as select for now
   }[mode])
+
+export const httpsFont = (input: Font): Font => {
+  let output: Font = input
+  if (input.files) {
+    output.files = map((v: string) => v.replace("http:", "https:"))(input.files)
+  }
+  return output as Font
+}

@@ -127,7 +127,6 @@ export default function Header() {
               exit="closed"
             >
               {({ href, label, active }: any) => {
-                console.log(active, label)
                 return (
                   <motion.div
                     initial="closed"

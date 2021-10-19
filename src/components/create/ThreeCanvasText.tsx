@@ -239,7 +239,7 @@ const ThreeCanvasText = ({ item }: Props) => {
         color={color}
         fontSize={32}
         lineHeight={undefined}
-        font={item.font.files?.regular}
+        font={item.font?.files?.regular}
         fillOpacity={1}
         rotation-z={rotate.to((v) => v)}
         position-x={translate.to((x) => x)}
